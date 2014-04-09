@@ -27,3 +27,9 @@ CREATE TABLE oferta (
    plazasdisponibles integer DEFAULT NULL,
    precio double DEFAULT NULL,
    descuento double DEFAULT NULL)
+   
+   
+CREATE TABLE subscription (
+	codsubscription INTEGER NOT NULL IDENTITY,
+	coduser INTEGER NOT NULL,
+	tiposubscription varchar(20) DEFAULT NULL)
