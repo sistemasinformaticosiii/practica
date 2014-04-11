@@ -33,3 +33,11 @@ CREATE TABLE subscription (
 	codsubscription INTEGER NOT NULL IDENTITY,
 	coduser INTEGER NOT NULL,
 	tiposubscription varchar(20) DEFAULT NULL)
+	
+CREATE TABLE reservation (
+	codreservation INTEGER NOT NULL IDENTITY,
+	coduser INTEGER NOT NULL,
+	codoferta INTEGER NOT NULL,
+	fechareserva varchar(10) DEFAULT NULL,
+	plazasreservadas INTEGER DEFAULT NULL)
+	
