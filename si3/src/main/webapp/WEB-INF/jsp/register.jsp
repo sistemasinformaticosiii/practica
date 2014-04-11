@@ -54,10 +54,10 @@ td {
 						<td>email :</td>
 						<td><form:input path="email" /></td>
 					</tr>
-					<tr>
-						<td>perfil :</td>
-						<td><form:input path="perfil" /></td>
-					</tr>
+     				<tr>
+      					<td>Perfil :</td>
+      					<td><form:select path="perfil" items="${map.perfilList}" /></td>
+     				</tr>
 					<tr>
 						<td>password :</td>
 						<td><form:input path="pass" /></td>

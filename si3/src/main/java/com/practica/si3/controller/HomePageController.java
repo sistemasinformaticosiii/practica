@@ -32,8 +32,7 @@ public class HomePageController {
 		List<String> perfilList = new ArrayList<String>();
 		perfilList.add("admin");
 		perfilList.add("cliente");
-		perfilList.add("Concierto");
-		perfilList.add("Spa");
+		perfilList.add("proveedor");
 
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("tipoList", tipoList);
