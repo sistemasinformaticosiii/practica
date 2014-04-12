@@ -15,7 +15,7 @@ public class SubscriptionExtractor implements ResultSetExtractor<Subscription> {
 		
 		Subscription subscription = new Subscription();
 		
-		subscription.setSubscriptioId(resultSet.getInt(1));
+		subscription.setSubscriptionId(resultSet.getInt(1));
 		subscription.setUserId(resultSet.getInt(2));
 		subscription.setTipoSubscription(resultSet.getString(3));
 		

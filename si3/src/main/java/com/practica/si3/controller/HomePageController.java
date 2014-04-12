@@ -14,12 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.practica.si3.domain.User;
 import com.practica.si3.services.UserService;
+import com.practica.si3.domain.Oferta;
+import com.practica.si3.services.OfertaService;
+import com.practica.si3.domain.Subscription;
+import com.practica.si3.services.SubscriptionService;
 
 @Controller
 public class HomePageController {
 
 	@Autowired
 	UserService userService;
+	/*@Autowired
+	OfertaService ofertaService;*/
+	@Autowired
+	SubscriptionService subscriptionService;
 
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
@@ -40,6 +48,19 @@ public class HomePageController {
 		return new ModelAndView("register", "map", map);
 	}
 	
+	@RequestMapping("/registerSubscription")
+	public ModelAndView registerUser(@ModelAttribute Subscription subscription) {
+
+		List<String> tipoList = new ArrayList<String>();
+		tipoList.add("Entradas");
+		tipoList.add("Restaurantes");
+		tipoList.add("Actividades");
+
+		Map<String, List> map = new HashMap<String, List>();
+		map.put("tipoList", tipoList);
+		return new ModelAndView("registerSubscription", "map", map);
+	}
+	
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
 		if (user != null)
@@ -47,10 +68,36 @@ public class HomePageController {
 		return "redirect:/getList";
 	}
 	
+	@RequestMapping("/insertSubscription")
+	public String inserData(@ModelAttribute Subscription subscription) {
+		if (subscription != null)
+			subscriptionService.insertData(subscription);
+		return "redirect:/getListSubscription";
+	}	
+	
+	@RequestMapping("/insertOferta")
+	public String inserData(@ModelAttribute Oferta oferta) {
+		if (oferta != null)
+			ofertaService.insertData(oferta);
+		return "redirect:/getListOffer";
+	}
+	
 	@RequestMapping("/getList")
 	public ModelAndView getUserLIst() {
 		List<User> userList = userService.getUserList();
 		return new ModelAndView("userList", "userList", userList);
+	}
+	
+	@RequestMapping("/getListSubscription")
+	public ModelAndView getSubscriptionLIst() {
+		List<Subscription> subscriptionList = subscriptionService.getSubscriptionList();
+		return new ModelAndView("subscriptionList", "subscriptionList", subscriptionList);
+	}
+	
+	@RequestMapping("/getListOffer")
+	public ModelAndView getOfertaList() {
+		List<Oferta> ofertaList = ofertaService.getOfertaList();
+		return new ModelAndView("ofertaList", "ofertaList", ofertaList);
 	}
 	
 	@RequestMapping("/edit")
@@ -65,10 +112,28 @@ public class HomePageController {
 		return new ModelAndView("edit", "map", map);
 	}
 	
+	@RequestMapping("/editSubscription")
+	public ModelAndView editSubscription(@RequestParam String id,
+			@ModelAttribute Subscription subscription) {
+
+		subscription = subscriptionService.getSubscription(id);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("subscription", subscription);
+
+		return new ModelAndView("editSubscription", "map", map);
+	}
+	
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
 		return "redirect:/getList";
+	}
+	
+	@RequestMapping("/updateSubscription")
+	public String updateSubscription(@ModelAttribute Subscription subscription) {
+		subscriptionService.updateData(subscription);
+		return "redirect:/getListSubscription";
 	}
 
 	@RequestMapping("/delete")
@@ -76,6 +141,13 @@ public class HomePageController {
 		System.out.println("id = " + id);
 		userService.deleteData(id);
 		return "redirect:/getList";
+	}
+	
+	@RequestMapping("/deleteSubscription")
+	public String deleteSubscription(@RequestParam String id) {
+		System.out.println("id = " + id);
+		subscriptionService.deleteData(id);
+		return "redirect:/getListSubscription";
 	}
 
 }

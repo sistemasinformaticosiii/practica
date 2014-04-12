@@ -1,21 +1,18 @@
 package com.practica.si3.domain;
 
-import java.io.Serializable;
 //import java.util.Calendar;
 import java.util.*;
 
 
-public class Oferta implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Oferta {
 
     private int codOferta;
     private int codUsuario;
     private String tipo;
     private String categoria;
     private String titulo;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     private String localidad;
     private String direccion;
     private String descripcion;
@@ -75,22 +72,22 @@ public class Oferta implements Serializable {
     	return titulo;
     }
     
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
     	
     	this.fechaInicio = fechaInicio;
     }
     
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
     	
     	return fechaInicio;
     }
     
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(String fechaFin) {
     	
     	this.fechaFin = fechaFin;
     }
     
-    public Date getFechaFin() {
+    public String getFechaFin() {
     	
     	return fechaFin;
     }

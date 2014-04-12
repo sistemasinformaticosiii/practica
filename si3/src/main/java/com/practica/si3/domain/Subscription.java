@@ -7,7 +7,7 @@ public class Subscription {
 	private String tipoSubscription;
 	
 	
-	public void setSubscriptioId(int subscriptionId) {
+	public void setSubscriptionId(int subscriptionId) {
 		
 		this.subscriptionId = subscriptionId;
 	}

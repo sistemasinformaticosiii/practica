@@ -20,8 +20,8 @@ public class OfertaExtractor implements ResultSetExtractor<Oferta> {
 		oferta.setTipo(resultSet.getString(3));
 		oferta.setCategoria(resultSet.getString(4));
 		oferta.setTitulo(resultSet.getString(5));
-		oferta.setFechaInicio(resultSet.getDate(6));
-		oferta.setFechaFin(resultSet.getDate(7));
+		oferta.setFechaInicio(resultSet.getString(6));
+		oferta.setFechaFin(resultSet.getString(7));
 		oferta.setLocalidad(resultSet.getString(8));
 		oferta.setDireccion(resultSet.getString(9));
 		oferta.setDescripcion(resultSet.getString(10));

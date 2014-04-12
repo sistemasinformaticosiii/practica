@@ -70,6 +70,12 @@ td {
 						
 						<td colspan="2"><a href="getList">Ver lista de usuarios</a></td>
 					</tr>
+					<tr>	
+						<td colspan="2"><a href="getListOffer">Ver lista de ofertas</a></td>
+					</tr>
+					<tr>	
+						<td colspan="2"><a href="getListSubscription">Ver lista de Subscripciones</a></td>
+					</tr>					
 				</table>
 			</form:form>
 		</div>

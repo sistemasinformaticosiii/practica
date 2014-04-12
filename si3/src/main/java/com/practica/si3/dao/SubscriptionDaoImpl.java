@@ -52,10 +52,10 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 	@Override
 	public void updateData(Subscription subscription) {
 
-		String sql = "UPDATE subscription set coduser = ?, tiposubscription = ?";
+		String sql = "UPDATE subscription set coduser = ?, tiposubscription = ? where codsubscription = ?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-		jdbcTemplate.update(sql, new Object[] { subscription.getUserId(), subscription.getTipoSubscription() });
+		jdbcTemplate.update(sql, new Object[] { subscription.getUserId(), subscription.getTipoSubscription(), subscription.getSubscriptionId() });
 	}
 
 	@Override
