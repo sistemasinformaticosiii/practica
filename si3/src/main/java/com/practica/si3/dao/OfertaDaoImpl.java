@@ -41,6 +41,16 @@ public class OfertaDaoImpl implements OfertaDao {
 		jdbcTemplate.update(sql, new Object[] { oferta.getCodUsuario(), oferta.getTipo(), oferta.getCategoria(), oferta.getTitulo(), oferta.getFechaInicio(), oferta.getFechaFin(), oferta.getLocalidad(),
 				oferta.getDireccion(), oferta.getDescripcion(), oferta.getPlazasTotal(), oferta.getPlazasDisponibles(), oferta.getPrecio(), oferta.getDescuento(), oferta.getCodOferta() });
 	}
+	
+	@Override
+	public void deleteData(String id) {
+		
+		String sql = "delete from oferta where codoferta =" + id;
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(sql);
+
+	}
 
 	public List<Oferta> getOfertasList() {
 		

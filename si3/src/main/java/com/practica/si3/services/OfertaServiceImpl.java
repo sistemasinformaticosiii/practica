@@ -34,4 +34,10 @@ public class OfertaServiceImpl implements OfertaService {
 		ofertaDao.updateData(oferta);
 		
 	}
+	
+	@Override
+	public void deleteData(String id) {
+		ofertaDao.deleteData(id);
+		
+	}
 }

@@ -174,5 +174,12 @@ public class HomePageController {
 		subscriptionService.deleteData(id);
 		return "redirect:/getListSubscription";
 	}
+	
+	@RequestMapping("/deleteOferta")
+	public String deleteOferta(@RequestParam String id) {
+		System.out.println("id = " + id);
+		ofertaService.deleteData(id);
+		return "redirect:/getListOffer";
+	}
 
 }

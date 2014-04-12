@@ -9,6 +9,7 @@ public interface OfertaDao {
 	
 	public void insertData(Oferta oferta);
 	public void updateData(Oferta oferta);
+	public void deleteData(String id);
 	public List<Oferta> getOfertasList();
 	public List<Oferta> getOfertaByProducto(String tipo);
 	public List<Oferta> getOfertaByLocalidad(String localidad);
