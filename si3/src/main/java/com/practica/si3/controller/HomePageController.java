@@ -131,6 +131,18 @@ public class HomePageController {
 		return new ModelAndView("editSubscription", "map", map);
 	}
 	
+	@RequestMapping("/editOferta")
+	public ModelAndView editOferta(@RequestParam String id,
+			@ModelAttribute Oferta oferta) {
+
+		oferta = ofertaService.getOferta(id);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("oferta", oferta);
+
+		return new ModelAndView("editOferta", "map", map);
+	}
+	
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
@@ -141,6 +153,12 @@ public class HomePageController {
 	public String updateSubscription(@ModelAttribute Subscription subscription) {
 		subscriptionService.updateData(subscription);
 		return "redirect:/getListSubscription";
+	}
+	
+	@RequestMapping("/updateOferta")
+	public String updateOferta(@ModelAttribute Oferta oferta) {
+		ofertaService.updateData(oferta);
+		return "redirect:/getListOffer";
 	}
 
 	@RequestMapping("/delete")

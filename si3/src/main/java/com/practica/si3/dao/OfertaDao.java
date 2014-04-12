@@ -8,6 +8,7 @@ import com.practica.si3.domain.Oferta;
 public interface OfertaDao {
 	
 	public void insertData(Oferta oferta);
+	public void updateData(Oferta oferta);
 	public List<Oferta> getOfertasList();
 	public List<Oferta> getOfertaByProducto(String tipo);
 	public List<Oferta> getOfertaByLocalidad(String localidad);
@@ -16,5 +17,5 @@ public interface OfertaDao {
 	public List<Oferta> getOfertaByPrecio(double precio);
 	//devolvera todas aquellas ofertas con plazas disponibles>=plazas
 	public List<Oferta> getOfertaByPlazasDisponibles(int plazas);
-	public Oferta getOferta(int id);
+	public Oferta getOferta(String id);
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.practica.si3.domain.Oferta;
+import com.practica.si3.domain.User;
 import com.practica.si3.jdbc.OfertaRowMapper;
 
 
@@ -30,6 +31,16 @@ public class OfertaDaoImpl implements OfertaDao {
 			oferta.getPrecio(), oferta.getDescuento() });
 	}
 	
+	@Override
+	public void updateData(Oferta oferta) {
+
+		String sql = "UPDATE oferta set codusuario = ?, tipo = ?, categoria = ?, titulo = ?, fechainicio = ?, fechafin = ?, localidad = ?, direccion = ?, descripcion = ?,"
+				+ "plazastotal = ?, plazasdisponibles = ?, precio = ?, descuento = ? where codoferta = ?";
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+		jdbcTemplate.update(sql, new Object[] { oferta.getCodUsuario(), oferta.getTipo(), oferta.getCategoria(), oferta.getTitulo(), oferta.getFechaInicio(), oferta.getFechaFin(), oferta.getLocalidad(),
+				oferta.getDireccion(), oferta.getDescripcion(), oferta.getPlazasTotal(), oferta.getPlazasDisponibles(), oferta.getPrecio(), oferta.getDescuento(), oferta.getCodOferta() });
+	}
 
 	public List<Oferta> getOfertasList() {
 		
@@ -89,7 +100,7 @@ public class OfertaDaoImpl implements OfertaDao {
 		return ofertaList;
 	}
 	
-	public Oferta getOferta(int id) {
+	public Oferta getOferta(String id) {
 		
 		List<Oferta> ofertaList = new ArrayList<Oferta>();
 		String sql = "select * from oferta where codoferta= " + id;

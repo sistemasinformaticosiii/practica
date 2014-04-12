@@ -10,4 +10,6 @@ public interface OfertaService {
 
 	public void insertData(Oferta oferta);
 	public List<Oferta> getOfertaList();
+	public void updateData(Oferta oferta);
+	public Oferta getOferta(String id);
 }
