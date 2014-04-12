@@ -13,13 +13,13 @@ public class OfertaServiceImpl implements OfertaService {
 	@Autowired
 	OfertaDao ofertaDao;
 	
-	@Autowired
+	@Override
 	public void insertData(Oferta oferta) {
 		
 		ofertaDao.insertData(oferta);
 	}
 
-	@Autowired
+	@Override
 	public List<Oferta> getOfertaList() {
 		
 		return ofertaDao.getOfertasList();

@@ -31,8 +31,8 @@
 	<bean id="subscriptionService" class="com.practica.si3.services.SubscriptionServiceImpl" />
 	
 	<!-- declare beans -->
-	<!--  <bean id="ofertaDao" class="com.practica.si3.dao.OfertaDaoImpl" />
-	<bean id="ofertaService" class="com.practica.si3.services.OfertaServiceImpl" />-->
+	<bean id="ofertaDao" class="com.practica.si3.dao.OfertaDaoImpl" />
+	<bean id="ofertaService" class="com.practica.si3.services.OfertaServiceImpl" />
 
 	<!-- declare datasource bean -->
 	<jdbc:embedded-database id="dataSource" type="HSQL">

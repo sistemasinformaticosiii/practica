@@ -24,8 +24,8 @@ public class HomePageController {
 
 	@Autowired
 	UserService userService;
-	/*@Autowired
-	OfertaService ofertaService;*/
+	@Autowired
+	OfertaService ofertaService;
 	@Autowired
 	SubscriptionService subscriptionService;
 
@@ -59,6 +59,13 @@ public class HomePageController {
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("tipoList", tipoList);
 		return new ModelAndView("registerSubscription", "map", map);
+	}
+	
+	@RequestMapping("/registerOferta")
+	public ModelAndView registerOferta(@ModelAttribute Oferta oferta) {
+
+		Map<String, List> map = new HashMap<String, List>();
+		return new ModelAndView("registerOferta", "map", map);
 	}
 	
 	@RequestMapping("/insert")
