@@ -40,4 +40,10 @@ public class OfertaServiceImpl implements OfertaService {
 		ofertaDao.deleteData(id);
 		
 	}
+	
+	@Override
+	public List<Oferta> getOfertaByProducto(String id) {
+		
+		return ofertaDao.getOfertaByProducto(id);
+	}
 }

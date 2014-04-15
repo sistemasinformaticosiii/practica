@@ -13,4 +13,5 @@ public interface OfertaService {
 	public void updateData(Oferta oferta);
 	public Oferta getOferta(String id);
 	public void deleteData(String id);
+	public List<Oferta> getOfertaByProducto(String id);
 }

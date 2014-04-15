@@ -64,7 +64,13 @@ public class HomePageController {
 	@RequestMapping("/registerOferta")
 	public ModelAndView registerOferta(@ModelAttribute Oferta oferta) {
 
+		List<String> tipoList = new ArrayList<String>();
+		tipoList.add("Entradas");
+		tipoList.add("Restaurantes");
+		tipoList.add("Actividades");
+
 		Map<String, List> map = new HashMap<String, List>();
+		map.put("tipoList", tipoList);
 		return new ModelAndView("registerOferta", "map", map);
 	}
 	
@@ -104,6 +110,26 @@ public class HomePageController {
 	@RequestMapping("/getListOffer")
 	public ModelAndView getOfertaList() {
 		List<Oferta> ofertaList = ofertaService.getOfertaList();
+		return new ModelAndView("ofertaList", "ofertaList", ofertaList);
+	}
+	
+	@RequestMapping("/filtroOfertas")
+	public ModelAndView filtroOfertas(@ModelAttribute Oferta oferta) {
+		
+		List<String> tipoList = new ArrayList<String>();
+		tipoList.add("Entradas");
+		tipoList.add("Restaurantes");
+		tipoList.add("Actividades");
+
+		Map<String, List> map = new HashMap<String, List>();
+		map.put("tipoList", tipoList);
+		return new ModelAndView("filtroOfertas", "map", map);
+	}
+	
+	@RequestMapping("/getListOfertaProducto")
+	public ModelAndView getOfertaProducto(@RequestParam("tipo") String id) {
+		
+		List<Oferta> ofertaList = ofertaService.getOfertaByProducto(id);
 		return new ModelAndView("ofertaList", "ofertaList", ofertaList);
 	}
 	

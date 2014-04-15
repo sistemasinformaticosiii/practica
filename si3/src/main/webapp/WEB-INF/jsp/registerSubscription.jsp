@@ -32,36 +32,16 @@ td {
 		<br /> <br /> <br /> <b>Practica | SISTEMAS INFORMATICOS III </b> <br />
 		<br />
 		<div>
-			<form:form method="post" action="/si3/insert" modelAttribute="user">
+			<form:form method="post" action="/si3/insertSubscription" modelAttribute="subscription">
 				<table>
 					<tr>
-						<td>Nombre :</td>
-						<td><form:input path="nombre" /></td>
+						<td>Cod Usuario :</td>
+						<td><form:input path="userId" /></td>
 					</tr>
 					<tr>
-						<td>Apellidos :</td>
-						<td><form:input path="apellidos" /></td>
-					</tr>
-					<tr>
-						<td>Localidad :</td>
-						<td><form:input path="localidad" /></td>
-					</tr>
-					<tr>
-						<td>Telefono :</td>
-						<td><form:input path="telefono" /></td>
-					</tr>
-					<tr>
-						<td>email :</td>
-						<td><form:input path="email" /></td>
-					</tr>
-     				<tr>
-      					<td>Perfil :</td>
-      					<td><form:select path="perfil" items="${map.perfilList}" /></td>
+      					<td>Tipo :</td>
+      					<td><form:select path="tipoSubscription" items="${map.tipoList}" /></td>
      				</tr>
-					<tr>
-						<td>password :</td>
-						<td><form:input path="pass" /></td>
-					</tr>
 					<tr>
 						<td>&nbsp;</td>
 						<td><input type="submit" value="Guardar" /></td>
@@ -75,10 +55,7 @@ td {
 					</tr>
 					<tr>	
 						<td colspan="2"><a href="getListSubscription">Ver lista de Subscripciones</a></td>
-					</tr>	
-					<tr>	
-						<td colspan="2"><a href="filtroOfertas">Filtro Ofertas</a></td>
-					</tr>				
+					</tr>					
 				</table>
 			</form:form>
 		</div>
