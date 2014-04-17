@@ -39,7 +39,7 @@ public class ReservationDaoImpl implements ReservationDao {
 
 	/**
 	 * Obtiene un listado con todas las reservas existentes en la BD.
-	 * @return lista de reservas obtenida de la tabla "reservation" de la BD.
+	 * @return lista de reservas obtenida de la tabla "reservation" en la BD.
 	 */
 	public List<Reservation> getReservationList() {
 		

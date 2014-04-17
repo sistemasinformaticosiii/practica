@@ -64,10 +64,15 @@ public class OfertaDaoImpl implements OfertaDao {
 	}
 	
 	
+	/**
+	 *  Obtiene un listado de ofertas por tipo de producto, en base a los criterios fecha y plazas disponibles.
+	 *  @param tipo - tipo de oferta
+	 *  @return lista de ofertas del tipo "tipo" y que cumplen los criterios: fecha_inicio<=fecha_actual<=fecha_fin AND plazas disponibles>0
+	 */
 	public List<Oferta> getOfertaByProducto(String tipo) {
 		
 		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		String sql = "select * from oferta where tipo =" + "'" + tipo + "'";
+		String sql = "select * from oferta where tipo =" + "'" + tipo + "'" + " AND " + "fechainicio <= CURRENT_DATE" + " AND " + "fechafin >= CURRENT_DATE" + " AND " + "plazasdisponibles > 0";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
 		return ofertaList;

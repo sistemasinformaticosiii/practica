@@ -5,7 +5,7 @@ import java.util.List;
 import com.practica.si3.domain.Reservation;
 
 /**
- * Interface ReservationDao: Define los metodos de acceso a la tabla Reservation definida en la Base de Datos. A parte de los 
+ * Interface ReservationDao: Define los metodos de acceso a la tabla Reservation definida en la Base de Datos. Aparte de los 
  * metodos CRUD, se definen metodos auxiliares para la obtencion de datos especificos.
  * @author si3
  *
