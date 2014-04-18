@@ -76,9 +76,12 @@ public class HomePageController {
 	
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
-		if (user != null)
+		
+		if (!userService.existUser(user.getEmail()) && (user != null)) {
 			userService.insertData(user);
-		return "redirect:/getList";
+			return "redirect:/getList";
+		}
+		else return "redirect:/errorUser";
 	}
 	
 	@RequestMapping("/insertSubscription")
@@ -127,8 +130,14 @@ public class HomePageController {
 		return new ModelAndView("filtroOfertas", "map", map);
 	}
 	
+	@RequestMapping("/errorUser")
+	public ModelAndView errorUser() {
+		
+		return new ModelAndView("errorUser");
+	}
+	
 	@RequestMapping("/getListOfertaProducto")
-	public ModelAndView getOfertaProducto(@RequestParam("tipo") String id) {
+	public ModelAndView getFilterOferta(@RequestParam("tipo") String id) {
 	
 		List<Oferta> ofertaList = ofertaService.filterOferta(id, "", "2014-04-17", 0, 0);
 		return new ModelAndView("ofertaList", "ofertaList", ofertaList);

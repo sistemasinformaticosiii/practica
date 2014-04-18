@@ -11,5 +11,8 @@ public interface UserDao {
 	public void updateData(User user);
 	public void deleteData(String id);
 	public User getUser(String id);
-
+	/**
+	 * Comprueba si el usuario con id existe en la BD
+	 */
+	public boolean existUser(String id);
 }

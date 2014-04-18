@@ -39,5 +39,15 @@ public class UserServiceImpl implements UserService {
 		userdao.updateData(user);
 		
 	}
+	
+	/**
+	 * Comprueba si existe en la BD un usuario con campo email=id
+	 * @param id - cadena a consultar
+	 * @return True si existe un registro cuyo email=id, False en caso contrario
+	 */
+	@Override
+	public boolean existUser(String id) {
+		return userdao.existUser(id);
+	}
 
 }
