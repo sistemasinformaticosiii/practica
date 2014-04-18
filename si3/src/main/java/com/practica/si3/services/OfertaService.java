@@ -14,6 +14,5 @@ public interface OfertaService {
 	public Oferta getOferta(String id);
 	public void deleteData(String id);
 	public List<Oferta> getOfertaByProducto(String id);
-	public List<Oferta> getOfertaByLocalidad(String localidad);
 	public List<Oferta> filterOferta(String tipo, String localidad, String fecha, int precio, int plazas);
 }

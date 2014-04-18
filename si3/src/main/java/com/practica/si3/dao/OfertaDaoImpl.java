@@ -52,6 +52,10 @@ public class OfertaDaoImpl implements OfertaDao {
 
 	}
 
+	/**
+	 * Obtiene un listado de todas las ofertas existentes en la BD.
+	 * @return listado de ofertas obtenido de la BD.
+	 */
 	public List<Oferta> getOfertasList() {
 		
 		List ofertaList = new ArrayList();
@@ -76,21 +80,6 @@ public class OfertaDaoImpl implements OfertaDao {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
 		return ofertaList;
-	}
-	
-	/**
-	 * Obtiene un listado de ofertas por localidad, en bae a los criterios fecha y plazas disponibles
-	 * @param localidad - localidad en la que se publica la oferta
-	 * @return lista de ofertas en la localidad "localidad" y que cumplen los criterios: fecha_inicio<=fecha_actual<=fecha_fin AND plazas disponibles>0
-	 */
-	
-	public List<Oferta> getOfertaByLocalidad(String localidad) {
-		
-		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		String sql = "select * from oferta where localidad = " + "'" + localidad + "'" + " AND " + "fechainicio <= CURRENT_DATE" + " AND " + "fechafin >= CURRENT_DATE" + " AND " + "plazasdisponibles > 0";
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
-		return ofertaList;	
 	}
 	
 	/**
@@ -122,33 +111,6 @@ public class OfertaDaoImpl implements OfertaDao {
 		return ofertaList;
 	}
 
-	public List<Oferta> getOfertaByFecha(Date fecha) {
-		
-		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		//afinar la consulta para devolver valores entre dos fechas
-		String sql = "select * from oferta where fechainicio= " + fecha;
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
-		return ofertaList;
-	}
-	
-	public List<Oferta> getOfertaByPrecio(double precio) {
-		
-		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		String sql = "select * from oferta where precio<= " + precio;
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
-		return ofertaList;
-	}
-	
-	public List<Oferta> getOfertaByPlazasDisponibles(int plazas) {
-		
-		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		String sql = "select * from oferta where plazasdisponibles>= " + plazas;
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
-		return ofertaList;
-	}
 	
 	public Oferta getOferta(String id) {
 		

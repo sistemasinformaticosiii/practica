@@ -50,12 +50,6 @@ public class OfertaServiceImpl implements OfertaService {
 	}
 	
 	@Override
-	public List<Oferta> getOfertaByLocalidad(String localidad) {
-		
-		return ofertaDao.getOfertaByLocalidad(localidad);
-	}
-	
-	@Override
 	public List<Oferta> filterOferta(String tipo, String localidad, String fecha, int precio, int plazas){
 		
 		return ofertaDao.filterOferta(tipo, localidad, fecha, precio, plazas);
