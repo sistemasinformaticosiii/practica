@@ -27,7 +27,7 @@ public class OfertaDaoImpl implements OfertaDao {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
 		jdbcTemplate.update(sql, new Object[] { oferta.getCodUsuario(), oferta.getTipo(), oferta.getCategoria(), oferta.getTitulo(), oferta.getFechaInicio(),		
-			oferta.getFechaFin(), oferta.getLocalidad(), oferta.getDireccion(), oferta.getDescripcion(), oferta.getPlazasTotal(), oferta.getPlazasDisponibles(),
+			oferta.getFechaFin(), oferta.getLocalidad().toUpperCase(), oferta.getDireccion(), oferta.getDescripcion(), oferta.getPlazasTotal(), oferta.getPlazasDisponibles(),
 			oferta.getPrecio(), oferta.getDescuento() });
 	}
 	
@@ -78,15 +78,50 @@ public class OfertaDaoImpl implements OfertaDao {
 		return ofertaList;
 	}
 	
+	/**
+	 * Obtiene un listado de ofertas por localidad, en bae a los criterios fecha y plazas disponibles
+	 * @param localidad - localidad en la que se publica la oferta
+	 * @return lista de ofertas en la localidad "localidad" y que cumplen los criterios: fecha_inicio<=fecha_actual<=fecha_fin AND plazas disponibles>0
+	 */
+	
 	public List<Oferta> getOfertaByLocalidad(String localidad) {
 		
 		List<Oferta> ofertaList = new ArrayList<Oferta>();
-		String sql = "select * from oferta where localidad= " + localidad;
+		String sql = "select * from oferta where localidad = " + "'" + localidad + "'" + " AND " + "fechainicio <= CURRENT_DATE" + " AND " + "fechafin >= CURRENT_DATE" + " AND " + "plazasdisponibles > 0";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
 		return ofertaList;	
 	}
 	
+	/**
+	 * Obtiene un listado de ofertas que cumplen los criteros.
+	 * @param tipo - tipo de la oferta. Si tipo="", se considera cualquier tipo.
+	 * @param localidad - localidad donde esta publicada la oferta. Si localidad="", se considera cualquier localidad.
+	 * @param fecha - fecha vigencia de la oferta
+	 * @param precio - precio maximo de la oferta. Si precio=0, se considera cualquier precio.
+	 * @param plazas - numero minimo de plazas disponibles de la oferta
+	 * @return lista de ofertas que cumplen con los criterios anteriores.
+	 */
+	public List<Oferta> filterOferta(String tipo, String localidad, String fecha, int precio, int plazas) {
+		
+		List<Oferta> ofertaList = new ArrayList<>();
+		String where = "";
+		if (tipo!="") {
+			where = where + " tipo = " + "'" + tipo + "'" + " AND ";
+		}
+		if (localidad!="") {
+			where = where + " localidad = " + "'" + localidad + "'" + " AND ";
+		}
+		
+		if (precio!=0) {
+			where = where + " precio <= " + precio + " AND ";
+		}
+		String sql = "select * from oferta where" + where + " fechainicio <= " + "'" + fecha + "'" + " AND " +  "'" + fecha + "'" + "<= fechafin" + " AND " + "plazasdisponibles >= " + plazas;
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
+		return ofertaList;
+	}
+
 	public List<Oferta> getOfertaByFecha(Date fecha) {
 		
 		List<Oferta> ofertaList = new ArrayList<Oferta>();

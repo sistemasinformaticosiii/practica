@@ -120,6 +120,7 @@ public class HomePageController {
 		tipoList.add("Entradas");
 		tipoList.add("Restaurantes");
 		tipoList.add("Actividades");
+		
 
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("tipoList", tipoList);
@@ -128,8 +129,8 @@ public class HomePageController {
 	
 	@RequestMapping("/getListOfertaProducto")
 	public ModelAndView getOfertaProducto(@RequestParam("tipo") String id) {
-		
-		List<Oferta> ofertaList = ofertaService.getOfertaByProducto(id);
+	
+		List<Oferta> ofertaList = ofertaService.filterOferta(id, "", "2014-04-17", 0, 0);
 		return new ModelAndView("ofertaList", "ofertaList", ofertaList);
 	}
 	

@@ -2,6 +2,7 @@ package com.practica.si3.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -46,5 +47,17 @@ public class OfertaServiceImpl implements OfertaService {
 	public List<Oferta> getOfertaByProducto(String id) {
 		
 		return ofertaDao.getOfertaByProducto(id);
+	}
+	
+	@Override
+	public List<Oferta> getOfertaByLocalidad(String localidad) {
+		
+		return ofertaDao.getOfertaByLocalidad(localidad);
+	}
+	
+	@Override
+	public List<Oferta> filterOferta(String tipo, String localidad, String fecha, int precio, int plazas){
+		
+		return ofertaDao.filterOferta(tipo, localidad, fecha, precio, plazas);
 	}
 }

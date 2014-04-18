@@ -38,8 +38,17 @@ public interface OfertaDao {
 	 * 
 	 */
 	public List<Oferta> getOfertaByProducto(String tipo);
+	/**
+	 * Obtiene un listado de ofertas por localidad, en bae a los criterios fecha y plazas disponibles
+	 * 
+	 */
 	public List<Oferta> getOfertaByLocalidad(String localidad);
 	public List<Oferta> getOfertaByFecha(Date fecha);
+	/**
+	 * Obtiene un listado de ofertas que cumplen los criteros "tipo", "localidad", "fecha", "<=precio" y ">=plazas"
+	 * 
+	 */
+	public List<Oferta> filterOferta(String tipo, String localidad, String fecha, int precio, int plazas);
 	//devolvera todas aquellas ofertas con precio<=precio
 	public List<Oferta> getOfertaByPrecio(double precio);
 	//devolvera todas aquellas ofertas con plazas disponibles>=plazas
