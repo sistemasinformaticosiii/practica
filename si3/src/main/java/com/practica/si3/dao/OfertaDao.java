@@ -25,6 +25,11 @@ public interface OfertaDao {
 	public void updateData(Oferta oferta);
 	
 	/**
+	 * Incrementa el campo plazasdisponibles del registro id en un numero "number" de plazas de la tabla Oferta.
+	 */
+	public void increasePlazasDisponibles(int id, int number);
+	
+	/**
 	 * Disminuye el campo plazasdisponibles del registro id  en un numero "number" de plazas de la tabla Oferta
 	 */
 	public void decreasePlazasDisponibles(int id, int number);
@@ -34,6 +39,7 @@ public interface OfertaDao {
 	 * 
 	 */
 	public void deleteData(String id);
+	
 	/**
 	 * Obtiene un listado de todos los registro del tipo Oferta.
 	 *

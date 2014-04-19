@@ -22,4 +22,11 @@ public interface OfertaService {
 	 * @param number - valor a disminuir
 	 */
 	public void decreasePlazasDisponibles(int id, int number);
+	
+	/**
+	 * Incrementa el campo plazasdisponibles del registro id en un numero "number" de plazas de la tabla Oferta.
+	 * @param id - identificador de oferta
+	 * @param number - numero de plazas a incrementar
+	 */
+	public void increasePlazasDisponibles(int id, int number);
 }

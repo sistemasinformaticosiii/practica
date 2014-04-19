@@ -59,4 +59,9 @@ public class OfertaServiceImpl implements OfertaService {
 	public void decreasePlazasDisponibles(int id, int number) {
 		ofertaDao.decreasePlazasDisponibles(id, number);
 	}
+	
+	@Override
+	public void increasePlazasDisponibles(int id, int number) {
+		ofertaDao.increasePlazasDisponibles(id, number);
+	}
 }
