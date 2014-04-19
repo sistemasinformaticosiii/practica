@@ -87,5 +87,23 @@ public class UserDaoImpl implements UserDao {
 		userList = jdbcTemplate.query(sql, new UserRowMapper());
 		return !(userList.isEmpty());
 	}
+	
+	/**
+	 * Comprueba si existe en la BD un usuario con el campo email=campo1 y pass=campo2
+	 * @param campo1 - campo de busqueda uno
+	 * @param campo2 - campo de busqueda dos
+	 * @return Devuelve True si hay un usuario cuyo campo email y campo pass coinciden con campo1 y campo2 respectivamente.
+	 */
+	@Override
+	public boolean existUser(String campo1, String campo2) {
+		
+		List<User> userList = new ArrayList<User>();
+		
+		String sql = "select * from user where email = " + "'" + campo1 + "'" + " AND " + "pass = " + "'" + campo2 + "'";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		userList = jdbcTemplate.query(sql, new UserRowMapper());
+		return !(userList.isEmpty());	
+	}
 
 }

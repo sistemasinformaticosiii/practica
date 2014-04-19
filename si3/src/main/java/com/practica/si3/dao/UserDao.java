@@ -15,4 +15,9 @@ public interface UserDao {
 	 * Comprueba si el usuario con id existe en la BD
 	 */
 	public boolean existUser(String id);
+	
+	/**
+	 * Comprueba si el usuario con campo1 y campo2 existe en la BD
+	 */
+	public boolean existUser(String campo1, String campo2);
 }

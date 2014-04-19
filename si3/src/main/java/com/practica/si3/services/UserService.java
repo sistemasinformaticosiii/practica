@@ -16,4 +16,9 @@ public interface UserService {
 	 * Comprueba si existe en la BD un usuario con email=id.
 	 */
 	public boolean existUser(String id);
+	
+	/**
+	 * Comprueba si existe en la Bd un usuario cuyo email=campo1 y pass=campo2
+	 */
+	public boolean existUser(String campo1, String campo2);
 }
