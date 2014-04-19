@@ -23,6 +23,12 @@ public interface OfertaDao {
 	 * 
 	 */
 	public void updateData(Oferta oferta);
+	
+	/**
+	 * Disminuye el campo plazasdisponibles del registro id  en un numero "number" de plazas de la tabla Oferta
+	 */
+	public void decreasePlazasDisponibles(int id, int number);
+	
 	/**
 	 * Borra un registro de la clase Oferta de la BD.
 	 * 

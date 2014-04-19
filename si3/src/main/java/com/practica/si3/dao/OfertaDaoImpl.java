@@ -111,6 +111,19 @@ public class OfertaDaoImpl implements OfertaDao {
 		return ofertaList;
 	}
 
+	/**
+	 * Disminuye el campo plazasdisponibles del registro id  en un numero "number" de plazas de la tabla Oferta
+	 * @param id - identificador de oferta
+	 * @param number - numero de plazas a disminuir
+	 */
+	public void decreasePlazasDisponibles(int id, int number) {
+		
+		String sql = "UPDATE oferta set plazasdisponibles = " + number + "where codoferta = " + id;
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+		jdbcTemplate.update(sql);
+	}	
+	
 	
 	public Oferta getOferta(String id) {
 		

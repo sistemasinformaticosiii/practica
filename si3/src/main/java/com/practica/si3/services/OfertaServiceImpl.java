@@ -54,4 +54,9 @@ public class OfertaServiceImpl implements OfertaService {
 		
 		return ofertaDao.filterOferta(tipo, localidad, fecha, precio, plazas);
 	}
+	
+	@Override
+	public void decreasePlazasDisponibles(int id, int number) {
+		ofertaDao.decreasePlazasDisponibles(id, number);
+	}
 }
