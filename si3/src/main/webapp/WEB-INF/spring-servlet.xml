@@ -33,6 +33,10 @@
 	<!-- declare beans -->
 	<bean id="ofertaDao" class="com.practica.si3.dao.OfertaDaoImpl" />
 	<bean id="ofertaService" class="com.practica.si3.services.OfertaServiceImpl" />
+	
+	<!-- declare beans -->
+	<bean id="reservationDao" class="com.practica.si3.dao.ReservationDaoImpl" />
+	<bean id="reservationService" class="com.practica.si3.services.ReservationServiceImpl" />
 
 	<!-- declare datasource bean -->
 	<jdbc:embedded-database id="dataSource" type="HSQL">

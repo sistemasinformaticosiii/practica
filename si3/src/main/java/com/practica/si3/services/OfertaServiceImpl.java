@@ -1,8 +1,6 @@
 package com.practica.si3.services;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.practica.si3.domain.User;
+import com.practica.si3.services.ReservationService;
+import com.practica.si3.domain.Reservation;
 import com.practica.si3.services.UserService;
 import com.practica.si3.domain.Oferta;
 import com.practica.si3.services.OfertaService;
@@ -28,6 +30,8 @@ public class HomePageController {
 	OfertaService ofertaService;
 	@Autowired
 	SubscriptionService subscriptionService;
+	@Autowired
+	ReservationService reservationService;
 
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
@@ -177,6 +181,12 @@ public class HomePageController {
 		map.put("oferta", oferta);
 
 		return new ModelAndView("editOferta", "map", map);
+	}
+	
+	@RequestMapping("/reservaOferta")
+	public ModelAndView reservaOferta(@ModelAttribute Reservation reservation) {
+		
+		return new ModelAndView("reservaOferta");
 	}
 	
 	@RequestMapping("/update")

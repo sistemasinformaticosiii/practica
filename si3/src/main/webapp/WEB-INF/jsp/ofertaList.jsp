@@ -72,6 +72,7 @@ td {
 					<td>${oferta.descuento}</td>
 					<td><a href="editOferta?id=${oferta.codOferta}">Editar</a></td>
 					<td><a href="/si3/deleteOferta?id=${oferta.codOferta}">Borrar</a></td>
+					<td><a href="/si3/reservaOferta?id=${oferta.codOferta}">Reservar</a></td>
 				</tr>
 			</c:forEach>
 			<tr><td colspan="8"><a href="registerOferta">Añadir Oferta</a></td></tr>
