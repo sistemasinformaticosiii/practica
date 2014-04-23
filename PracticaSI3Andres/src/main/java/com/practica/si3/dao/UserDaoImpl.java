@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.practica.si3.domain.User;
 import com.practica.si3.jdbc.UserRowMapper;
 
-@Repository
+
 public class UserDaoImpl implements UserDao {
 
 	@Autowired

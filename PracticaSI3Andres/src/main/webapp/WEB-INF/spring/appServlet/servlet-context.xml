@@ -28,8 +28,17 @@
 	
 	<!-- declare beans -->
 	<beans:bean id="userDao" class="com.practica.si3.dao.UserDaoImpl">
-		
-	</beans:bean> 
+	</beans:bean>
+	<!-- Bean de Apache Tiles 3 -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles-definitions.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
 	
 
 

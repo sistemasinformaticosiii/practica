@@ -1,1 +1,0 @@
-<p>Test de footer en Template Tiles</p>
