@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!--  Plantilla Principal. Definición abstracta -->
+    <definition name="defaultTemplate" template="/WEB-INF/templates/template.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/templates/header.jsp" />
+        <put-attribute name="left" value="" />
+        <put-attribute name="menu" value="" /> 
+        <put-attribute name="center" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="right" value="" />
+        <put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
+    </definition>
+    
+    <definition name="defaultTemplategeneral" extends="defaultTemplate">
+    	<put-attribute name="title" value="Portal de Ocio - Home"/> 	
+  		<put-attribute name="left" value="/WEB-INF/templates/left.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" />
+        <put-attribute name="center" value="/WEB-INF/templates/center.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />  	
+    </definition> 
+    
+    <definition name="templatecontact" extends="defaultTemplate">
+    	<put-attribute name="title" value="Portal de Ocio - Contacto"/> 	
+  		<put-attribute name="left" value="/WEB-INF/templates/left.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" />
+        <put-attribute name="center" value="/WEB-INF/templates/center.jsp" />
+        <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />
+    	<put-attribute name="body" value="/WEB-INF/views/web/contact.jsp"/>
+    </definition>
+</tiles-definitions>

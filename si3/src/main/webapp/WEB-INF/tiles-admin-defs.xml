@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+    <definition name="admin.common" extends="defaultTemplate">      
+  		<put-attribute name="title" value=""/>
+  		<put-attribute name="left" value="/WEB-INF/templates/leftadmin.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/templates/menuadmin.jsp" />
+        <put-attribute name="center" value="" />
+        <put-attribute name="body" value=""/>
+        <put-attribute name="right" value="" />
+    </definition>
+           
+        
+    <definition name="admin.home" extends="admin.common"> 
+        <put-attribute name="title" value="Portal de Ocio - Administración"/> 
+        <put-attribute name="body" value="/WEB-INF/views/administrador/admin.jsp"/> 
+    </definition>
+     
+    <definition name="admin.crearproveedor" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Alta nuevo proveedor"/> 
+        <put-attribute name="body" value="/WEB-INF/views/administrador/editProveedor.jsp"/>
+    </definition>
+
+    <definition name="admin.crearproveedor-exito" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Proveedor creado correctamente"/> 
+        <put-attribute name="body" value="/WEB-INF/views/administrador/nuevoProveedor-exito.jsp"/> 
+    </definition>
+
+    <definition name="admin.listausuarios" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Listado de usuarios"/> 
+        <put-attribute name="body" value="/WEB-INF/views/administrador/userList.jsp"/> 
+    </definition>
+
+    <definition name="admin.crearusuario" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Alta nuevo usuario"/> 
+        <put-attribute name="body" value="/WEB-INF/view/usuario/register.jsp"/> 
+    </definition>
+    
+    <definition name="admin.crearusuario-exito" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Usuario creado correctamente"/> 
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/newcustomer-success.jsp"/> 
+    </definition>
+    <definition name="admin.bajausuario" extends="admin.common"> 
+        <put-attribute name="title" value="Administración - Baja de usuario registrado"/> 
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/newcustomer.jsp"/> 
+    </definition>
+
+</tiles-definitions>

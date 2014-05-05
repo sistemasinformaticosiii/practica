@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+
+
+<!-- telling container to take care of annotations stuff -->
+<context:annotation-config />
+
+<!-- Enables the Spring MVC @Controller programming model -->
+<mvc:annotation-driven />
+
+<!-- declaring base package -->
+<context:component-scan base-package="com.practica.si3" />
+
+<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+<mvc:resources mapping="/resources/**" location="/resources/" />
+
+
+<!-- adding view resolver to show jsp's on browser -->
+<bean id="viewResolver"
+class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/views/" />
+<property name="suffix" value=".jsp" />
+</bean>
+
+<!-- declare beans -->
+<bean id="userDao" class="com.practica.si3.dao.UserDaoImpl" />
+<bean id="userService" class="com.practica.si3.services.UserServiceImpl" />
+
+<!-- declare beans -->
+<bean id="subscriptionDao" class="com.practica.si3.dao.SubscriptionDaoImpl" />
+<bean id="subscriptionService" class="com.practica.si3.services.SubscriptionServiceImpl" />
+
+<!-- declare beans -->
+<bean id="ofertaDao" class="com.practica.si3.dao.OfertaDaoImpl" />
+<bean id="ofertaService" class="com.practica.si3.services.OfertaServiceImpl" />
+
+<!-- declare beans -->
+<bean id="reservationDao" class="com.practica.si3.dao.ReservationDaoImpl" />
+<bean id="reservationService" class="com.practica.si3.services.ReservationServiceImpl" />
+
+	<!-- Bean de Apache Tiles 3 -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles-definitions.xml</value>
+			</list>
+		</property>
+	</bean>
+
+<task:annotation-driven />
+<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<property name="host" value="smtp.gmail.com" />
+   	<property name="port" value="587" />
+   	<property name="username" value="portalofertas2014@gmail.com" />
+   	<property name="password" value="Temporal01" />
+   	<property name="javaMailProperties">
+    	<props>
+        	<prop key="mail.transport.protocol">smtp</prop>
+       		<prop key="mail.smtp.auth">true</prop>
+           	<prop key="mail.smtp.starttls.enable">true</prop>
+      	</props>
+  	</property>
+</bean>
+	
+	<!-- declare datasource bean -->
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+        <jdbc:script location="classpath:schema.sql"/>
+        <jdbc:script location="classpath:test-data-jm.sql"/>
+    </jdbc:embedded-database>
+</beans>
