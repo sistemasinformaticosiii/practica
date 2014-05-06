@@ -10,18 +10,20 @@
 		http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
+	<http pattern="/resources/**" security="none" />
 	<http auto-config="true" >
 		<!-- Restricción de URLs basada en roles -->
   		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/resources/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <security:intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />  		
+<!-- 			<security:intercept-url pattern="/resources/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
+<!--         <security:intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />  		-->
   	<!-- <intercept-url pattern="/getListOffer*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>-->
   		<intercept-url pattern="/**" access="ROLE_USER" /> 		
   		
   		 <!-- Utilizamos nuestra página de login y no la de Spring Security-->
-  		 <form-login login-page='/views/usuario/login.jsp'/>
+  		 <form-login login-page='/login' 
+  		 			 authentication-failure-url="/login/error"/>
   		 <security:logout invalidate-session="true" logout-url="/index.jsp"/>
   		  <!-- <security:logout logout-url="/logout" logout-success-url="/logoutSuccess.html" /> -->
   		<!--         

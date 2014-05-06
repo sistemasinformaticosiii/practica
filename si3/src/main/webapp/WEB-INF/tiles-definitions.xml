@@ -32,4 +32,10 @@
         <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />
     	<put-attribute name="body" value="/WEB-INF/views/web/contact.jsp"/>
     </definition>
+    
+    <definition name="login" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Login"/>
+    	<put-attribute name="body" value="/usuario/login.jsp"/>
+    </definition>
+    
 </tiles-definitions>
