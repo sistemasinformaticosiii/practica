@@ -11,37 +11,33 @@
         http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http pattern="/resources/**" security="none" />
-	<http auto-config="true" >
+	<http auto-config="true" use-expressions="true">
 		<!-- Restricción de URLs basada en roles -->
-<!--   		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-  		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-  		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
--->
+		<intercept-url pattern="/**" access="permitAll"/>
+<!--    		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
+<!--         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
 
-<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+  		
+
+
+<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> 
 -->
 <!--         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />  -->
 
 <!-- 			<security:intercept-url pattern="/resources/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
 <!--         <security:intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />  		-->
   	<!-- <intercept-url pattern="/getListOffer*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>-->
-  		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> 		
+  		<intercept-url pattern="/**" access="permitAll" /> 		
   		
   		 <!-- Utilizamos nuestra página de login y no la de Spring Security-->
-  		 <form-login login-page='/login' 
+  		 <form-login login-page='/login' default-target-url="/cuenta"
   		 			 authentication-failure-url="/login/error"/>
-  		 <security:logout invalidate-session="true" logout-url="/index.jsp"/>
-  		  <!-- <security:logout logout-url="/logout" logout-success-url="/logoutSuccess.html" /> -->
-  		<!--         
-        <security:form-login login-page="/login" 
-                             login-processing-url="/loginProcess" 
-                             default-target-url="/index.jsp" 
-                             authentication-failure-url="/login.html?login_error=1" />
-	
-		<intercept-url pattern="/regiSter*" access="hasRole('Administrador')" />
+  		 <security:logout invalidate-session="true" logout-url="/logout"/>
+  		  	
+<!-- 		<intercept-url pattern="/regiSter*" access="hasRole('Administrador')" />
 		<intercept-url pattern="/clinte/**" access="hasRole('Cliente')" /> 
-		-->
+-->
 
  		 
 <!--     	<form-login login-page="/login" login-processing-url="/login" default-target-url="/index.jsp" />--> 
@@ -66,6 +62,9 @@
 
  <user-service>
 		<user name="juan" password="1234" authorities="ROLE_USER" />
+		<user name="pepe" password="1234" authorities="ROLE_ADMIN" />
+		<user name="luis" password="1234" authorities="ROLE_PROVEEDOR" />
+
 	</user-service>	
 	</authentication-provider>
 	</authentication-manager>

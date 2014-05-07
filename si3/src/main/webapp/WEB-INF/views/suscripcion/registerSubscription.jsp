@@ -4,7 +4,7 @@
 
 
 <tiles:insertDefinition name="defaultTemplategeneral">
-	<tiles:putAttribute name="center">
+	<tiles:putAttribute name="body">
 
 <body>
 	<center>

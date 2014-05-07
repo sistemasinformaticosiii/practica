@@ -4,7 +4,7 @@
 
 
 <tiles:insertDefinition name="defaultTemplategeneral">
-	<tiles:putAttribute name="center">
+	<tiles:putAttribute name="body">
 	
 	<center>
 		<br /> <br /> <br /> <b>Lista Subscripciones | Practica </b><br /> <br />

@@ -6,13 +6,8 @@
 <tiles:insertDefinition name="loginTemplate">
 	<tiles:putAttribute name="body">
 <div align="center">
-Test- error en login
+Logout
 
-<c:if test="${not empty error}">
-    <font color="red"> Error al ingresar. <br /> Motivo :
-        ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-    </font>
-</c:if>
 
 </div>
 </tiles:putAttribute>

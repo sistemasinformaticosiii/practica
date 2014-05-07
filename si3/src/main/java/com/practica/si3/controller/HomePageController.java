@@ -1,9 +1,8 @@
 package com.practica.si3.controller;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,12 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -302,6 +306,14 @@ public class HomePageController {
 	}
 
    
-	
+	@RequestMapping("/cuenta")
+	public String datoscuenta(Model model) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		    String currentUserName = authentication.getName();
+		    model.addAttribute("username", currentUserName);
+			return "/usuario/micuenta";
+
+	}	
 	
 }

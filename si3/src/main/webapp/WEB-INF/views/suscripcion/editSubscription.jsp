@@ -3,7 +3,7 @@
 <%@ taglib  uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
-	<tiles:putAttribute name="center">
+	<tiles:putAttribute name="body">
 
 	<center>
 		<br /> <br /> <br /> <b>Editar Subscripcion </b><br /> <br />

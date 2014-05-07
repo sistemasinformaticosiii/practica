@@ -4,7 +4,7 @@
 
 
 <tiles:insertDefinition name="loginTemplate">
-	<tiles:putAttribute name="center">
+	<tiles:putAttribute name="body">
 <div align="center">
 <form name='f' action='j_spring_security_check' method='POST'>
    <fieldset>
@@ -22,9 +22,9 @@
 -->   	  
 
    	  <label for="j_username">Usuario:</label>
-      <input type="text" id="j_username" name="username" value="${username}" placeholder='usuario o e-mail'>
+      <input type="text" id="j_username" name="j_username" value="" placeholder='usuario o e-mail'>
       <label for="password">Contraseña</label>
-      <input type='password' id='j_password' name="password" placeholder='contraseña'/>
+      <input type='password' id='j_password' name="j_password" placeholder='contraseña'/>
       <button type="submit">Iniciar sesión</button>
 
       

@@ -3,7 +3,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
-	<tiles:putAttribute name="center">
+	<tiles:putAttribute name="body">
 
 <body>
 	<center>

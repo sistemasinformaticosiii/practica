@@ -3,8 +3,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-<tiles:insertDefinition name="defaultTemplategeneral">
-	<tiles:putAttribute name="center">  
+<tiles:insertDefinition name="usuariosRegistradosTemplate">
+	<tiles:putAttribute name="body">  
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

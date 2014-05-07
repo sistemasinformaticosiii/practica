@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -26,9 +27,23 @@
     		Navegaci&oacute;n: <span class="current">Inicio</span>
        	</div>        
       	
+      	<tilesx:useAttribute name="current"/>
+      	${current}
       	
-      	
-      	<tiles:insertAttribute name="menu" />
+      	     	
+      	<security:authorize access="isAnonymous()">
+      		<tiles:insertAttribute name="menu" />
+      	</security:authorize>
+      	<security:authorize access="hasRole('ROLE_USER')">
+        	<tiles:insertAttribute name="menu_user" />
+    	</security:authorize>
+		<security:authorize access="hasRole('ROLE_ADMIN')">
+        	<tiles:insertAttribute name="menu_admin" />
+    	</security:authorize>
+    	<security:authorize access="hasRole('ROLE_PROVEEDOR')">
+        	<tiles:insertAttribute name="menu_proveedor" />
+    	</security:authorize>
+    	
 	  	<tiles:insertAttribute name="left" />   
 	  	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,7 +51,7 @@
  <div class="center_content">
  
  
- 			<tiles:insertAttribute name="center" />
+ 			<tiles:insertAttribute name="body" />
     
    
  </div><!-- end of center content -->	  	
