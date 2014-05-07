@@ -12,6 +12,7 @@
         <put-attribute name="center" value="" />
         <put-attribute name="body" value="" />
         <put-attribute name="right" value="" />
+        <put-attribute name="current" value="index" />
         <put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
     </definition>
     
@@ -21,7 +22,8 @@
         <put-attribute name="menu" value="/WEB-INF/templates/menu.jsp" />
         <put-attribute name="center" value="/WEB-INF/templates/center.jsp" />
         <put-attribute name="body" value="" />
-        <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />  	
+        <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />
+        <put-attribute name="current" value="index" />  	
     </definition> 
     
     <definition name="templatecontact" extends="defaultTemplate">
@@ -31,11 +33,30 @@
         <put-attribute name="center" value="/WEB-INF/templates/center.jsp" />
         <put-attribute name="right" value="/WEB-INF/templates/right.jsp" />
     	<put-attribute name="body" value="/WEB-INF/views/web/contact.jsp"/>
+    	<put-attribute name="current" value="index" />
     </definition>
     
-    <definition name="login" extends="defaultTemplategeneral">
+    <definition name="loginTemplate" extends="defaultTemplategeneral">
     	<put-attribute name="title" value="Portal de Ocio - Login"/>
     	<put-attribute name="body" value="/usuario/login.jsp"/>
+    </definition>
+    
+    <definition name="usuariosregistrados" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Usuario registrado"/>
+    	<put-attribute name="body" value="/filtroOfertas" />
+    	<put-attribute name="current" value="registrados" />
+    </definition>
+    
+    <definition name="proveedores" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Proveedor" />
+    	<put-attribute name="body"  value="/insertOferta"/>
+    	<put-attribute name="current" value="proveedores" />
+    </definition>
+    
+    <definition name="administrador" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador" />
+    	<put-attribute name="body"  value="/insertOferta"/>
+    	<put-attribute name="current" value="administrador" />
     </definition>
     
 </tiles-definitions>
