@@ -13,13 +13,20 @@
 	<http pattern="/resources/**" security="none" />
 	<http auto-config="true" >
 		<!-- Restricción de URLs basada en roles -->
-  		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+<!--   		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+-->
+
+<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+-->
+<!--         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />  -->
+
 <!-- 			<security:intercept-url pattern="/resources/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
 <!--         <security:intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />  		-->
   	<!-- <intercept-url pattern="/getListOffer*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>-->
-  		<intercept-url pattern="/**" access="ROLE_USER" /> 		
+  		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> 		
   		
   		 <!-- Utilizamos nuestra página de login y no la de Spring Security-->
   		 <form-login login-page='/login' 
@@ -44,24 +51,24 @@
 	
 	<authentication-manager>
 	<authentication-provider>
- 	  <jdbc-user-service data-source-ref="dataSource"
+<!--  	  <jdbc-user-service data-source-ref="dataSource" -->
  
-       users-by-username-query=" SELECT USERNAME, PASS, ENABLED
-         FROM USER
-         WHERE USERNAME=?;"
+<!--        users-by-username-query=" SELECT USERNAME, PASS, ENABLED -->
+<!--          FROM USER -->
+<!--          WHERE USERNAME=?;" -->
  
-       authorities-by-username-query="
-        SELECT USERNAME, PERFIL
-        FROM USER WHERE USERNAME=?;" 
-        />
-         </authentication-provider>
-	</authentication-manager>
+<!--        authorities-by-username-query=" -->
+<!--         SELECT USERNAME, PERFIL -->
+<!--         FROM USER WHERE USERNAME=?;"  -->
+<!--         /> -->
+<!--          </authentication-provider> -->
+<!-- 	</authentication-manager> -->
 
-<!-- <user-service>
+ <user-service>
 		<user name="juan" password="1234" authorities="ROLE_USER" />
 	</user-service>	
 	</authentication-provider>
 	</authentication-manager>
-	-->
+
  
 </beans:beans>

@@ -29,6 +29,6 @@ public class LoginController {
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
     public String loginWithError(Locale locale, Model model) {
         model.addAttribute("error", true);
-        return "loginerror";
+        return "/usuario/loginerror";
     }
 }

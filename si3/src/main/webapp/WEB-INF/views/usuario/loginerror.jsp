@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-<tiles:insertDefinition name="defaultTemplategeneral">
+<tiles:insertDefinition name="loginTemplate">
 	<tiles:putAttribute name="center">
 <div align="center">
 Test- error en login

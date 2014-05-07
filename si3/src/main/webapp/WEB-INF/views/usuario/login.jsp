@@ -1,20 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Portal de Ocio - Login </title>
-</head>
-<body>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
+<tiles:insertDefinition name="loginTemplate">
+	<tiles:putAttribute name="center">
+<div align="center">
 <form name='f' action='j_spring_security_check' method='POST'>
-   <table>
-      <tr><td>Usuario:</td><td><input type='text' name='j_username' value=''></td></tr>
-      <tr><td>Contraseña:</td><td><input type='password' name='j_password'/></td></tr>
-      <tr><td colspan='2'><input name="submit" type="submit"/></td></tr>
-      <tr><td colspan='2'><input name="reset" type="reset"/></td></tr>
-   </table>
+   <fieldset>
+   	<legend> Inicio de sesión</legend>
+<!--   	<c:if test="${param.error != null}">
+	    <div class="alert alert-error">
+	                    Usuario o contraseña incorrectos
+	    </div>
+    </c:if>
+    <c:if test="${param.logout != null}">
+	    <div class="alert alert-success">
+	    		You have been logged out.
+		</div>
+    </c:if>   	
+-->   	  
+
+   	  <label for="j_username">Usuario:</label>
+      <input type="text" id="j_username" name="username" value="${username}" placeholder='usuario o e-mail'>
+      <label for="password">Contraseña</label>
+      <input type='password' id='j_password' name="password" placeholder='contraseña'/>
+      <button type="submit">Iniciar sesión</button>
+
+      
+   </fieldset>
 </form>
-</body>
-</html>
+</div>
+
+
+</tiles:putAttribute>
+</tiles:insertDefinition>
