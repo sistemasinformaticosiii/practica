@@ -206,6 +206,11 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>

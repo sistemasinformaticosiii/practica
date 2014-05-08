@@ -2,6 +2,8 @@ create schema si3;
 
 
 CREATE TABLE user (
+  username varchar(50) not null primary key,
+  enabled boolean not null,
   coduser INTEGER NOT NULL IDENTITY,
   nombre varchar(20) DEFAULT NULL,
   apellidos varchar(30) DEFAULT NULL,
@@ -9,7 +11,7 @@ CREATE TABLE user (
   telefono varchar(20) DEFAULT NULL,
   email varchar(40) DEFAULT NULL,
   perfil varchar(20) DEFAULT NULL,
-  pass varchar(20) DEFAULT NULL)
+  pass varchar(200) DEFAULT NULL)
   
   
 CREATE TABLE oferta (

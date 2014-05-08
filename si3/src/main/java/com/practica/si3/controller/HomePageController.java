@@ -53,7 +53,6 @@ public class HomePageController {
 
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
-
 		List<String> tipoList = new ArrayList<String>();
 		tipoList.add("Entradas");
 		tipoList.add("Restaurantes");
@@ -68,6 +67,7 @@ public class HomePageController {
 		map.put("tipoList", tipoList);
 		map.put("perfilList", perfilList);
 		return new ModelAndView("/administrador/register", "map", map);
+
 	}
 	
 	@RequestMapping("/registerSubscription")

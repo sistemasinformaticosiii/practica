@@ -7,6 +7,8 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.practica.si3.domain.User;
 import com.practica.si3.jdbc.UserRowMapper;
@@ -18,14 +20,23 @@ public class UserDaoImpl implements UserDao {
 
 	public void insertData(User user) {
 
+		//Codificamos la password antes de almacenarla en BBDD
+		String password = user.getPass();
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode(password);
+		user.setPass(encodedPassword);
+		user.setEnabled(true);
+		user.setUsername(user.getEmail());
+		
 		String sql = "INSERT INTO user "
-				+ "(nombre,apellidos,localidad,telefono,email,perfil,pass) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
+				+ "(username, enabled, nombre,apellidos,localidad,telefono,email,perfil,pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		  
+		  
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
 		jdbcTemplate.update(
 				sql,
-				new Object[] { user.getNombre(), user.getApellidos(), user.getLocalidad(), user.getTelefono(), user.getEmail(), user.getPerfil(), user.getPass() });
+				new Object[] { user.getUsername(),user.isEnabled(), user.getNombre(), user.getApellidos(), user.getLocalidad(), user.getTelefono(), user.getEmail(), user.getPerfil(), user.getPass() });
 	}
 
 	public List<User> getUserList() {

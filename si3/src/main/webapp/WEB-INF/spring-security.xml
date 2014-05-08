@@ -17,12 +17,7 @@
 <!--    		<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
 <!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
 <!--         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
-
-  		
-
-
-<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> 
--->
+<!--   		<intercept-url pattern="/index*" access="IS_AUTHENTICATED_ANONYMOUSLY"/> -->
 <!--         <security:intercept-url pattern="/logoutSuccess*" access="IS_AUTHENTICATED_ANONYMOUSLY" />  -->
 
 <!-- 			<security:intercept-url pattern="/resources/css/main.css" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
@@ -38,36 +33,32 @@
 <!-- 		<intercept-url pattern="/regiSter*" access="hasRole('Administrador')" />
 		<intercept-url pattern="/clinte/**" access="hasRole('Cliente')" /> 
 -->
-
- 		 
-<!--     	<form-login login-page="/login" login-processing-url="/login" default-target-url="/index.jsp" />--> 
-<!-- 		<logout invalidate-session="true" logout-url="/logout"/>-->
-
 	</http>
 	
 	<authentication-manager>
 	<authentication-provider>
-<!--  	  <jdbc-user-service data-source-ref="dataSource" -->
+	  <password-encoder ref="bCryptPasswordEncoder"/>
+ 	  <jdbc-user-service data-source-ref="dataSource"
  
-<!--        users-by-username-query=" SELECT USERNAME, PASS, ENABLED -->
-<!--          FROM USER -->
-<!--          WHERE USERNAME=?;" -->
+       users-by-username-query=" SELECT USERNAME, PASS, ENABLED
+           						 FROM USER  
+           						 WHERE USERNAME=?;" 
  
-<!--        authorities-by-username-query=" -->
-<!--         SELECT USERNAME, PERFIL -->
-<!--         FROM USER WHERE USERNAME=?;"  -->
-<!--         /> -->
-<!--          </authentication-provider> -->
-<!-- 	</authentication-manager> -->
-
- <user-service>
-		<user name="juan" password="1234" authorities="ROLE_USER" />
-		<user name="pepe" password="1234" authorities="ROLE_ADMIN" />
-		<user name="luis" password="1234" authorities="ROLE_PROVEEDOR" />
-
-	</user-service>	
+       authorities-by-username-query="SELECT USERNAME, PERFIL
+        							  FROM 
+        							  USER WHERE USERNAME=?;" 
+        />
 	</authentication-provider>
 	</authentication-manager>
+
+<!--  <user-service> -->
+<!-- 		<user name="juan" password="1234" authorities="ROLE_USER" /> -->
+<!-- 		<user name="pepe" password="1234" authorities="ROLE_ADMIN" /> -->
+<!-- 		<user name="luis" password="1234" authorities="ROLE_PROVEEDOR" /> -->
+
+<!-- 	</user-service>	 -->
+<!-- 	</authentication-provider> -->
+<!-- 	</authentication-manager> -->
 
  
 </beans:beans>

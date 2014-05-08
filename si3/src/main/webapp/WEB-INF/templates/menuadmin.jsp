@@ -15,8 +15,8 @@
 						</form:form>    	        
         	                    
                     
-                         <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" >Inicio </a></li>
-                         <li class="divider"></li>
+<%--                          <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" >Inicio </a></li> --%>
+<!--                          <li class="divider"></li> -->
                          <li><a class="nav2" href="<c:url value="/filtroOfertas"/>" >Gest. Proveedores</a></li>
                          <li class="divider"></li>
                          <li><a class="nav2" href="<c:url value="/register"/>">Gest. Usuarios</a></li>
@@ -25,8 +25,8 @@
                          <li class="divider"></li>
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>
-                         <li><a class="nav6" href="<c:url value="/contact"/>">Contacto</a></li>
-                         <li class="divider"></li>
+<%--                          <li><a class="nav6" href="<c:url value="/contact"/>">Contacto</a></li> --%>
+<!--                          <li class="divider"></li> -->
                          <li><a class="nav7" href="<c:url value="/resources/pdf/guiausuario.pdf"/>" target="_blank">Gu&iacute;a de usuario</a>
                          <li class="divider"></li>
                           <security:authorize access="isAuthenticated()">
