@@ -93,7 +93,7 @@ public class HomePageController {
 
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("tipoList", tipoList);
-		return new ModelAndView("/oferta/registerOferta", "map", map);
+		return new ModelAndView("/proveedor/registerOferta", "map", map);
 	}
 	
 	@RequestMapping("/insert")

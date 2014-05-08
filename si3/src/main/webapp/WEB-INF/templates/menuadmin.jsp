@@ -15,13 +15,15 @@
 						</form:form>    	        
         	                    
                     
-<%--                          <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" >Inicio </a></li> --%>
-<!--                          <li class="divider"></li> -->
-                         <li><a class="nav2" href="<c:url value="/filtroOfertas"/>" >Gest. Proveedores</a></li>
+                         <li><a class="nav1" href="<c:url value="#"/>" >Inicio </a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/register"/>">Gest. Usuarios</a></li>
+                         <li><a class="nav2" href="<c:url value="/admingestprov"/>" >Gest. Proveedores</a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/register"/>">Gest. Ofertas</a></li>
+                         <li><a class="nav2" href="<c:url value="/admingestuser"/>">Gest. Usuarios</a></li>
+                         <li class="divider"></li>
+                         <li><a class="nav2" href="<c:url value="/admingestoferta"/>">Gest. Ofertas</a></li>
+                         <li class="divider"></li>
+                         <li><a class="nav2" href="<c:url value="/admingestsuscripcion"/>">Gest. Suscripciones</a></li>
                          <li class="divider"></li>
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>

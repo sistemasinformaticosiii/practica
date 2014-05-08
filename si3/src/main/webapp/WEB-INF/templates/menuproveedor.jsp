@@ -17,7 +17,9 @@
                     
                          <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" >Inicio </a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/register"/>">Gestionar Ofertas</a></li>
+                         <li><a class="nav2" href="<c:url value="/registerOferta"/>">Gestionar Ofertas</a></li>
+                         <li class="divider"></li>
+						<li><a class="nav3" href="<c:url value="/cuenta"/>" >Mi cuenta</a></li>
                          <li class="divider"></li>
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>

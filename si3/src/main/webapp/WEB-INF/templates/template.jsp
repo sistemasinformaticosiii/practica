@@ -44,7 +44,20 @@
         	<tiles:insertAttribute name="menu_proveedor" />
     	</security:authorize>
     	
-	  	<tiles:insertAttribute name="left" />   
+    	<security:authorize access="isAnonymous()">
+      		<tiles:insertAttribute name="left" />
+      	</security:authorize>
+      	<security:authorize access="hasRole('ROLE_USER')">
+        	<tiles:insertAttribute name="left_user" />
+    	</security:authorize>
+		<security:authorize access="hasRole('ROLE_ADMIN')">
+        	<tiles:insertAttribute name="left_admin" />
+    	</security:authorize>
+    	<security:authorize access="hasRole('ROLE_PROVEEDOR')">
+        	<tiles:insertAttribute name="left_proveedor" />
+    	</security:authorize>
+    	
+   
 	  	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 

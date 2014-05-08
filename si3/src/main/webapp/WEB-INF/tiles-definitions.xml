@@ -18,6 +18,9 @@
     <definition name="defaultTemplategeneral" extends="defaultTemplate">
     	<put-attribute name="title" value="Portal de Ocio - Home"/> 	
   		<put-attribute name="left" value="/WEB-INF/templates/left.jsp" />
+  		<put-attribute name="left_user" value="/WEB-INF/templates/left.jsp" />
+  		<put-attribute name="left_admin" value="/WEB-INF/templates/leftadmin.jsp" />
+  		<put-attribute name="left_proveedor" value="/WEB-INF/templates/leftproveedor.jsp" />
         <put-attribute name="menu" value="/WEB-INF/templates/menugeneral.jsp" />
         <put-attribute name="menu_user" value="/WEB-INF/templates/menuUsuario.jsp" />
         <put-attribute name="menu_admin" value="/WEB-INF/templates/menuadmin.jsp" />
@@ -57,9 +60,29 @@
     	<put-attribute name="current" value="proveedores" />
     </definition>
     
-    <definition name="administrador" extends="defaultTemplategeneral">
-    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador" />
+    <definition name="adminGestionProveedores" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador - Gestión de Proveedores" />
     	<put-attribute name="current" value="administrador" />
+  		<put-attribute name="left_admin" value="/WEB-INF/templates/leftadminproveedores.jsp" />
     </definition>
+    
+    <definition name="adminGestionUsuarios" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador - Gestión de Usuarios" />
+    	<put-attribute name="current" value="administrador" />
+  		<put-attribute name="left_admin" value="/WEB-INF/templates/leftadminusuarios.jsp" />
+    </definition>    
+    
+    <definition name="adminGestionOfertas" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador - Gestión de Ofertas" />
+    	<put-attribute name="current" value="administrador" />
+  		<put-attribute name="left_admin" value="/WEB-INF/templates/leftadminofertas.jsp" />
+    </definition>
+    
+        <definition name="adminGestionSuscripciones" extends="defaultTemplategeneral">
+    	<put-attribute name="title" value="Portal de Ocio - Zona Administrador - Gestión de Suscripciones" />
+    	<put-attribute name="current" value="administrador" />
+  		<put-attribute name="left_admin" value="/WEB-INF/templates/leftadminsuscripciones.jsp" />
+    </definition>        
+        
     
 </tiles-definitions>
