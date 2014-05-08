@@ -311,6 +311,8 @@ public class HomePageController {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		    String currentUserName = authentication.getName();
+		    
+		    
 		    model.addAttribute("username", currentUserName);
 			return "/usuario/micuenta";
 

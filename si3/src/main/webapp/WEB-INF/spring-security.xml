@@ -50,15 +50,4 @@
         />
 	</authentication-provider>
 	</authentication-manager>
-
-<!--  <user-service> -->
-<!-- 		<user name="juan" password="1234" authorities="ROLE_USER" /> -->
-<!-- 		<user name="pepe" password="1234" authorities="ROLE_ADMIN" /> -->
-<!-- 		<user name="luis" password="1234" authorities="ROLE_PROVEEDOR" /> -->
-
-<!-- 	</user-service>	 -->
-<!-- 	</authentication-provider> -->
-<!-- 	</authentication-manager> -->
-
- 
 </beans:beans>

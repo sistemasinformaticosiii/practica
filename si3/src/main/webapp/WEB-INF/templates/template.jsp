@@ -27,33 +27,33 @@
     		Navegaci&oacute;n: <span class="current">Inicio</span>
        	</div>        
       	
-      	<tilesx:useAttribute name="current"/>
-      	${current}
+<%--       	<tilesx:useAttribute name="current"/> --%>
+<%--       	${current} --%>
       	
       	     	
       	<security:authorize access="isAnonymous()">
       		<tiles:insertAttribute name="menu" />
       	</security:authorize>
-      	<security:authorize access="hasRole('ROLE_USER')">
+      	<security:authorize access="hasRole('Cliente')">
         	<tiles:insertAttribute name="menu_user" />
     	</security:authorize>
-		<security:authorize access="hasRole('ROLE_ADMIN')">
+		<security:authorize access="hasRole('Administrador')">
         	<tiles:insertAttribute name="menu_admin" />
     	</security:authorize>
-    	<security:authorize access="hasRole('ROLE_PROVEEDOR')">
+    	<security:authorize access="hasAnyRole('Entradas', 'Restaurantes', 'Actividades')">
         	<tiles:insertAttribute name="menu_proveedor" />
     	</security:authorize>
     	
     	<security:authorize access="isAnonymous()">
       		<tiles:insertAttribute name="left" />
       	</security:authorize>
-      	<security:authorize access="hasRole('ROLE_USER')">
+      	<security:authorize access="hasRole('Cliente')">
         	<tiles:insertAttribute name="left_user" />
     	</security:authorize>
-		<security:authorize access="hasRole('ROLE_ADMIN')">
+		<security:authorize access="hasRole('Administrador')">
         	<tiles:insertAttribute name="left_admin" />
     	</security:authorize>
-    	<security:authorize access="hasRole('ROLE_PROVEEDOR')">
+    	<security:authorize access="hasAnyRole('Entradas', 'Restaurantes', 'Actividades')">
         	<tiles:insertAttribute name="left_proveedor" />
     	</security:authorize>
     	

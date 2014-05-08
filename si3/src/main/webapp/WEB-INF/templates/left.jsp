@@ -36,11 +36,6 @@
         </ul> 
         
      
-     <div class="title_box">Bolet&iacute;n</div>  
-     <div class="border_box">
-		<input type="text" name="newsletter" class="newsletter_input" value="su correo electr&oacute;nico"/>
-        <a href="#" class="join">Suscribirse</a>
-     </div>  
      
      <div class="banner_adds">
      

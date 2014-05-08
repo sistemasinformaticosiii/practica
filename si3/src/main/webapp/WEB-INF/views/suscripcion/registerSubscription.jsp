@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-<tiles:insertDefinition name="adminGestionSuscripciones">
+<tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
 	<center>
