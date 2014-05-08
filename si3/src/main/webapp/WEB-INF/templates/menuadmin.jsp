@@ -15,15 +15,15 @@
 						</form:form>    	        
         	                    
                     
-                         <li><a class="nav1" href="<c:url value="#"/>" >Inicio </a></li>
+<%--                          <li><a class="nav1" href="<c:url value="#"/>" >Inicio </a></li> --%>
+<!--                          <li class="divider"></li> -->
+                         <li><a class="nav2" href="<c:url value="/admingestprov"/>" >Proveedores</a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/admingestprov"/>" >Gest. Proveedores</a></li>
+                         <li><a class="nav2" href="<c:url value="/admingestuser"/>">Usuarios</a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/admingestuser"/>">Gest. Usuarios</a></li>
+                         <li><a class="nav2" href="<c:url value="/admingestoferta"/>">Ofertas</a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/admingestoferta"/>">Gest. Ofertas</a></li>
-                         <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/admingestsuscripcion"/>">Gest. Suscripciones</a></li>
+                         <li><a class="nav2" href="<c:url value="/admingestsuscripcion"/>">Suscripciones</a></li>
                          <li class="divider"></li>
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>

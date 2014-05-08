@@ -21,14 +21,16 @@
 	        <li class="odd"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></li>
 	        <li class="even"><a href="<c:url value="/register"/>">Añadir oferta</a></li>
         </ul> 
-        
+	<div class="title_box">Gestión de Reservas</div>   
+        <ul class="left_menu">
+	        <li class="odd"><a href="<c:url value="#"/>">Ver listado de reservas</a></li>
+	        <li class="even"><a href="<c:url value="/reservaOferta"/>">Añadir reserva</a></li>
+        </ul>                         
 	<div class="title_box">Gestión de Suscripciones</div>   
         <ul class="left_menu">
 	        <li class="odd"><a href="<c:url value="/getListSubscription"/>">Ver listado de suscripciones</a></li>
 	        <li class="even"><a href="<c:url value="/registerSubscription"/>">Añadir suscripción e-mail</a></li>
-        </ul>         
-        
-    
+        </ul>
      
      <div class="title_box">Bolet&iacute;n</div>  
      <div class="border_box">

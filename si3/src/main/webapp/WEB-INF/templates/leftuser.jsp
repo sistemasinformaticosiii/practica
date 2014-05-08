@@ -35,13 +35,19 @@
         <li class="odd"><a href="<c:url value="javascript:enviar_formulario_actividades()"/>">Actividades</a></li>
         </ul> 
         
-     
-     <div class="title_box">Bolet&iacute;n</div>  
+	<div class="title_box">Mis Reservas</div>   
+        <ul class="left_menu">
+	        <li class="odd"><a href="<c:url value="#"/>">Ver mis reservas</a></li>
+        </ul>      
+    
+
+     <div class="title_box">Bolet&iacute;n</div>      
      <div class="border_box">
 		<input type="text" name="newsletter" class="newsletter_input" value="su correo electr&oacute;nico"/>
         <a href="#" class="join">Suscribirse</a>
      </div>  
      
+ 
      <div class="banner_adds">
      
      <a href="#"><img src="<c:url value="/resources/images/bann2.jpg"/>" alt="" title="" border="0" /></a>

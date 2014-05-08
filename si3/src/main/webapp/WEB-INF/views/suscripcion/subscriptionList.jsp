@@ -7,7 +7,7 @@
 	<tiles:putAttribute name="body">
 	
 	<center>
-		<br /> <br /> <br /> <b>Lista Subscripciones | Practica </b><br /> <br />
+		<br /> <br /> <br /> <b>Lista de Subscripciones </b><br /> <br />
 			
 		
 

@@ -9,11 +9,11 @@
 
 <div class="top_bar">
     <div class="top_search">
-        <div class="search_text"><a href="<c:url value="/filtroOfertas/"/>" >B&uacute;squeda</a></div>
+        <div class="search_text">
+        	<a href="<c:url value="/filtroOfertas/"/>" >B&uacute;squeda</a></div>
             <input type="text" class="search_input" name="search" />
             <input type="image" src="<c:url value="/resources/images/search.gif"/>"/>
         </div>
-        
                 
         <div class="languages">
         	<div class="lang_text">Idiomas:</div>
@@ -21,6 +21,7 @@
         </div>
     
     </div>
+
 	<div id="header">
         
         <div id="logo">
@@ -32,3 +33,4 @@
 	    </div>
         
     </div>
+

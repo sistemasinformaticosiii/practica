@@ -6,12 +6,11 @@
 <tiles:insertDefinition name="adminGestionSuscripciones">
 	<tiles:putAttribute name="body">
 
-<body>
 	<center>
-		<br /> <br /> <br /> <b>Practica | SISTEMAS INFORMATICOS III </b> <br />
-		<br />
 		<div>
 			<form:form method="post" action="/si3/insertSubscription" modelAttribute="subscription">
+			<fieldset>
+				<legend>Suscripción a boletín de noticias</legend>
 				<table>
 					<tr>
 						<td>Cod Usuario :</td>
@@ -36,9 +35,10 @@
 						<td colspan="2"><a href="getListSubscription">Ver lista de Subscripciones</a></td>
 					</tr>					
 				</table>
+				</fieldset>
 			</form:form>
 		</div>
 	</center>
-</body>
+
 </tiles:putAttribute>
 </tiles:insertDefinition>

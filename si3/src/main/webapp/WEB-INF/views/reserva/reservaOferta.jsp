@@ -1,35 +1,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<title>Practica | Spring DI Hello World</title>
-<style>
-body {
-	font-size: 20px;
-	color: teal;
-	font-family: Calibri;
-}
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-td {
-	font-size: 15px;
-	color: black;
-	width: 100px;
-	height: 22px;
-	text-align: left;
-}
+<tiles:insertDefinition name="defaultTemplategeneral">
+	<tiles:putAttribute name="body">
 
-.heading {
-	font-size: 18px;
-	color: white;
-	font: bold;
-	background-color: orange;
-	border: thick;
-}
-</style>
-</head>
-<body>
 	<center>
-		<br /> <br /> <br /> <b>Practica | SISTEMAS INFORMATICOS III </b> <br />
+		<br /> <br /> <br /> <b>Reserva de Oferta</b> <br />
 		<br />
 		<div>
 			<form:form method="post" action="/si3/reserva" modelAttribute="reservation">
@@ -61,5 +38,5 @@ td {
 			</form:form>
 		</div>
 	</center>
-</body>
-</html>
+</tiles:putAttribute>
+</tiles:insertDefinition>

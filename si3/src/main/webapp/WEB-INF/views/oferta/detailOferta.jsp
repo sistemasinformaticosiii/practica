@@ -36,15 +36,7 @@
 	<%--  Fin selección imágenes de ofertas --%>
 		               
                  
-                 
-	                 		                 
-                 
-                  
-		          
-		      
-		                 		
-		          
-                 
+    
                  <div class="thumbs">
                  <a href="#" title="header=[Imagen1] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a>
                  <a href="#" title="header=[Imagen2] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a>
@@ -61,14 +53,14 @@
                           <b>Tipo de oferta: <span class="blue">${oferta.tipo}</span></b><br/>
                           <b>Descripcion detallada: <span class="blue">${oferta.descripcion }</span><br /></b>
                           <br/>
-                          Fecha Inicio Oferta: <span clas="blue">${oferta.fechaInicio}</span><br/>
-                          Fecha Fin Oferta: <span clas="blue">${oferta.fechaFin}</span><br/>
+                          Fecha Inicio Oferta: <span class="blue">${oferta.fechaInicio}</span><br/>
+                          Fecha Fin Oferta: <span class="blue">${oferta.fechaFin}</span><br/>
                           Localidad: <span class="blue">${oferta.localidad}</span><br />
                           Direcci&oacute;n <span class="blue">${oferta.direccion}</span><br />
                          
                           Plazas totales: <span class="blue">${oferta.plazasTotal}</span><br />
                           Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />
-                         <a href="#" class="addtocart">Reservar</a>
+                         <a href="<c:url value="/reservaOferta"/>" class="addtocart">Reservar</a>
                          <a href="<c:url value="/getListOffer"/>" class="return">Volver</a>
                      </div>                        
             </div>
@@ -78,10 +70,3 @@
 </body>
     </tiles:putAttribute>
 </tiles:insertDefinition>
-
-
-
-<a href="javascript:popImage('images/big_pic.jpg','Oferta')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="<c:url value="images/laptop.gif"/>" alt="" title="" border="0" /></a>
-<a href="javascript:popImage('images/big_pic.jpg','Oferta')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="<c:url value="images/laptop.gif"/>" alt="" title="" border="0" /></a>
-
-value="/resources/images/ofertas/$

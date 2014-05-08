@@ -62,8 +62,7 @@
 
 <body>
 <center>
-<br /> <br /> <br /> <b>Usuario - Alta </b> <br />
-<br />
+
 <div>
    
 <form:form method="post" id="altasform" action="/insert" modelAttribute="user">

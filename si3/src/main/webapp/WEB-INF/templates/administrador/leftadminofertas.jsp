@@ -6,7 +6,7 @@
 	<div class="title_box">Gestión de Ofertas</div>   
         <ul class="left_menu">
 	        <li class="odd"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></li>
-	        <li class="even"><a href="<c:url value="/register"/>">Añadir oferta</a></li>
+	        <li class="even"><a href="<c:url value="/registerOferta"/>">Publicar oferta</a></li>
         </ul> 
         
      

@@ -4,7 +4,7 @@
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
-	<body>
+
 		<div class="center_title_bar">Ofertas Vigentes: ${numeroOfertas}</div>
 		
 		<c:forEach items="${listaOfertas}" var="oferta">
@@ -45,10 +45,10 @@
 		            </div>
 		            <div class="bottom_prod_box"></div>             
 		            <div class="prod_details_tab">
-		            <a href="#" title="header=[A&nacute;adir a carrito] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/cart.gif"/>" alt="" title="" border="0" class="left_bt" /></a>
-		            <a href="#" title="header=[Especiales] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favs.gif"/>" alt="" title="" border="0" class="left_bt" /></a>
-		            <a href="#" title="header=[Regalos] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favorites.gif"/>" alt="" title="" border="0" class="left_bt" /></a>           
-		            <a href="<c:url value="/detail/${oferta.codOferta}"/>"class="prod_details"> detalle</a>            
+		            <a href="<c:url value="/reservaOferta"/>" title="header=[Reservar] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/cart.gif"/>" alt="" title="" border="0" class="left_bt" /></a>
+<%-- 		            <a href="#" title="header=[Especiales] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favs.gif"/>" alt="" title="" border="0" class="left_bt" /></a> --%>
+<%-- 		            <a href="#" title="header=[Regalos] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favorites.gif"/>" alt="" title="" border="0" class="left_bt" /></a>            --%>
+		            <a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"class="prod_details"> detalle</a>            
 		            </div>                     
 		        </div>
 		</c:forEach>
@@ -107,7 +107,7 @@
 		</table>
  
  --%>
-</body>
+
     </tiles:putAttribute>
 </tiles:insertDefinition>
 
