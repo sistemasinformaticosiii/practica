@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib  uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<tiles:insertDefinition name="adminGestionSuscripciones">
-	<tiles:putAttribute name="body">
+<tiles:insertDefinition name="defaultTemplategeneral">
+	<tiles:putAttribute name="center">
 
 	<center>
 		<br /> <br /> <br /> <b>Editar Subscripcion </b><br /> <br />
 		<div>
-			<form:form method="post" action="<c:url value="updateSubscription"/>" modelAttribute="subscription">
+			<form:form method="post" action='<c:url value="updateSubscription"/>' modelAttribute="subscription">
 				<table>
 					<tr>
 						<td>Cod Usuario :</td>

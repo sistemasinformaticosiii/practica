@@ -74,13 +74,7 @@ public class HomePageController {
 	@RequestMapping("/registerSubscription")
 	public ModelAndView registerUser(@ModelAttribute Subscription subscription) {
 
-		List<String> tipoList = new ArrayList<String>();
-		tipoList.add("Entradas");
-		tipoList.add("Restaurantes");
-		tipoList.add("Actividades");
-
 		Map<String, List> map = new HashMap<String, List>();
-		map.put("tipoList", tipoList);
 		return new ModelAndView("/suscripcion/registerSubscription", "map", map);
 	}
 
@@ -108,9 +102,15 @@ public class HomePageController {
 	}
 
 	@RequestMapping("/insertSubscription")
-	public String inserData(@ModelAttribute Subscription subscription) {
-		if (subscription != null)
+	public String inserData(@RequestParam("tipoSubscription") String tipo,
+			@ModelAttribute Subscription subscription) {
+		if (subscription != null){
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String currentUserName = authentication.getName();
+			User currentUser = userService.getUserByName(currentUserName);
+			subscriptionService.deleteDataByUser(currentUser.getUserId(), tipo);	
 			subscriptionService.insertData(subscription);
+		}
 		return "redirect:/getListSubscription";
 	}
 
@@ -136,17 +136,18 @@ public class HomePageController {
 
 	@RequestMapping("/getListSubscription")
 	public ModelAndView getSubscriptionLIst() {
-		List<Subscription> subscriptionList = subscriptionService
-				.getSubscriptionList();
-		return new ModelAndView("/suscripcion/subscriptionList",
-				"subscriptionList", subscriptionList);
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentUserName = authentication.getName();
+		User currentUser = userService.getUserByName(currentUserName);
+		List<Subscription> subscriptionList = subscriptionService.getSubscriptionListId(currentUser.getUserId());
+		return new ModelAndView("/suscripcion/subscriptionList", "subscriptionList", subscriptionList);
 	}
 
 	@RequestMapping("/getListOffer")
 	public ModelAndView getOfertaList() {
 
-		Authentication authentication = SecurityContextHolder.getContext()
-				.getAuthentication();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentUserName = authentication.getName();
 		List<Oferta> ofertaList = new ArrayList();
 		User currentUser = userService.getUserByName(currentUserName);

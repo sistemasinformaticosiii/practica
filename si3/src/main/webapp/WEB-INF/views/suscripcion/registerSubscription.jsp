@@ -6,39 +6,50 @@
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
-	<center>
+<body>
+  <div class="center_content">
+   	<div class="center_title_bar">Alta en suscripciones</div>
+    
+    	<div class="prod_box_big">
+    		<div class="top_prod_box_big"></div>
+            <div class="center_prod_box_big">        
+                 
+		<div align="center">
+		<br />
 		<div>
 			<form:form method="post" action="/si3/insertSubscription" modelAttribute="subscription">
-			<fieldset>
-				<legend>Suscripción a boletín de noticias</legend>
 				<table>
 					<tr>
-						<td>Cod Usuario :</td>
-						<td><form:input path="userId" /></td>
+						<!--  Campo oculto<td>Cod Usuario :</td>-->
+						<td><form:input path="userId" style="display:none"/></td>
 					</tr>
-					<tr>
-      					<td>Tipo :</td>
-      					<td><form:select path="tipoSubscription" items="${map.tipoList}" /></td>
-     				</tr>
+      				<tr>
+           				<td>Tipo de suscripcion:</td>
+          			    <td>
+           				<select id="tipoSubscription" name="tipoSubscription">
+               				<option value="Entradas">Entradas</option>
+               				<option value="Restaurantes">Restaurantes</option>
+               				<option value="Actividades">Actividades</option>
+           				</select>
+       					</td>
+      				</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input type="submit" value="Guardar" /></td>
+						<td><input type="submit" value="Aceptar" /> <input type="button" value="Cancelar" onclick= "self.location.href = 'getListSubscription'"/></td>
 					</tr>
-					<tr>
-						
-						<td colspan="2"><a href="getList">Ver lista de usuarios</a></td>
-					</tr>
-					<tr>	
-						<td colspan="2"><a href="getListOffer">Ver lista de ofertas</a></td>
-					</tr>
-					<tr>	
-						<td colspan="2"><a href="getListSubscription">Ver lista de Subscripciones</a></td>
-					</tr>					
+					
 				</table>
-				</fieldset>
-			</form:form>
+			</form:form></div>
 		</div>
-	</center>
-
+  		<div class="top_prod_box_big"></div>
+		<div class="bottom_prod_box_big"></div> 
+		
+		
+		    
+                                             
+            </div>                               
+       </div> 
+</div> 	
+</body>
 </tiles:putAttribute>
 </tiles:insertDefinition>

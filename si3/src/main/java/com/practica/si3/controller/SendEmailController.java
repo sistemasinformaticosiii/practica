@@ -1,10 +1,13 @@
 package com.practica.si3.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.BasicConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -33,24 +36,34 @@ public class SendEmailController {
 	ReservationService reservationService;
 	@Autowired
     private JavaMailSender mailSender;
-     
+
   
-    //@Scheduled(cron="0 0/1 * * * ?")
+    @Scheduled(cron="* 0/1 * * * ?")
     public void doSendEmail() throws Exception {
     	
-	    String to, body;
+    	BasicConfigurator.configure();
+        Logger log = Logger.getLogger("traza");
+    	String to, body;
 	    User user;
+	    
 		
 	    List<Subscription> subscriptionList = subscriptionService.getSubscriptionList();
-		for (int i=0;i<subscriptionList.size();i++) {
-			user = userService.getUser(Integer.toString(subscriptionList.get(i).getUserId()));
+		for (int a=0;a<subscriptionList.size();a++) {
+			user = userService.getUser(Integer.toString(subscriptionList.get(a).getUserId()));
 			to = user.getEmail();
-			List<Oferta> ofertaList = ofertaService.getOfertaByProductoVigente(subscriptionList.get(i).getTipoSubscription());
+			log.info("variable a = " + Integer.toString(a));
+			log.info(to);
+			log.info(subscriptionList.get(a).getTipoSubscription());
+			List<Oferta> ofertaList = ofertaService.getOfertaByProductoVigente(subscriptionList.get(a).getTipoSubscription());
 			body = formatBody(ofertaList);
+			log.info("llamo a formatbody");
+			log.info("body = "+ body);
 			if (body!=null) {
 				sendMail(to, "Portal Ofertas", body);
+				log.info("envio mail");
 			}
 		}
+		
     }
     
     

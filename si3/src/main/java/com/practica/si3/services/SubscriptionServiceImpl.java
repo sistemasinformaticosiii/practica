@@ -22,11 +22,21 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	public List<Subscription> getSubscriptionList() {
 		return subscriptiondao.getSubscriptionList();
 	}
+	
+	@Override
+	public List<Subscription> getSubscriptionListId(int id){
+		return subscriptiondao.getSubscriptionListId(id);
+	}
 
 	@Override
 	public void deleteData(String id) {
 		subscriptiondao.deleteData(id);
 		
+	}
+	
+	@Override
+	public void deleteDataByUser(int id, String tipo) {
+		subscriptiondao.deleteDataByUser(id, tipo);
 	}
 
 	@Override

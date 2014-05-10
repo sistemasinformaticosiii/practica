@@ -38,6 +38,18 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 		subscriptionList = jdbcTemplate.query(sql, new SubscriptionRowMapper());
 		return subscriptionList;
 	}
+	
+	@Override
+	public List<Subscription> getSubscriptionListId(int id){
+		
+		List subscriptionList = new ArrayList();
+		
+		String sql = "select * from subscription where coduser=" + id;
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		subscriptionList = jdbcTemplate.query(sql, new SubscriptionRowMapper());
+		return subscriptionList;
+	}
 
 	@Override
 	public void deleteData(String id) {
@@ -47,6 +59,15 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sql);
 
+	}
+	
+	@Override
+	public void deleteDataByUser(int id, String tipo) {
+		
+		String sql = "delete from subscription where coduser=" + id + " AND " + "tiposubscription=" + "'" + tipo + "'";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(sql);
 	}
 
 	@Override
