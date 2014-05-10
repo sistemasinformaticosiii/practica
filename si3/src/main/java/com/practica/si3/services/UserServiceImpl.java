@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService {
 	public User getUser(String id) {
 		return userdao.getUser(id);
 	}
+	
+	//Modificado por Jose
+	@Override
+	public User getUserPorNombre(String username) {
+		return userdao.getUserPorNombre(username);
+	}
 
 	@Override
 	public void updateData(User user) {

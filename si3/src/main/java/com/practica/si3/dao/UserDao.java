@@ -11,6 +11,9 @@ public interface UserDao {
 	public void updateData(User user);
 	public void deleteData(String id);
 	public User getUser(String id);
+	//modificado por Jose
+	public User getUserPorNombre(String id);
+	
 	/**
 	 * Comprueba si el usuario con id existe en la BD
 	 */

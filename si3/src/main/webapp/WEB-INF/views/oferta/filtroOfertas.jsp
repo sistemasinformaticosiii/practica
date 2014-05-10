@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <tiles:insertDefinition name="usuariosRegistradosTemplate">
 	<tiles:putAttribute name="body">  
@@ -146,9 +147,12 @@
 					<td>${oferta.plazasDisponibles}</td>
 					<td>${oferta.precio}</td>
 					
+					
 					<td><a href="editOferta?id=${oferta.codOferta}">Detalle</a></td>
 					
-					<td><a href="reservaOferta?id=${oferta.codOferta}">Reservar</a></td>
+        			<td><a href="reservaOferta?id=${oferta.codOferta}">Reservar</a></td>
+    				
+					
 				</tr>
         </c:forEach>
     </table>

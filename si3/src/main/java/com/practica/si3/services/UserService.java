@@ -11,6 +11,7 @@ public interface UserService {
 	public void deleteData(String id);
 	public User getUser(String id);
 	public void updateData(User user);
+	public User getUserPorNombre(String username);
 	
 	/**
 	 * Comprueba si existe en la BD un usuario con email=id.

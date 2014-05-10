@@ -82,6 +82,19 @@ public class UserDaoImpl implements UserDao {
 		return userList.get(0);
 	}
 	
+	//Añadido por Jose
+	
+	public User getUserPorNombre(String username) {
+		
+		List<User> userList = new ArrayList<User>();
+		
+		String sql = "select * from user where username= " + "'"+username+"'";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		userList = jdbcTemplate.query(sql, new UserRowMapper());
+		return userList.get(0);
+	}
+	
 	/**
 	 * Comprueba si existe en la BD un usuario con el campo email=id.
 	 * @param id - Cadena a consultar en los registros de la BD. Se buscara en el campo email.

@@ -13,7 +13,9 @@
 	<http auto-config="true" use-expressions="true">
 		<!-- Restricción de URLs basada en roles -->
 		<!--TODO: Está con acceso a Todos a Todo. Pendiente Andrés.. implementar protección,  -->
-		<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/filtroOfertas" access="permitAll" />
+		<!-- modificado por Jose  -->
+		<intercept-url pattern="/reservaOferta" access="hasRole('Cliente')" />
 		
 		<!-- Utilizamos nuestra página de login y no la de Spring Security -->
 		<form-login login-page='/login' default-target-url="/cuenta"

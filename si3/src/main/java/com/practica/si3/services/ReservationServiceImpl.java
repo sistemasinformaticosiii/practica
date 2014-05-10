@@ -23,6 +23,12 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return reservationdao.getReservationList();
 	}
+	
+	@Override
+	public List<Reservation> getReservationListPorCliente(int id){
+		
+		return reservationdao.getReservationListPorCliente(id);
+	}
 
 	@Override
 	public void updateData(Reservation reservation) {

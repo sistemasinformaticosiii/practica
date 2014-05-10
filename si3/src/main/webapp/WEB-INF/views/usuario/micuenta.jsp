@@ -10,6 +10,8 @@
 <security:authorize access="isAuthenticated()">
 Sesión iniciada. Soy el usuario:  <security:authentication property="principal.username" />
 Y mi perfil es: <security:authentication property="principal.authorities"/>
+
+<td><a href="reservasListCliente">Ver Reservas</a></td>
 </security:authorize>
 
 

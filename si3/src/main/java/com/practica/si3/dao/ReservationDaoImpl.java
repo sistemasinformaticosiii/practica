@@ -51,8 +51,23 @@ public class ReservationDaoImpl implements ReservationDao {
 		reservationList = jdbcTemplate.query(sql, new ReservationRowMapper());
 		return reservationList;
 	}
-
+	
 	/**
+	 * Obtiene un listado con todas las reservas existentes en la BD.
+	 * @return lista de reservas obtenida de la tabla "reservation" en la BD.
+	 */
+	public List<Reservation> getReservationListPorCliente(int id) {
+		
+		List reservationList = new ArrayList();
+
+		String sql = "select * from reservation"+" where coduser = '"+id+"'";
+
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		reservationList = jdbcTemplate.query(sql, new ReservationRowMapper());
+		return reservationList;
+	}
+	
+/**
 	 * Elimina una reserva de la BD.
 	 * @param id identificador de la reserva a eliminar.
 	 */

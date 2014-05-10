@@ -14,6 +14,42 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/iecss.css" />">
 		<![endif]-->
 		<script type="text/javascript" src="<c:url value="/resources/js/boxOver.js"/>"></script>
+	<style>
+.error {
+	color: #ff0000;
+}
+ 
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+body {
+	font-size: 20px;
+	color: teal;
+	font-family: Calibri;
+}
+
+td {
+	font-size: 15px;
+	color: black;
+	width: 100px;
+	height: 22px;
+	text-align: left;
+}
+
+.heading {
+	font-size: 18px;
+	color: white;
+	font: bold;
+	background-color: orange;
+	border: thick;
+}
+
+ 
+</style>
 
 </head>
 <body>
