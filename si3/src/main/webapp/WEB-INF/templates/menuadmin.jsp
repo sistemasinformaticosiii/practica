@@ -13,22 +13,8 @@
 						<form:form method="post" action="/filtroOfertas" name="formOfertasVigentesinicio" modelAttribute="criterioBusqueda">
 								<input type="hidden" name="tipo" value="Todas">
 						</form:form>    	        
-        	                    
-                    
-<%--                          <li><a class="nav1" href="<c:url value="#"/>" >Inicio </a></li> --%>
-<!--                          <li class="divider"></li> -->
-<%--                          <li><a class="nav2" href="<c:url value="/admingestprov"/>" >Proveedores</a></li> --%>
-<!--                          <li class="divider"></li> -->
-<%--                          <li><a class="nav2" href="<c:url value="/admingestuser"/>">Usuarios</a></li> --%>
-<!--                          <li class="divider"></li> -->
-<%--                          <li><a class="nav2" href="<c:url value="/admingestoferta"/>">Ofertas</a></li> --%>
-<!--                          <li class="divider"></li> -->
-<%--                          <li><a class="nav2" href="<c:url value="/admingestsuscripcion"/>">Suscripciones</a></li> --%>
-<!--                          <li class="divider"></li> -->
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>
-<%--                          <li><a class="nav6" href="<c:url value="/contact"/>">Contacto</a></li> --%>
-<!--                          <li class="divider"></li> -->
                          <li><a class="nav7" href="<c:url value="/resources/pdf/guiausuario.pdf"/>" target="_blank">Gu&iacute;a de usuario</a>
                          <li class="divider"></li>
                           <security:authorize access="isAuthenticated()">

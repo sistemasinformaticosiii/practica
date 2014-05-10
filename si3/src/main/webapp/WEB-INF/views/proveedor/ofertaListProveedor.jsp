@@ -17,21 +17,21 @@
 	<%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
-					        <div class="product_title"><a href="<c:url value="detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
+					        <div class="product_title"><a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
 			        		<div class="product_img">
-				        		<a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/restaurantes.jpg"/>" alt="" title="" border="0" /></a>
+				        		<a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/restaurantes.jpg"/>" alt="" title="" border="0" /></a>
 					        </div>	
 					    </c:when>
 					    <c:when test="${oferta.tipo == 'Actividades'}">
-					        <div class="product_title"><a href="<c:url value="detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
+					        <div class="product_title"><a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
 			        		<div class="product_img">
-				        		<a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/actividades.jpg"/>" alt="" title="" border="0" /></a>
+				        		<a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/actividades.jpg"/>" alt="" title="" border="0" /></a>
 					        </div>	
 					    </c:when>
 					    <c:when test="${oferta.tipo == 'Entradas'}">
-					        <div class="product_title"><a href="<c:url value="detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
+					        <div class="product_title"><a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>">${oferta.titulo}</a></div>
 			        		<div class="product_img">
-				        		<a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>
+				        		<a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>"><img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>
 					        </div>	
 					    </c:when>
 					</c:choose>
@@ -45,9 +45,6 @@
 		            </div>
 		            <div class="bottom_prod_box"></div>             
 		            <div class="prod_details_tab">
-		            
-<%-- 		            <a href="#" title="header=[Especiales] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favs.gif"/>" alt="" title="" border="0" class="left_bt" /></a> --%>
-<%-- 		            <a href="#" title="header=[Regalos] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favorites.gif"/>" alt="" title="" border="0" class="left_bt" /></a>            --%>
 		            <a href="<c:url value="/proveedor/detailOferta/${oferta.codOferta}"/>"class="prod_details"> detalle</a>            
 		            </div>                     
 		        </div>

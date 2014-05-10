@@ -27,9 +27,6 @@
     		Navegaci&oacute;n: <span class="current">Inicio</span>
        	</div>        
       	
-<%--       	<tilesx:useAttribute name="current"/> --%>
-<%--       	${current} --%>
-      	
       	     	
       	<security:authorize access="isAnonymous()">
       		<tiles:insertAttribute name="menu" />

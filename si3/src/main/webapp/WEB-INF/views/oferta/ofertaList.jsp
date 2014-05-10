@@ -45,9 +45,7 @@
 		            </div>
 		            <div class="bottom_prod_box"></div>             
 		            <div class="prod_details_tab">
-		            <a href="<c:url value="/reservaOferta"/>" title="header=[Reservar] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/cart.gif"/>" alt="" title="" border="0" class="left_bt" /></a>
-<%-- 		            <a href="#" title="header=[Especiales] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favs.gif"/>" alt="" title="" border="0" class="left_bt" /></a> --%>
-<%-- 		            <a href="#" title="header=[Regalos] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/favorites.gif"/>" alt="" title="" border="0" class="left_bt" /></a>            --%>
+		            <a href="<c:url value="/reservaOferta/${oferta.codOferta}"/>" title="header=[Reservar] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/cart.gif"/>" alt="" title="" border="0" class="left_bt" /></a>      
 		            <a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"class="prod_details"> detalle</a>            
 		            </div>                     
 		        </div>

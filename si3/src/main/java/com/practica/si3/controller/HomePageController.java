@@ -51,7 +51,6 @@ public class HomePageController {
 	SubscriptionService subscriptionService;
 	@Autowired
 	ReservationService reservationService;
-	
 
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
@@ -71,7 +70,7 @@ public class HomePageController {
 		return new ModelAndView("/administrador/register", "map", map);
 
 	}
-	
+
 	@RequestMapping("/registerSubscription")
 	public ModelAndView registerUser(@ModelAttribute Subscription subscription) {
 
@@ -84,7 +83,7 @@ public class HomePageController {
 		map.put("tipoList", tipoList);
 		return new ModelAndView("/suscripcion/registerSubscription", "map", map);
 	}
-	
+
 	@RequestMapping("/registerOferta")
 	public ModelAndView registerOferta(@ModelAttribute Oferta oferta) {
 
@@ -97,28 +96,29 @@ public class HomePageController {
 		map.put("tipoList", tipoList);
 		return new ModelAndView("/proveedor/registerOferta", "map", map);
 	}
-	
+
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
-		
+
 		if (!userService.existUser(user.getEmail()) && (user != null)) {
 			userService.insertData(user);
 			return "redirect:/getList";
-		}
-		else return "redirect:/errorUser";
+		} else
+			return "redirect:/errorUser";
 	}
-	
+
 	@RequestMapping("/insertSubscription")
 	public String inserData(@ModelAttribute Subscription subscription) {
 		if (subscription != null)
 			subscriptionService.insertData(subscription);
 		return "redirect:/getListSubscription";
-	}	
-	
+	}
+
 	@RequestMapping("/insertOferta")
 	public String inserData(@ModelAttribute Oferta oferta) {
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
 		String currentUserName = authentication.getName();
 		User currentUser = userService.getUserByName(currentUserName);
 		oferta.setCodUsuario(currentUser.getUserId());
@@ -127,105 +127,109 @@ public class HomePageController {
 			ofertaService.insertData(oferta);
 		return "redirect:/getListOffer";
 	}
-	
+
 	@RequestMapping("/getList")
 	public ModelAndView getUserLIst() {
 		List<User> userList = userService.getUserList();
 		return new ModelAndView("/administrador/userList", "userList", userList);
 	}
-	
+
 	@RequestMapping("/getListSubscription")
 	public ModelAndView getSubscriptionLIst() {
-		List<Subscription> subscriptionList = subscriptionService.getSubscriptionList();
-		return new ModelAndView("/suscripcion/subscriptionList", "subscriptionList", subscriptionList);
+		List<Subscription> subscriptionList = subscriptionService
+				.getSubscriptionList();
+		return new ModelAndView("/suscripcion/subscriptionList",
+				"subscriptionList", subscriptionList);
 	}
-	
-	
 
-	
 	@RequestMapping("/getListOffer")
 	public ModelAndView getOfertaList() {
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
 		String currentUserName = authentication.getName();
-		List<Oferta> ofertaList=new ArrayList();
+		List<Oferta> ofertaList = new ArrayList();
 		User currentUser = userService.getUserByName(currentUserName);
 
 		ofertaList = ofertaService.getOfertaByPerfil(currentUser.getUserId());
-		return new ModelAndView("/proveedor/ofertaListProveedor", "listaOfertas", ofertaList);
+		return new ModelAndView("/proveedor/ofertaListProveedor",
+				"listaOfertas", ofertaList);
 	}
 
-	
-	@RequestMapping(value="/filtroOfertas", method = RequestMethod.GET)
-	public ModelAndView filtroOfertas(@ModelAttribute CriterioBusqueda criterioBusqueda) {
+	//Listado de oferta vigentes iniciales, mostrado al arrancar la aplicación
+	@RequestMapping("/getListOfferInicio")
+	public ModelAndView getOfertaListInicio() {
+
+		List<Oferta> ofertaListInicio = ofertaService.getOfertaList();
+		return new ModelAndView("/oferta/ofertaList","listaOfertas", ofertaListInicio);
+	}
+
+	@RequestMapping(value = "/filtroOfertas", method = RequestMethod.GET)
+	public ModelAndView filtroOfertas(
+			@ModelAttribute CriterioBusqueda criterioBusqueda) {
 		List<Oferta> listaOfertas = new ArrayList<Oferta>();
 		List<String> tipoList = new ArrayList<String>();
 		tipoList.add("Todas");
 		tipoList.add("Entradas");
 		tipoList.add("Restaurantes");
 		tipoList.add("Actividades");
-		
+
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("tipoList", tipoList);
 		map.put("listaOfertas", listaOfertas);
-		return new ModelAndView("/oferta/filtroOfertas", "map", map);	
-		
-	}
-	
-	
-	/**
-	 * Permitimos que nos asocie parametros de jsp a parametros del método
-	 * para utilizar criterioBusqueda como un objeto
-	 */
-	
-	@InitBinder
-    public void initBinder(WebDataBinder binder) {
-        binder.initDirectFieldAccess();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-     
-    }
+		return new ModelAndView("/oferta/filtroOfertas", "map", map);
 
-	
-	
-	@RequestMapping(value="/filtroOfertas", method = RequestMethod.POST)
-	public String mostrarOfertas(ModelMap model, @Valid CriterioBusqueda criterioBusqueda, BindingResult result) {
-		if(result.hasErrors()) {
-			//Salimos si hay un error en la validación
+	}
+
+	/**
+	 * Permitimos que nos asocie parametros de jsp a parametros del método para
+	 * utilizar criterioBusqueda como un objeto
+	 */
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.initDirectFieldAccess();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
+
+	}
+
+	@RequestMapping(value = "/filtroOfertas", method = RequestMethod.POST)
+	public String mostrarOfertas(ModelMap model,
+			@Valid CriterioBusqueda criterioBusqueda, BindingResult result) {
+		if (result.hasErrors()) {
+			// Salimos si hay un error en la validación
 			return "/oferta/filtroOfertas";
-        }		
-		//Creamos un listado con todas las ofertas que cumplen el criterio 
+		}
+		// Creamos un listado con todas las ofertas que cumplen el criterio
 		List<Oferta> listaOfertas = new ArrayList<Oferta>();
-		listaOfertas=this.ofertaService.filterOferta(criterioBusqueda);
-		
-		// Lo añadimos al modelo		
-		model.addAttribute("listaOfertas",listaOfertas);
+		listaOfertas = this.ofertaService.filterOferta(criterioBusqueda);
+
+		// Lo añadimos al modelo
+		model.addAttribute("listaOfertas", listaOfertas);
 		model.addAttribute("numeroOfertas", listaOfertas.size());
-		
-		//return "/oferta/filtroOfertas";
+
+		// return "/oferta/filtroOfertas";
 		return "/oferta/ofertaList";
 	}
-	
-	
+
 	@RequestMapping("/errorUser")
 	public ModelAndView errorUser() {
-		
+
 		return new ModelAndView("/usuario/errorUser");
 	}
-	
-	
+
 	@RequestMapping("/getListOfertaProducto")
 	public ModelAndView getFilterOferta(@RequestParam("tipo") String id) {
-	    CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
-	    criterioBusqueda.setTipo(id);
-	
-	    
+		CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
+		criterioBusqueda.setTipo(id);
+
 		List<Oferta> ofertaList = ofertaService.filterOferta(criterioBusqueda);
 		return new ModelAndView("/oferta/ofertaList", "ofertaList", ofertaList);
 	}
-	
-	
+
 	@RequestMapping("/edit")
 	public ModelAndView editUser(@RequestParam String id,
 			@ModelAttribute User user) {
@@ -237,7 +241,7 @@ public class HomePageController {
 
 		return new ModelAndView("/administrador/editUser", "map", map);
 	}
-	
+
 	@RequestMapping("/editSubscription")
 	public ModelAndView editSubscription(@RequestParam String id,
 			@ModelAttribute Subscription subscription) {
@@ -249,7 +253,7 @@ public class HomePageController {
 
 		return new ModelAndView("/suscripcion/editSubscription", "map", map);
 	}
-	
+
 	@RequestMapping("/editOferta")
 	public ModelAndView editOferta(@RequestParam String id,
 			@ModelAttribute Oferta oferta) {
@@ -261,25 +265,25 @@ public class HomePageController {
 
 		return new ModelAndView("/oferta/editOferta", "map", map);
 	}
-	
+
 	@RequestMapping("/reservaOferta")
 	public ModelAndView reservaOferta(@ModelAttribute Reservation reservation) {
-		
+
 		return new ModelAndView("/reserva/reservaOferta");
 	}
-	
+
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
 		return "redirect:/getList";
 	}
-	
+
 	@RequestMapping("/updateSubscription")
 	public String updateSubscription(@ModelAttribute Subscription subscription) {
 		subscriptionService.updateData(subscription);
 		return "redirect:/getListSubscription";
 	}
-	
+
 	@RequestMapping("/updateOferta")
 	public String updateOferta(@ModelAttribute Oferta oferta) {
 		ofertaService.updateData(oferta);
@@ -292,44 +296,35 @@ public class HomePageController {
 		userService.deleteData(id);
 		return "redirect:/getList";
 	}
-	
+
 	@RequestMapping("/deleteSubscription")
 	public String deleteSubscription(@RequestParam String id) {
 		System.out.println("id = " + id);
 		subscriptionService.deleteData(id);
 		return "redirect:/getListSubscription";
 	}
-	
+
 	@RequestMapping("/deleteOferta")
 	public String deleteOferta(@RequestParam String id) {
 		System.out.println("id = " + id);
 		ofertaService.deleteData(id);
 		return "redirect:/getListOffer";
 	}
-	
-	
 
-	
-	//TO-DO: Andrés.. Método muy cutre para la página de contacto... por si queremos montar algo dinámicamente cogiendo algun dato de BBDD.
-	//Pendiente mejorar 
 	@RequestMapping("/contact")
-	//public String loginUser(@RequestParam String username, @RequestParam String password) {
 	public ModelAndView contactoWeb() {
-		//System.out.println("login = " + username + ",password=" + password);
-		return new ModelAndView("/web/contact");
+		return new ModelAndView("/public/contact");
 	}
 
-   
 	@RequestMapping("/cuenta")
 	public String datoscuenta(Model model) {
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		    String currentUserName = authentication.getName();
-		    
-		    
-		    model.addAttribute("username", currentUserName);
-			return "/usuario/micuenta";
 
-	}	
-	
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String currentUserName = authentication.getName();
+
+		model.addAttribute("username", currentUserName);
+		return "/usuario/micuenta";
+	}
+
 }

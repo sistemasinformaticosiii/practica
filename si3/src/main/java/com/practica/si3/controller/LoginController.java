@@ -11,18 +11,18 @@ public class LoginController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String login() {
-		return "/usuario/login";
+		return "/public/login";
 	}
 
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
     public String loginWithError(Model model) {
         model.addAttribute("error", true);
-        return "/usuario/loginerror";
+        return "/public/loginerror";
     }
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout() {
-		return "/usuario/logout";
+		return "/public/logout";
 	}
 	
 

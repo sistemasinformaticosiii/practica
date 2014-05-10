@@ -91,11 +91,11 @@
            <td>Perfil:</td>
            <td>
            <select id="perfil" name="perfil">
-               <option value="ROLE_ADMIN">Administrador</option>
-               <option value="ROLE_USER">Cliente</option>
-               <option value="ROLE_PROVEEDOR">P_Entradas</option>
-               <option value="ROLE_PROVEEDOR">P_Restaurantes</option>
-               <option value="ROLE_PROVEEDOR">P_Actividades</option>
+               <option value="Administrador">Administrador</option>
+               <option value="Cliente">Cliente</option>
+               <option value="Entradas">P_Entradas</option>
+               <option value="Restaurantes">P_Restaurantes</option>
+               <option value="Actividades">P_Actividades</option>
            </select>
        	</td>
       </tr>
