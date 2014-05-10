@@ -42,9 +42,9 @@ public class OfertaServiceImpl implements OfertaService {
 	}
 	
 	@Override
-	public List<Oferta> getOfertaByProducto(String id) {
+	public List<Oferta> getOfertaByPerfil(int id) {
 		
-		return ofertaDao.getOfertaByProducto(id);
+		return ofertaDao.getOfertaByPerfil(id);
 	}
 	
 	@Override

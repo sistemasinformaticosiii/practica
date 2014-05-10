@@ -10,11 +10,13 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -115,6 +117,12 @@ public class HomePageController {
 	
 	@RequestMapping("/insertOferta")
 	public String inserData(@ModelAttribute Oferta oferta) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentUserName = authentication.getName();
+		User currentUser = userService.getUserByName(currentUserName);
+		oferta.setCodUsuario(currentUser.getUserId());
+		oferta.setTipo(currentUser.getPerfil());
 		if (oferta != null)
 			ofertaService.insertData(oferta);
 		return "redirect:/getListOffer";
@@ -137,8 +145,14 @@ public class HomePageController {
 	
 	@RequestMapping("/getListOffer")
 	public ModelAndView getOfertaList() {
-		List<Oferta> ofertaList = ofertaService.getOfertaList();
-		return new ModelAndView("/oferta/ofertaList", "listaOfertas", ofertaList);
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentUserName = authentication.getName();
+		List<Oferta> ofertaList=new ArrayList();
+		User currentUser = userService.getUserByName(currentUserName);
+
+		ofertaList = ofertaService.getOfertaByPerfil(currentUser.getUserId());
+		return new ModelAndView("/proveedor/ofertaListProveedor", "listaOfertas", ofertaList);
 	}
 
 	

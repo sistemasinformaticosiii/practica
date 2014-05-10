@@ -1,1 +1,1 @@
-<%response.sendRedirect("getListOffer");%>
+<%response.sendRedirect("filtroOfertas");%>

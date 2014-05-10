@@ -46,10 +46,10 @@ public interface OfertaDao {
 	 */
 	public List<Oferta> getOfertasList();
 	/**
-	 * Obtiene un listado de ofertas por tipo de producto, en base a los criterios fecha y plazas disponibles.
+	 * Obtiene un listado de ofertas por tipo de perfil, en base a los criterios fecha y plazas disponibles.
 	 * 
 	 */
-	public List<Oferta> getOfertaByProducto(String tipo);
+	public List<Oferta> getOfertaByPerfil(int tipo);
 	/**
 	 * Obtiene un listado de ofertas por localidad, en base a los criterios fecha y plazas disponibles
 	 * @param criterioBusqueda TODO

@@ -71,8 +71,9 @@
           'fechaFin': 'required',
           'localidad': 'required',
           'descripcion': 'required',
+          'descuento': {required:true, number:true},
           'plazasTotal': {required: 'required', min: 1},
-          'precio': { required: 'requerido', number: true}
+          'precio': { required: true, number: true}
         },
         messages: {
           'titulo': 'requerido',
@@ -82,7 +83,8 @@
           'localidad': 'requerido',
           'descripcion' : 'requerido',
           'plazasTotal': 'requerido valor mayor que 0',
-          'precio': 'valor numerico requerido' 
+          'precio': 'valor numerico requerido', 
+          'descuento': 'valor numerico requerido'
         },
 	  });
       $("#plazasTotal").keyup(function () {
@@ -95,8 +97,14 @@
   
 </head>
 <body>  
-	<center>
-		<br /> <br /> <br /> <b>Oferta - Alta </b> <br />
+<div class="center_content">
+   	<div class="center_title_bar">Oferta - Alta</div>
+    
+    	<div class="prod_box_big">
+        	<div class="top_prod_box_big"></div>
+            <div class="center_prod_box_big">            
+		
+		<div align="center">
 		<br />
 		<div>
 			<form:form method="post" id="ofertaaltaform" action="/si3/insertOferta" modelAttribute="oferta">
@@ -106,8 +114,8 @@
 						<td><form:input path="codUsuario" style="display:none" /></td>
 					</tr>
 					<tr>
-      					<td>Tipo :</td>
-      					<td><form:select path="tipo" items="${map.tipoList}" /></td>
+      					<%-- Campo oculto <td>Tipo: --%>
+      					<td><form:select path="tipo" style="display:none" items="${map.tipoList}" /></td>
      				</tr>
 					<tr>
 						<td>Categoria :</td>
@@ -157,17 +165,12 @@
 						<td>&nbsp;</td>
 						<td><input type="submit" value="Guardar" /></td>
 					</tr>
-					<tr>
-						
-						<td colspan="2"><a href="getList">Ver lista de usuarios</a></td>
-					</tr>
-					<tr>	
-						<td colspan="2"><a href="getListOffer">Ver lista de ofertas</a></td>
-					</tr>
+
 				</table>
-			</form:form>
-		</div>
-	</center>
+			</form:form></div>
+		</div></div>
+		</div></div>
+	
 	</body>
     </tiles:putAttribute>
 </tiles:insertDefinition>

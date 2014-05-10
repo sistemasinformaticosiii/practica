@@ -10,6 +10,7 @@ public interface UserDao {
 	public List<User> getUserList();
 	public void updateData(User user);
 	public void deleteData(String id);
+	public User getUserByName(String id);
 	public User getUser(String id);
 	/**
 	 * Comprueba si el usuario con id existe en la BD
