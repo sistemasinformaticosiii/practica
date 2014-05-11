@@ -46,7 +46,7 @@
 		            <div class="bottom_prod_box"></div>             
 		            <div class="prod_details_tab">
 		            <a href="<c:url value="/reservaOferta?id=${oferta.codOferta}"/>" title="header=[Reservar] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/cart.gif"/>" alt="" title="" border="0" class="left_bt" /></a>
-		            <a href="<c:url value="/detailOferta/${oferta.codOferta}"/>"class="prod_details"> detalle</a>         
+		            <a href="<c:url value="/detailOferta?id=${oferta.codOferta}"/>"class="prod_details"> detalle</a>         
 		            </div>                     
 		        </div>
 		</c:forEach>

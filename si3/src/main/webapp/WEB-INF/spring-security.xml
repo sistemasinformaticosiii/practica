@@ -15,7 +15,7 @@
 		<!--TODO: Está con acceso a Todos a Todo. Pendiente Andrés.. implementar protección,  -->
 		<intercept-url pattern="/filtroOfertas" access="permitAll" />
 		<!-- modificado por Jose  -->
-		<intercept-url pattern="/reservaOferta" access="hasRole('Cliente')" />
+		<intercept-url pattern="/reservaOferta" access="hasAnyRole('Cliente', 'Administrador')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		
 		<!-- Utilizamos nuestra página de login y no la de Spring Security -->

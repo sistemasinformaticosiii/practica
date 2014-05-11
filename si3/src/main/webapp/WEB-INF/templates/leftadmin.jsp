@@ -18,7 +18,7 @@
         
 	<div class="title_box">Gestión de Ofertas</div>   
         <ul class="left_menu">
-	        <li class="odd"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></li>
+	        <li class="odd"><a href="<c:url value="/getListOfferInicio"/>">Ver lista de ofertas</a></li>
 	        <li class="even"><a href="<c:url value="/register"/>">Añadir oferta</a></li>
         </ul> 
 	<div class="title_box">Gestión de Reservas</div>   
