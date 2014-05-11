@@ -66,7 +66,7 @@ function Sumar(){
                           Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />
                          
                          <a href="<c:url value="/getListOffer"/>" class="return">Volver</a>
-                         <a href="<c:url value="/proveedor/editOferta/${oferta.codOferta}"/>"class="prod_details"> Editar</a>
+                         <a href="<c:url value="/proveedor/editOferta?id=${oferta.codOferta}"/>"class="prod_details"> Editar</a>
                      </div>                        
             </div>
             <div class="bottom_prod_box_big"></div>                                
