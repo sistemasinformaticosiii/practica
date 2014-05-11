@@ -49,8 +49,7 @@
 
 	<div class="title_box">Mis Suscripciones</div>
 	<ul class="left_menu">
-		<li class="odd"><a href="<c:url value="/getListSubscription?type=Cliente"/>">Ver mis
-				suscripciones</a></li>
+		<li class="odd"><a href="<c:url value="/getListSubscription"/>">Ver mis suscripciones</a></li>
 	</ul>
 
 

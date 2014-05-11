@@ -1,8 +1,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
@@ -17,11 +15,17 @@
 						<div align="center">
 							<br />
 							<div>
-								<form:form method="post" action="/insertSubscription" modelAttribute="subscription">
+								<form:form method="post" action="/si3/insertSubscriptionAdmin"
+									modelAttribute="subscription">
 									<table>
 										<tr>
-											<!-- Campo oculto<td>Cod Usuario :</td>-->
-											<td><form:input path="userId" style="display:none" /></td>
+											<!--  Campo oculto<td>Cod Usuario :</td>
+											<td><form:input path="userId" style="display:none"/></td>-->
+										</tr>
+										<tr>
+											<form:select path="userId" id="userId">
+												<form:options items="${userList}" itemValue="userId" itemLabel="email" />
+											</form:select>
 										</tr>
 										<tr>
 											<td>Tipo de suscripcion:</td>
@@ -36,19 +40,14 @@
 											<td>&nbsp;</td>
 											<td><input type="submit" value="Aceptar" /> <input
 												type="button" value="Cancelar"
-												onclick="self.location.href = 'getListSubscription'" /></td>
+												onclick="self.location.href = 'getListSubscriptionAdmin'" /></td>
 										</tr>
-
 									</table>
 								</form:form>
 							</div>
 						</div>
 						<div class="top_prod_box_big"></div>
 						<div class="bottom_prod_box_big"></div>
-
-
-
-
 					</div>
 				</div>
 			</div>

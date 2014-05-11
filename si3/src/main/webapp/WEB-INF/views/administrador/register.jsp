@@ -127,22 +127,6 @@
 <td>&nbsp;</td>
 <td><input type="submit" value="Guardar" /> <input type="reset" value="Borrar" /></td>
 </tr>
-<tr>
-
-<td colspan="2"><a href="<c:url value="/getUserList?roles=Cliente"/>">Ver lista de usuarios</a></td>
-</tr>
-<tr>	
-<td colspan="2"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></td>
-</tr>
-<tr>	
-<td colspan="2"><a href="<c:url value="/getListSubscription"/>">Ver lista de Subscripciones</a></td>
-</tr>	
-<tr>	
-<td colspan="2"><a href="<c:url value="/filtroOfertas"/>">Filtro Ofertas</a></td>
-</tr>
-<tr>	
-<td colspan="2"><a href="<c:url value="/sendMail"/>">Enviar mail</a></td>
-</tr>	
 </table>
 </form:form>
 </div>

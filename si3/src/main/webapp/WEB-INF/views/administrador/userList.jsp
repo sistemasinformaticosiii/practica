@@ -43,11 +43,10 @@
 					<td>${user.email}</td>
 					<td>${user.perfil}</td>
 <%-- 					<td>${user.pass}</td> --%>
-					<td><a href="<c:url value="/edit?id=${user.userId}"/>">Editar</a></td>
+					<td><a href="<c:url value="/editUser?id=${user.userId}"/>">Editar</a></td>
 					<td><a href="<c:url value="/delete?id=${user.userId}"/>">Borrar</a></td>
 				</tr>
 			</c:forEach>
-			<tr><td colspan="8"><a href="<c:url value="/register"/>">Añadir Usuario</a></td></tr>
 		</table>
 
 	</center>

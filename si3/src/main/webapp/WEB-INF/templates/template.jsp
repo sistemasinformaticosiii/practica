@@ -23,9 +23,9 @@
     
    <div id="main_content"> 
   
-    	<div class="crumb_navigation">
-    		Navegaci&oacute;n: <span class="current">Inicio</span>
-       	</div>        
+<!--     	<div class="crumb_navigation"> -->
+<!--     		Navegaci&oacute;n: <span class="current">Inicio</span> -->
+<!--        	</div>         -->
       	
       	     	
       	<security:authorize access="isAnonymous()">

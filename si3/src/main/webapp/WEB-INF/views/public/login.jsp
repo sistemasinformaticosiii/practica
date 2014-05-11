@@ -22,7 +22,7 @@
 -->   	  
 
    	  <label for="j_username">Usuario:</label>
-      <input type="text" id="j_username" name="j_username" value="" placeholder='usuario o e-mail'>
+      <input type="text" id="j_username" name="j_username" value="" placeholder='e-mail'>
       <label for="password">Contraseña</label>
       <input type='password' id='j_password' name="j_password" placeholder='contraseña'/>
       <button type="submit">Iniciar sesión</button>

@@ -27,8 +27,8 @@
         </ul>                         
 	<div class="title_box">Gestión de Suscripciones</div>   
         <ul class="left_menu">
-	        <li class="odd"><a href="<c:url value="/getListSubscription"/>">Ver listado de suscripciones</a></li>
-	        <li class="even"><a href="<c:url value="/registerSubscription?type=Administrador"/>">Añadir suscripción e-mail</a></li>
+	        <li class="odd"><a href="<c:url value="/getListSubscriptionAdmin"/>">Ver listado de suscripciones</a></li>
+	        <li class="even"><a href="<c:url value="/registerSubscriptionAdmin"/>">Añadir suscripción e-mail</a></li>
         </ul>
      
      <div class="banner_adds">
