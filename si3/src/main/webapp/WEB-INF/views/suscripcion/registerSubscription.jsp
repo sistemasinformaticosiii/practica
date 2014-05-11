@@ -19,10 +19,21 @@
 		<div>
 			<form:form method="post" action="/si3/insertSubscription" modelAttribute="subscription">
 				<table>
-					<tr>
-						<!--  Campo oculto<td>Cod Usuario :</td>-->
-						<td><form:input path="userId" style="display:none"/></td>
-					</tr>
+					<c:choose>
+			        		<c:when test="${tiporegistrador=='Administrador'}">
+								<tr>
+									<td>Cod Usuario :</td>
+									<td><form:input path="userId"/></td>
+								</tr>			        			        		
+			        		</c:when>
+			            	<c:otherwise>
+								<tr>
+									<!--  Campo oculto<td>Cod Usuario :</td>-->
+									<td><form:input path="userId" style="display:none"/></td>
+								</tr>			            	
+			        		</c:otherwise>
+			    	</c:choose>						
+				
       				<tr>
            				<td>Tipo de suscripcion:</td>
           			    <td>

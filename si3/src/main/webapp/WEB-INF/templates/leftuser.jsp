@@ -44,12 +44,12 @@
 
 	<div class="title_box">Mis Reservas</div>
 	<ul class="left_menu">
-		<li class="odd"><a href="<c:url value="#"/>">Ver mis reservas</a></li>
+		<li class="odd"><a href="<c:url value="/reservasListCliente"/>">Ver mis reservas</a></li>
 	</ul>
 
 	<div class="title_box">Mis Suscripciones</div>
 	<ul class="left_menu">
-		<li class="odd"><a href="<c:url value="/getListSubscription"/>">Ver mis
+		<li class="odd"><a href="<c:url value="/getListSubscription?type=Cliente"/>">Ver mis
 				suscripciones</a></li>
 	</ul>
 

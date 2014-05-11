@@ -39,11 +39,26 @@ public class UserDaoImpl implements UserDao {
 				new Object[] { user.getUsername(),user.isEnabled(), user.getNombre(), user.getApellidos(), user.getLocalidad(), user.getTelefono(), user.getEmail(), user.getPerfil(), user.getPass() });
 	}
 
-	public List<User> getUserList() {
+	public List<User> getUserList(List<String> roles) {
 		
 		List userList = new ArrayList();
-
-		String sql = "select * from user";
+		String sql="";
+		if (roles == null){ //Devuelve todos los usuarios, independientemente del rol
+			sql = "select * from user";
+		}
+		else{//Procesa los roles para lanzar la consulta
+			String selectedroles="";
+			for(int i=0; i<roles.size(); i++){
+				if (i == (roles.size()-1)){
+					//Último elemento
+					selectedroles = selectedroles + "'" + roles.get(i)+ "'";
+				}
+				else
+					selectedroles = selectedroles + "'" + roles.get(i) + "'" + ",";
+					
+			}
+			sql = "select * from user where perfil IN (" + selectedroles + ")";		
+		}
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		userList = jdbcTemplate.query(sql, new UserRowMapper());

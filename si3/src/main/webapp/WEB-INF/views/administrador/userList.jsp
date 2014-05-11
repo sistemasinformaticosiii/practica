@@ -6,16 +6,21 @@
 	<tiles:putAttribute name="body">
 
 <body>
-	<center>
-		<br /> <br /> <br /> <b>Lista Usuarios | Practica </b><br /> <br />
-			
-		
+  <div class="center_content">
+   	<div class="center_title_bar">Usuarios del Sistema</div>
+    
+    	<div class="prod_box_big">
+    		<div class="top_prod_box_big"></div>
+            <div class="center_prod_box_big">   
 
+	<center>
+<!-- 		<br /> <br /> <br /> <b>Lista de Usuarios de PortalOcio</b><br /> <br /> -->
+			
 		<table border="1">
 			<tr>
 				<td class="heading">Username</td>
 				<td class="heading">Enabled</td>
-				<td class="heading">User Id</td>
+<!-- 				<td class="heading">User Id</td> -->
 				<td class="heading">Nombre</td>
 				<td class="heading">Apellidos</td>
 				<td class="heading">Localidad</td>
@@ -30,7 +35,7 @@
 				<tr>
 					<td>${user.username}</td>
 					<td>${user.enabled}</td>										
-					<td>${user.userId}</td>
+<%-- 					<td>${user.userId}</td> --%>
 					<td>${user.nombre}</td>
 					<td>${user.apellidos}</td>
 					<td>${user.localidad}</td>

@@ -7,7 +7,7 @@ import com.practica.si3.domain.User;
 public interface UserDao {
 	
 	public void insertData(User user);
-	public List<User> getUserList();
+	public List<User> getUserList(List<String> roles);
 	public void updateData(User user);
 	public void deleteData(String id);
 	public User getUserByName(String id);

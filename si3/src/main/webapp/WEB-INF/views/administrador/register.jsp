@@ -60,8 +60,17 @@
   
 </head>
 
-<body>
 <center>
+		<div class="center_title_bar">
+			<c:if test="${tiporegistro =='user'}" >
+ 				Registro de nuevo usuario 
+			</c:if> 
+			<c:if test="${tiporegistro =='proveedor'}" >
+ 				Registro de nuevo proveedor
+			</c:if>
+		</div>			
+
+
 
 <div>
    
@@ -91,11 +100,22 @@
            <td>Perfil:</td>
            <td>
            <select id="perfil" name="perfil">
-               <option value="Administrador">Administrador</option>
-               <option value="Cliente">Cliente</option>
-               <option value="Entradas">P_Entradas</option>
-               <option value="Restaurantes">P_Restaurantes</option>
-               <option value="Actividades">P_Actividades</option>
+			<c:choose>
+        		<c:when test="${tiporegistro=='proveedor'}">
+				   <option value="Entradas">Proveedor de Entradas</option>
+	               <option value="Restaurantes">Proveedor de Restaurantes</option>
+	               <option value="Actividades">Proveedor de Actividades</option>            		
+        		</c:when>
+        		<c:otherwise>
+	               <option value="Administrador">Administrador</option>
+	               <option value="Cliente">Cliente</option>
+	               <option value="Entradas">Proveedor de Entradas</option>
+	               <option value="Restaurantes">Proveedor de Restaurantes</option>
+	               <option value="Actividades">Proveedor de Actividades</option>            		
+        		</c:otherwise>
+    		</c:choose>
+			           
+
            </select>
        	</td>
       </tr>
@@ -109,7 +129,7 @@
 </tr>
 <tr>
 
-<td colspan="2"><a href="<c:url value="/getList"/>">Ver lista de usuarios</a></td>
+<td colspan="2"><a href="<c:url value="/getUserList?roles=Cliente"/>">Ver lista de usuarios</a></td>
 </tr>
 <tr>	
 <td colspan="2"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></td>
@@ -127,7 +147,6 @@
 </form:form>
 </div>
 </center>
-</body>
 
     </tiles:putAttribute>
 </tiles:insertDefinition>

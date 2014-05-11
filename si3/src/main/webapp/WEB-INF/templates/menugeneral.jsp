@@ -18,7 +18,7 @@
                          <li class="divider"></li>
                          <li><a class="nav2" href="<c:url value="/filtroOfertas"/>" >Buscar Ofertas</a></li>
                          <li class="divider"></li>
-                         <li><a class="nav4" href="<c:url value="/register"/>">Registro</a></li>
+                         <li><a class="nav4" href="<c:url value="/register?type=user"/>">Registro</a></li>
                          <li class="divider"></li>
                          <li><a class="nav5" href="<c:url value="/login"/>">Login </a></li>
                          <li class="divider"></li>

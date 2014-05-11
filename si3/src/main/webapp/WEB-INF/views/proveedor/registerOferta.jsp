@@ -109,14 +109,37 @@
 		<div>
 			<form:form method="post" id="ofertaaltaform" action="/si3/insertOferta" modelAttribute="oferta">
 				<table>
-					<tr>
-						<%-- Campo oculto <td>Cod Usuario :</td>--%>
-						<td><form:input path="codUsuario" style="display:none" /></td>
-					</tr>
-					<tr>
-      					<%-- Campo oculto <td>Tipo: --%>
-      					<td><form:select path="tipo" style="display:none" items="${map.tipoList}" /></td>
-     				</tr>
+					<c:choose>
+		        		<c:when test="${tiporegistrador=='Proveedor'}">
+							<tr>
+								<%-- Campo oculto <td>Cod Usuario :</td>--%>
+								<td><form:input path="codUsuario" style="display:none" /></td>
+							</tr>
+							<tr>
+		      					<%-- Campo oculto <td>Tipo: --%>
+		      					<td><form:select path="tipo" style="display:none" items="${map.tipoList}" /></td>
+		     				</tr>		        		
+		        		</c:when>
+		            	<c:otherwise>
+							<tr>
+								<td>Cod Usuario :</td>
+								<td><form:input path="codUsuario"/></td>								
+							</tr>
+							<tr>
+		      					<td>Tipo:</td>
+		      					<td><form:select path="tipo">
+						  				<form:option value="Entradas">Entradas</form:option>
+							            <form:option value="Restaurantes">Restaurantes</form:option>
+							            <form:option value="Actividades">Actividades</form:option>
+
+		      					</form:select>
+		      					</td>
+		      					
+		      					
+		     				</tr>		            		
+		        		</c:otherwise>
+		    		</c:choose>				
+
 					<tr>
 						<td>Categoria :</td>
 						<td><form:input path="categoria" /></td>

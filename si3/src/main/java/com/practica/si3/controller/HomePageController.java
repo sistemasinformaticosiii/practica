@@ -58,50 +58,63 @@ public class HomePageController {
 
 	
 	@RequestMapping("/register")
-	public ModelAndView registerUser(@ModelAttribute User user) {
-		List<String> tipoList = new ArrayList<String>();
-		tipoList.add("Entradas");
-		tipoList.add("Restaurantes");
-		tipoList.add("Actividades");
+//	public ModelAndView registerUser(@ModelAttribute User user, @RequestParam("type") String tiporegistro) {
+	public String registerUser(@ModelAttribute User user, ModelMap model, @RequestParam("type") String tiporegistro) {
+//		List<String> tipoList = new ArrayList<String>();
+//		tipoList.add("Entradas");
+//		tipoList.add("Restaurantes");
+//		tipoList.add("Actividades");
+//
+//		List<String> perfilList = new ArrayList<String>();
+//		perfilList.add("Administrador");
+//		perfilList.add("Cliente");
+//		perfilList.add("Proveedor");
 
-		List<String> perfilList = new ArrayList<String>();
-		perfilList.add("Administrador");
-		perfilList.add("Cliente");
-		perfilList.add("Proveedor");
-
-		Map<String, List> map = new HashMap<String, List>();
-		map.put("tipoList", tipoList);
-		map.put("perfilList", perfilList);
-		return new ModelAndView("/administrador/register", "map", map);
+//		Map<String, List> map = new HashMap<String, List>();
+//		map.put("tipoList", tipoList);
+//		map.put("perfilList", perfilList);
+//		return new ModelAndView("/administrador/register", "map", map);
+		model.addAttribute("tiporegistro", tiporegistro);
+		return "/administrador/register";
 
 	}
+	
+
 
 	@RequestMapping("/registerSubscription")
-	public ModelAndView registerUser(@ModelAttribute Subscription subscription) {
+	public String registerUser(@ModelAttribute Subscription subscription, Model model, @RequestParam("type") String tiporegistrador) {
 
-		Map<String, List> map = new HashMap<String, List>();
-		return new ModelAndView("/suscripcion/registerSubscription", "map", map);
+		model.addAttribute("tiporegistrador", tiporegistrador);
+		return "/suscripcion/registerSubscription";
 	}
+	
+		
+	
 
 	@RequestMapping("/registerOferta")
-	public ModelAndView registerOferta(@ModelAttribute Oferta oferta) {
-
-		List<String> tipoList = new ArrayList<String>();
-		tipoList.add("Entradas");
-		tipoList.add("Restaurantes");
-		tipoList.add("Actividades");
-
-		Map<String, List> map = new HashMap<String, List>();
-		map.put("tipoList", tipoList);
-		return new ModelAndView("/proveedor/registerOferta", "map", map);
+//	public ModelAndView registerOferta(@ModelAttribute Oferta oferta) {
+	public String registerOferta(@ModelAttribute Oferta oferta, Model model, @RequestParam("type") String tiporegistrador) {
+//		List<String> tipoList = new ArrayList<String>();
+//		tipoList.add("Entradas");
+//		tipoList.add("Restaurantes");
+//		tipoList.add("Actividades");
+//
+//		Map<String, List> map = new HashMap<String, List>();
+//		map.put("tipoList", tipoList);
+//		return new ModelAndView("/proveedor/registerOferta", "map", map);
+		model.addAttribute("tiporegistrador", tiporegistrador);
+		return "/proveedor/registerOferta";
 	}
 
+	
+	
+	
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
 
 		if (!userService.existUser(user.getEmail()) && (user != null)) {
 			userService.insertData(user);
-			return "redirect:/getList";
+			return "redirect:/getUserList";
 		} else
 			return "redirect:/errorUser";
 	}
@@ -133,19 +146,30 @@ public class HomePageController {
 		return "redirect:/getListOffer";
 	}
 
-	@RequestMapping("/getList")
-	public ModelAndView getUserLIst() {
-		List<User> userList = userService.getUserList();
+	@RequestMapping("/getUserList")
+	public ModelAndView getUserLIst(@RequestParam(value="roles", required=false) List<String> roles) {
+		List<User> userList = userService.getUserList(roles);
 		return new ModelAndView("/administrador/userList", "userList", userList);
 	}
-
+	
+	
 	@RequestMapping("/getListSubscription")
-	public ModelAndView getSubscriptionLIst() {
+	public ModelAndView getSubscriptionList() {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentUserName = authentication.getName();
+	
 		User currentUser = userService.getUserByName(currentUserName);
-		List<Subscription> subscriptionList = subscriptionService.getSubscriptionListId(currentUser.getUserId());
+		List<Subscription> subscriptionList;
+//		List<Subscription> subscriptionList = subscriptionService.getSubscriptionListId(currentUser.getUserId());
+//		return new ModelAndView("/suscripcion/subscriptionList", "subscriptionList", subscriptionList);
+		if (currentUser.getPerfil().equalsIgnoreCase("Administrador")){
+			subscriptionList = subscriptionService.getSubscriptionList();
+		}
+		else{
+			subscriptionList = subscriptionService.getSubscriptionListId(currentUser.getUserId());			
+		}
+		
 		return new ModelAndView("/suscripcion/subscriptionList", "subscriptionList", subscriptionList);
 	}
 
@@ -377,7 +401,7 @@ public class HomePageController {
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
-		return "redirect:/getList";
+		return "redirect:/getUserList";
 	}
 
 	@RequestMapping("/updateSubscription")
@@ -393,12 +417,15 @@ public class HomePageController {
 	}
 
 	@RequestMapping("/delete")
-	public String deleteUser(@RequestParam String id) {
+	public String deleteUser(@RequestParam String id, HttpServletRequest request) {
 		System.out.println("id = " + id);
 		userService.deleteData(id);
-		return "redirect:/getList";
+		String referer = request.getHeader("Referer");
+//		return "redirect:/getUserList";
+		return "redirect:" + referer;
 	}
-
+	
+		
 	@RequestMapping("/deleteSubscription")
 	public String deleteSubscription(@RequestParam String id) {
 		System.out.println("id = " + id);
