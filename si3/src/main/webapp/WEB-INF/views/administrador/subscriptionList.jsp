@@ -15,19 +15,25 @@
 
 						<div align="center">
 							<table border="2">
-								<tr>
-									<td class="heading">Usuario suscripción</td>
-									<td class="heading">Tipo de suscripcion</td>
-									<td class="heading">Accion disponible</td>
-								</tr>
-								<c:forEach var="subscription" items="${subscriptionList}">
+								<c:choose>
+								  <c:when test="${not empty subscriptionList}">
 									<tr>
-										<td>${subscription.userId}</td>
-										<td>${subscription.tipoSubscription}</td>
-										<td align="center"><a
-											href="<c:url value="/deleteSubscription?id=${subscription.subscriptionId}"/>">Baja</a></td>
+										<td class="heading">Usuario suscripción</td>
+										<td class="heading">Tipo de suscripcion</td>
+										<td class="heading">Accion disponible</td>
 									</tr>
-								</c:forEach>
+									<c:forEach var="subscription" items="${subscriptionList}">
+										<tr>
+											<td>${subscription.userId}</td>
+											<td>${subscription.tipoSubscription}</td>
+											<td align="center"><a href="<c:url value="/deleteSubscription?id=${subscription.subscriptionId}"/>">Baja</a></td>
+										</tr>
+									</c:forEach>			  
+								  </c:when>
+								  <c:otherwise>
+								  	<b>No existen suscripciones al bolet&iacute;n de Ofertas en este momento</b>
+								  </c:otherwise>
+								</c:choose>							
 							</table>
 						</div>
 						<div class="top_prod_box_big"></div>

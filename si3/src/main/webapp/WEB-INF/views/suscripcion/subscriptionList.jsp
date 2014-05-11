@@ -17,24 +17,34 @@
                  
 		<div align="center">
 		<table border="2">
-			<tr>
-				<security:authorize access="hasRole('Administrador')">
-	      			<td class="heading">C&oacute;digo usuario suscripci&oacute;n</td>
-      			</security:authorize>
-			
-				<td class="heading">Tipo de suscripci&oacute;n</td>
-				
-				<td class="heading">Acci&oacute;n disponible</td>
-			</tr>
-			<c:forEach var="subscription" items="${subscriptionList}">
+		<c:choose>
+			<c:when test="${not empty subscriptionList}">
 				<tr>
-					<security:authorize access="hasRole('Administrador')">				
-						<td>${subscription.userId}</td>
-      			</security:authorize>						
-					<td>${subscription.tipoSubscription}</td>
-					<td align="center"><a href="<c:url value="/deleteSubscription?id=${subscription.subscriptionId}"/>">Baja</a></td>
+					<security:authorize access="hasRole('Administrador')">
+		      			<td class="heading">C&oacute;digo usuario suscripci&oacute;n</td>
+	      			</security:authorize>
+				
+					<td class="heading">Tipo de suscripci&oacute;n</td>
+					
+					<td class="heading">Acci&oacute;n disponible</td>
 				</tr>
-			</c:forEach>
+				<c:forEach var="subscription" items="${subscriptionList}">
+					<tr>
+						<security:authorize access="hasRole('Administrador')">				
+							<td>${subscription.userId}</td>
+	      			</security:authorize>						
+						<td>${subscription.tipoSubscription}</td>
+						<td align="center"><a href="<c:url value="/deleteSubscription?id=${subscription.subscriptionId}"/>">Baja</a></td>
+					</tr>
+				</c:forEach>					  
+			</c:when>
+			<c:otherwise>
+				<b>No está suscrito a ningún boletin de Ofertas en este momento</b>
+			</c:otherwise>
+		</c:choose>		
+				
+		
+
 		</table></div>
 		<div class="top_prod_box_big"></div>
 		<div class="bottom_prod_box_big"></div> 

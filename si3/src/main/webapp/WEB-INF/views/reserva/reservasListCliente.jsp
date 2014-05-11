@@ -17,12 +17,12 @@
 			<table border="2">
 				<c:choose>
 				  <c:when test="${not empty listaResultados}">
-					<c:forEach var="reserva" items="${listaResultados}">
 						<tr>
 							<td class="heading">Fecha Reserva</td>
 							<td class="heading">Plazas Reservadas</td>
 							<td class="heading">Oferta</td>
 						</tr>	
+					<c:forEach var="reserva" items="${listaResultados}">
 						<tr>
 							<td>${reserva.key.fechaReserva}</td>
 							<td align="center">${reserva.key.plazasReservadas}</td>
