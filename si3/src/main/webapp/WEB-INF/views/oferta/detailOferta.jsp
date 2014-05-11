@@ -37,11 +37,11 @@
 		               
                  
     
-                 <div class="thumbs">
-                 <a href="#" title="header=[Imagen1] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a>
-                 <a href="#" title="header=[Imagen2] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a>
-                 <a href="#" title="header=[Imagen3] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a>
-                 </div>
+<!--                  <div class="thumbs"> -->
+<%--                  <a href="#" title="header=[Imagen1] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a> --%>
+<%--                  <a href="#" title="header=[Imagen2] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a> --%>
+<%--                  <a href="#" title="header=[Imagen3] body=[&nbsp;] fade=[on]"><img src="<c:url value="/resources/images/thumb1.gif"/>" alt="" title="" border="0" /></a> --%>
+<!--                  </div> -->
                  </div>
                      <div class="details_big_box">
                          <div class="product_title_big">${oferta.descripcion}</div>
@@ -61,7 +61,8 @@
                           Plazas totales: <span class="blue">${oferta.plazasTotal}</span><br />
                           Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />
 						 <a href="<c:url value="/reservaOferta?id=${oferta.codOferta}"/>" class="addtocart">Reservar</a>
-                         <a href="<c:url value="/getListOfferInicio"/>" class="return">Volver</a>
+                         <a href="javascript:history.back()" class="return">Volver</a>
+         
                      </div>                        
             </div>
             <div class="bottom_prod_box_big"></div>                                

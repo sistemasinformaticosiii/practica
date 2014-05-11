@@ -6,11 +6,11 @@
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
-	<center>
-		<br /> <br /> <br /> <b>Reserva de Oferta</b> <br />
+	<div class="center_content">
+		<div class="center_title_bar">Reserva de Oferta: <b> ${titulo}</b></div>
+<center>
 		<security:authorize access="isAuthenticated()">
-		<security:authentication property="principal.username" /> está a punto de realizar la reserva para ${titulo}:
-		
+			<security:authentication property="principal.username" /> está a punto de realizar la reserva para ${titulo}:
 		</security:authorize>		
 		<br />
 		<div>
@@ -18,28 +18,22 @@
 				<table>
 					
 					<tr>
-						<td>Plazas :</td>
+						<td>Reservar plazas:</td>
 						<td><form:input path="plazasReservadas" /></td>
 						<td><form:errors path="plazasReservadas" cssClass="error" /></td>
 					</tr>
 					<tr>
-						<td>Fecha :</td>
+						<td>Fecha Reserva:</td>
 						<td><form:input path="fechaReserva" /></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input type="submit" value="Confirmar" /></td>
-					</tr>
-					<tr>
-						
-						<td colspan="2"><a href="getList">Ver lista de usuarios</a></td>
-					</tr>
-					<tr>	
-						<td colspan="2"><a href="getListOffer">Ver lista de ofertas</a></td>
+						<td><input type="submit" value="Confirmar"/>&nbsp;&nbsp;<input type="button" onclick="history.back()" name="return" value="Volver"></td>
 					</tr>
 				</table>
 			</form:form>
 		</div>
-	</center>
+	</div>
+</center>		
 </tiles:putAttribute>
 </tiles:insertDefinition>
