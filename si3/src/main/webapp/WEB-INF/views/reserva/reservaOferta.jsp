@@ -9,6 +9,7 @@
 	
 	<center>
 		<br /> <br /> <br /> <b>Reserva de Oferta</b> <br />
+		<br /> <br />${mensaje}<br /> <br />
 		<security:authorize access="isAuthenticated()">
 		<security:authentication property="principal.username" /> está a punto de realizar la reserva para ${titulo}:
 		

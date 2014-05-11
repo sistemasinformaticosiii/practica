@@ -21,12 +21,12 @@
 					<td>${reserva.value.titulo}</td>
 					
 					
-					<td><a href="editreserva?id=${reserva.key.reservationId}">Editar</a></td>
+					
 					<td><a href="/si3/deletereserva?id=${reserva.key.reservationId}">Borrar</a></td>
 					
 				</tr>
 			</c:forEach>
-			<tr><td colspan="8"><a href="registerreserva">Añadir reserva</a></td></tr>
+			
 		</table>
 	
 		               

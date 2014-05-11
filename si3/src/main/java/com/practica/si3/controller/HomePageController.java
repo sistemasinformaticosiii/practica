@@ -273,11 +273,12 @@ public class HomePageController {
 	 */
 	@RequestMapping(value="/reservaOferta", method = RequestMethod.GET)
 	public String muestraReservaOferta(ModelMap model,  HttpServletRequest request, @RequestParam String id) {
+		
 		Reservation reserva = new Reservation();
 		Calendar cal = Calendar.getInstance();
 		CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
 		Date fecha=new Date();
-		
+		String mensaje ="Recuerde que el número máximo de reservas por evento es 6";
 		//recuperamos los datos de la oferta
 		Oferta oferta=ofertaService.getOferta(id);
 		//Y lo guardamos en la reserva
@@ -315,6 +316,7 @@ public class HomePageController {
 		//y lo guardamos en la sesión
 		request.getSession().setAttribute("reserva", reserva);
 		model.addAttribute("titulo", oferta.getTitulo());
+		model.addAttribute("mensaje",mensaje);
 		
 		return "/reserva/reservaOferta";
 	}
@@ -357,21 +359,43 @@ public class HomePageController {
 	
 	//modificado por Jose
 	@RequestMapping(value="/reserva/reservaOferta", method = RequestMethod.POST)
-	public String reservaOferta(@Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
+	public String reservaOferta(Model model, @Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
 		Reservation reserva=(Reservation) request.getSession().getAttribute("reserva");
-		if(result.hasErrors()) {
+		Oferta oferta = null;
+		String mensaje ="";
+		//if(result.hasErrors()) {
 			//Salimos si hay un error en la validación
 			
-			return "/reserva/reservaOferta?id="+reserva.getOfferId();
-        }	
-		
+			//return "reservaOferta?id="+reserva.getOfferId();
+        //}
+		if(reservation.getPlazasReservadas()>6){
+			String cadena = "/reserva/reservaOferta?id="+reserva.getOfferId();
+			mensaje="número máximo es 6";
+			return cadena;
+		}
+		oferta=ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
 		reserva.setFechaReserva(reservation.getFechaReserva());
 		reserva.setPlazasReservadas(reservation.getPlazasReservadas());
+		oferta.setPlazasDisponibles(oferta.getPlazasDisponibles()-reserva.getPlazasReservadas());
+		ofertaService.decreasePlazasDisponibles(reserva.getOfferId(), reserva.getPlazasReservadas());
 		reservationService.insertData(reservation);
 		request.getSession().removeAttribute("reserva");
 		request.getSession().removeAttribute("criterioBusquedaCliente");
-		
+		model.addAttribute(mensaje);
 		return "/reserva/ofertaCompletada";
+	}
+	//editado por Jose
+	
+	@RequestMapping("/deletereserva")
+	public String deleteReserva(@RequestParam String id) {
+		Reservation reserva=reservationService.getReservation(id);
+		Oferta oferta = oferta=ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
+		int numero=reserva.getPlazasReservadas();
+		int offerid = reserva.getOfferId();
+		ofertaService.increasePlazasDisponibles(reserva.getOfferId(), reserva.getPlazasReservadas());
+		reservationService.deleteData(String.valueOf(reserva.getReservationId()));
+		Oferta otraoferta =ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
+		return "/reserva/reservaBorrada";
 	}
 	
 	@RequestMapping("/update")
