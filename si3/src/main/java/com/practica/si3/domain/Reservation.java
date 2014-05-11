@@ -1,11 +1,15 @@
 package com.practica.si3.domain;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 public class Reservation {
 	
 	private int reservationId;
 	private int userId;
 	private int offerId;
 	private String fechaReserva;
+	//@Min(1) @Max(6)
 	private int plazasReservadas;
 	
 	

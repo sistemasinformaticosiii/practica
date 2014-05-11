@@ -25,6 +25,13 @@ public interface ReservationDao {
 	public List<Reservation> getReservationList();
 	
 	/**
+	 * Obtiene un listado de los registros existentes en la tabla "reservation" de la BD para un cliente determinado.
+	 * @return listado de objetos/registro
+	 */
+	public List<Reservation> getReservationListPorCliente(int id);
+	
+	
+	/**
 	 * Actualiza un registro de la tabla reservation de la BD
 	 * @param reservation - registro a actualizar
 	 */

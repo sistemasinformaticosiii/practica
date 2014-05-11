@@ -8,6 +8,7 @@ public interface ReservationService {
 
 	public void insertData(Reservation reservation);
 	public List<Reservation> getReservationList();
+	public List<Reservation> getReservationListPorCliente(int id);	
 	public void updateData(Reservation reservation);
 	public void deleteData(String id);
 	public Reservation getReservation(String id);

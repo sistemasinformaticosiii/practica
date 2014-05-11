@@ -2,12 +2,16 @@ package com.practica.si3.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -52,6 +56,7 @@ public class HomePageController {
 	@Autowired
 	ReservationService reservationService;
 
+	
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
 		List<String> tipoList = new ArrayList<String>();
@@ -197,22 +202,24 @@ public class HomePageController {
 
 	}
 
-	@RequestMapping(value = "/filtroOfertas", method = RequestMethod.POST)
-	public String mostrarOfertas(ModelMap model,
-			@Valid CriterioBusqueda criterioBusqueda, BindingResult result) {
-		if (result.hasErrors()) {
-			// Salimos si hay un error en la validación
+	@RequestMapping(value="/filtroOfertas", method = RequestMethod.POST)
+	public String mostrarOfertas(ModelMap model, @Valid CriterioBusqueda criterioBusqueda, BindingResult result, HttpServletRequest request) {
+		if(result.hasErrors()) {
+			//Salimos si hay un error en la validación
 			return "/oferta/filtroOfertas";
-		}
-		// Creamos un listado con todas las ofertas que cumplen el criterio
+        }		
+		//Creamos un listado con todas las ofertas que cumplen el criterio 
 		List<Oferta> listaOfertas = new ArrayList<Oferta>();
-		listaOfertas = this.ofertaService.filterOferta(criterioBusqueda);
-
-		// Lo añadimos al modelo
-		model.addAttribute("listaOfertas", listaOfertas);
+		listaOfertas=this.ofertaService.filterOferta(criterioBusqueda);
+		
+		// Lo añadimos al modelo		
+		model.addAttribute("listaOfertas",listaOfertas);
 		model.addAttribute("numeroOfertas", listaOfertas.size());
-
-		// return "/oferta/filtroOfertas";
+		
+		//añadimos criterio de busqueda a la sesion para utilizarlo en la reserva
+		request.getSession().setAttribute("criterioBusquedaCliente", criterioBusqueda);
+		
+		//return "/oferta/filtroOfertas";
 		return "/oferta/ofertaList";
 	}
 
@@ -267,12 +274,106 @@ public class HomePageController {
 		return new ModelAndView("/oferta/editOferta", "map", map);
 	}
 
-	@RequestMapping("/reservaOferta")
-	public ModelAndView reservaOferta(@ModelAttribute Reservation reservation) {
-
-		return new ModelAndView("/reserva/reservaOferta");
+	/**
+	 * @param reservation
+	 * @return
+	 * Procesamos el get de la reserva basicamente vamos a mostrar un formulario con los valores recuperados de criterio de busqueda
+	 */
+	@RequestMapping(value="/reservaOferta", method = RequestMethod.GET)
+	public String muestraReservaOferta(ModelMap model,  HttpServletRequest request, @RequestParam String id) {
+		Reservation reserva = new Reservation();
+		Calendar cal = Calendar.getInstance();
+		CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
+		Date fecha=new Date();
+		
+		//recuperamos los datos de la oferta
+		Oferta oferta=ofertaService.getOferta(id);
+		//Y lo guardamos en la reserva
+		reserva.setOfferId(Integer.parseInt(id));
+		
+		//Recuperamos el usuario
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String nombre = auth.getName(); //obtenemos el usuario
+	    User usuario = userService.getUserByName(nombre);
+	    
+	    //guardamos en la reserva
+	    reserva.setUserId(usuario.getUserId());
+		
+		//recuperamos el criterio de busqueda del cliente(en el caso de que exista)
+		criterioBusquedaCliente=(CriterioBusqueda) request.getSession().getAttribute("criterioBusquedaCliente");
+		//Utilidad para formatear la fecha del criterio de busqueda
+		SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_ES"));				
+		//Comprobamos que existe la busqueda por si venía de otro sitio
+		if(criterioBusquedaCliente!=null && criterioBusquedaCliente.getFecha()!=null){
+			//guardamos la fecha en la reserva con el formato correcto
+			fecha=criterioBusquedaCliente.getFecha();
+			reserva.setFechaReserva( formateador.format(fecha));
+			//guardamos el número de plazas
+			reserva.setPlazasReservadas(criterioBusquedaCliente.getPlazas());
+			
+		}
+		//si no hubo busqueda sugerimos el día actual y número de reservas 1
+		else{
+			
+			reserva.setFechaReserva(formateador.format(cal.getTime()));
+			reserva.setPlazasReservadas(1);
+		}
+		criterioBusquedaCliente=null;
+		model.addAttribute("reservation", reserva);
+		//y lo guardamos en la sesión
+		request.getSession().setAttribute("reserva", reserva);
+		model.addAttribute("titulo", oferta.getTitulo());
+		
+		return "/reserva/reservaOferta";
 	}
-
+	
+	@RequestMapping(value="/reservasListCliente", method = RequestMethod.GET)
+	public String muestraReservasCliente(Model model){
+		int numeroReservas=0;
+		Reservation reserva;
+		Oferta oferta;
+		List<Reservation> listaReservas = null;
+		List<Oferta> listaOfertas=null;
+		Map<Reservation,Oferta> map = new HashMap<Reservation,Oferta>();
+		//Recuperamos el usuario
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String nombre = auth.getName(); //obtenemos el usuario
+	    User usuario = userService.getUserByName(nombre);
+	    
+	    listaReservas=reservationService.getReservationListPorCliente(usuario.getUserId());
+	    for (Iterator iter = listaReservas.iterator(); iter.hasNext(); ) {
+	        // código aquí
+	    	reserva=(Reservation) iter.next();
+	    	oferta=ofertaService.getOferta(Integer.toString(reserva.getOfferId()));
+	    	map.put(reserva, oferta);
+	    }
+		numeroReservas= listaReservas.size();
+		
+		model.addAttribute("listaResultados", map);
+		
+		
+		
+		return "/reserva/reservasListCliente";
+	}
+	
+	@RequestMapping(value="/reserva/reservaOferta", method = RequestMethod.POST)
+	public String reservaOferta(@Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
+		Reservation reserva=(Reservation) request.getSession().getAttribute("reserva");
+		if(result.hasErrors()) {
+			//Salimos si hay un error en la validación
+			
+			return "/reserva/reservaOferta?id="+reserva.getOfferId();
+        }	
+		
+		reserva.setFechaReserva(reservation.getFechaReserva());
+		reserva.setPlazasReservadas(reservation.getPlazasReservadas());
+		reservationService.insertData(reservation);
+		request.getSession().removeAttribute("reserva");
+		request.getSession().removeAttribute("criterioBusquedaCliente");
+		
+		return "/reserva/ofertaCompletada";
+	}
+	
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
