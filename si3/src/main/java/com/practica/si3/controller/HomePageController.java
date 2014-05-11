@@ -390,11 +390,10 @@ public class HomePageController {
 	public String deleteReserva(@RequestParam String id) {
 		Reservation reserva=reservationService.getReservation(id);
 		Oferta oferta = oferta=ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
-		int numero=reserva.getPlazasReservadas();
-		int offerid = reserva.getOfferId();
+		
 		ofertaService.increasePlazasDisponibles(reserva.getOfferId(), reserva.getPlazasReservadas());
 		reservationService.deleteData(String.valueOf(reserva.getReservationId()));
-		Oferta otraoferta =ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
+		
 		return "/reserva/reservaBorrada";
 	}
 	
