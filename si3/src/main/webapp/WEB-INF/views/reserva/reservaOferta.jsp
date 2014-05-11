@@ -10,7 +10,7 @@
 		<div class="center_title_bar">Reserva de Oferta: <b> ${titulo}</b></div>
 <center>
 		<security:authorize access="isAuthenticated()">
-			<security:authentication property="principal.username" /> está a punto de realizar la reserva para ${titulo}:
+			Usuario: <security:authentication property="principal.username" />, indique las plazas y la fecha que desea para la reserva de la oferta: ${titulo}
 		</security:authorize>		
 		<br />
 		<div>

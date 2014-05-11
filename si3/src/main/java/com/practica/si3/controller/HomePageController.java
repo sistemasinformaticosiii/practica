@@ -460,7 +460,6 @@ public class HomePageController {
 		model.addAttribute("listaResultados", map);
 		
 		
-		
 		return "/reserva/reservasListCliente";
 	}
 	
@@ -486,6 +485,20 @@ public class HomePageController {
 		
 		return "/reserva/ofertaCompletada";
 	}
+	
+	/**
+	 * @param 
+	 * @return
+	 */
+	@RequestMapping("/deletereserva")
+ 	public String deleteReserva(@RequestParam String id) {
+ 		Reservation reserva=reservationService.getReservation(id);
+ 		Oferta oferta = oferta=ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
+ 		ofertaService.increasePlazasDisponibles(reserva.getOfferId(), reserva.getPlazasReservadas());
+
+ 		reservationService.deleteData(String.valueOf(reserva.getReservationId()));
+ 		return "/reserva/reservaBorrada";
+ 	}
 	
 	/**
 	 * @param 
