@@ -6,7 +6,7 @@
 	<tiles:putAttribute name="body">
 
 			<div class="center_content">
-				<div class="center_title_bar">Listado de suscripciones activas - Administrador -</div>
+				<div class="center_title_bar">Listado de suscripciones activas - Administrador</div>
 
 				<div class="prod_box_big">
 					<div class="top_prod_box_big"></div>
