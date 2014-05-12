@@ -7,11 +7,14 @@
 	<tiles:putAttribute name="body">
 
 	<div class="center_content">
-		<div class="center_title_bar">Reserva de Oferta: <b> ${titulo}</b></div>
+		<div class="center_title_bar">Reserva de Oferta: <b> ${titulo}</b>}</div>
+		
 <center>
+ 
 		<security:authorize access="isAuthenticated()">
 			Usuario: <security:authentication property="principal.username" />, indique las plazas y la fecha que desea para la reserva de la oferta: ${titulo}
-		</security:authorize>		
+		</security:authorize>
+		<br />${mensaje}<br />		
 		<br />
 		<div>
 			<form:form method="post" action="/reserva/reservaOferta" modelAttribute="reservation">

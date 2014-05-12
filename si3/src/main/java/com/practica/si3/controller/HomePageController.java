@@ -403,6 +403,7 @@ public class HomePageController {
 		Calendar cal = Calendar.getInstance();
 		CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
 		Date fecha=new Date();
+		String mensaje ="Recuerde que el número máximo de reservas por evento es 6";
 		
 		//recuperamos los datos de la oferta
 		Oferta oferta=ofertaService.getOferta(id);
@@ -441,6 +442,7 @@ public class HomePageController {
 		//y lo guardamos en la sesión
 		request.getSession().setAttribute("reserva", reserva);
 		model.addAttribute("titulo", oferta.getTitulo());
+		model.addAttribute("mensaje",mensaje);
 		
 		return "/reserva/reservaOferta";
 	}
