@@ -22,8 +22,7 @@
         </ul> 
 	<div class="title_box">Gestión de Reservas</div>   
         <ul class="left_menu">
-	        <li class="odd"><a href="<c:url value="#"/>">Ver listado de reservas</a></li>
-	        <li class="even"><a href="<c:url value="/reservaOferta"/>">Añadir reserva</a></li>
+	        <li class="odd"><a href="<c:url value="/reservasListAdmin"/>">Ver listado de reservas</a></li>
         </ul>                         
 	<div class="title_box">Gestión de Suscripciones</div>   
         <ul class="left_menu">

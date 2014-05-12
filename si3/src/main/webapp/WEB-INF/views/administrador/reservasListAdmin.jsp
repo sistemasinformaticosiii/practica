@@ -6,7 +6,7 @@
 
 		<div class="center_content">
 			<div class="center_title_bar">
-				Ofertas reservadas: <b> ${numeroReservas}</b>
+				Reserva de Oferta: <b> ${titulo}</b>
 			</div>
   		
   		<div class="prod_box_big">
@@ -27,13 +27,13 @@
 							<td>${reserva.key.fechaReserva}</td>
 							<td align="center">${reserva.key.plazasReservadas}</td>
 							<td>${reserva.value.titulo}</td>
-							<td><a href="<c:url value="editReserva?id=${reserva.key.reservationId}"/>">Editar</a></td>
+							<td><a href="<c:url value="editreserva?id=${reserva.key.reservationId}"/>">Editar</a></td>
 							<td><a href="<c:url value="deletereserva?id=${reserva.key.reservationId}"/>">Borrar</a></td>
 						</tr>
 					</c:forEach>				  
 				  </c:when>
 				  <c:otherwise>
-				  	<b>No dispone de ninguna reserva en este momento</b>
+				  	<b>No existen reservas en el sistema en este momento</b>
 				  </c:otherwise>
 				</c:choose>
 			</table>

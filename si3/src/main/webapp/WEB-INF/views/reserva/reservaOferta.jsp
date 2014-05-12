@@ -14,7 +14,7 @@
 		</security:authorize>		
 		<br />
 		<div>
-			<form:form method="post" action="/si3/reserva/reservaOferta" modelAttribute="reservation">
+			<form:form method="post" action="/reserva/reservaOferta" modelAttribute="reservation">
 				<table>
 					
 					<tr>

@@ -378,6 +378,21 @@ public class HomePageController {
 	}
 
 	/**
+	 * @param 
+	 * @return
+	 */
+	@RequestMapping("/editReserva")
+	public ModelAndView editOferta(@RequestParam String id,@ModelAttribute Reservation reservation) {
+
+		reservation= reservationService.getReservation(id); 
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("reservation", reservation);
+
+		return new ModelAndView("/reserva/editReserva", "map", map);
+	}	
+	
+
+	/**
 	 * @param reservation
 	 * @return
 	 * Procesamos el get de la reserva basicamente vamos a mostrar un formulario con los valores recuperados de criterio de busqueda
@@ -458,10 +473,37 @@ public class HomePageController {
 		numeroReservas= listaReservas.size();
 		
 		model.addAttribute("listaResultados", map);
-		
+		model.addAttribute("numeroreservas", numeroReservas);
 		
 		return "/reserva/reservasListCliente";
 	}
+	
+	/**
+	 * @param 
+	 * @return
+	 */
+	@RequestMapping(value="/reservasListAdmin")
+	public String muestraTodasReservas(Model model){
+		
+		int numeroReservas=0;
+		Reservation reserva;
+		Oferta oferta;
+		List<Reservation> listaReservas = null;
+		List<Oferta> listaOfertas=null;
+		Map<Reservation,Oferta> map = new HashMap<Reservation,Oferta>();
+    
+	    listaReservas=reservationService.getReservationList();
+	    for (Iterator iter = listaReservas.iterator(); iter.hasNext(); ) {
+	    	reserva=(Reservation) iter.next();
+	    	oferta=ofertaService.getOferta(Integer.toString(reserva.getOfferId()));
+	    	map.put(reserva, oferta);
+	    }
+		numeroReservas= listaReservas.size();
+		model.addAttribute("listaResultados", map);
+		model.addAttribute("numeroreservas", numeroReservas);
+		return "/administrador/reservasListAdmin";
+	}	
+	
 	
 	
 	/**
@@ -529,6 +571,17 @@ public class HomePageController {
 		ofertaService.updateData(oferta);
 		return "redirect:/getListOffer";
 	}
+	
+	/**
+	 * @param 
+	 * @return
+	 */
+	@RequestMapping("/updateReserva")
+	public String updateReserva(@ModelAttribute Reservation reservation) {
+		reservationService.updateData(reservation);
+		return "redirect:/reservasListCliente";
+	}	
+	
 
 	/**
 	 * @param 
