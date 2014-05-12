@@ -26,21 +26,21 @@
 									value="${map.user.localidad}" /></td>
 						</tr>
 						<tr>
-							<td>Telefono :</td>
+							<td>Teléfono :</td>
 							<td><form:input path="telefono" value="${map.user.telefono}" />
 							</td>
 						</tr>
 						<tr>
-							<td>email :</td>
+							<td>E-mail :</td>
 							<td><form:input path="email" value="${map.user.email}" /></td>
 						</tr>
 						<tr>
-							<td>perfil :</td>
+							<td>Perfil :</td>
 							<td><form:input path="perfil" value="${map.user.perfil}" />
 							</td>
 						</tr>
 						<tr>
-							<td>password :</td>
+							<td>Password :</td>
 							<td><form:input path="pass" value="${map.user.pass}" /></td>
 						</tr>
 						<tr>

@@ -14,7 +14,7 @@
 		   
             
 	
-	<%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
+	<%-- CÃ³digo temporal, para gestionar imÃ¡genes genÃ©ricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 					        <div class="product_title"><a href="<c:url value="/proveedor/detailOferta?id=${oferta.codOferta}"/>">${oferta.titulo}</a></div>
@@ -36,7 +36,7 @@
 					    </c:when>
 					</c:choose>
 
-	<%--  Fin selección imágenes de ofertas --%>
+	<%--  Fin selecciÃ³n imÃ¡genes de ofertas --%>
 		               
 
 		
@@ -76,7 +76,7 @@
 				<td class="heading">Borrar</td>
 			</tr>
 			<tr>
-			<td>Número de ofertas encontradas: ${numeroOfertas}</td> 
+			<td>NÃºmero de ofertas encontradas: ${numeroOfertas}</td> 
 			</tr>
 			
 			<c:forEach var="oferta" items="${listaOfertas}">
@@ -100,7 +100,7 @@
 					<td><a href="/si3/reservaOferta?id=${oferta.codOferta}">Reservar</a></td>
 				</tr>
 			</c:forEach>
-			<tr><td colspan="8"><a href="registerOferta">Añadir Oferta</a></td></tr>
+			<tr><td colspan="8"><a href="registerOferta">AÃ±adir Oferta</a></td></tr>
 		</table>
  
  --%>

@@ -13,8 +13,8 @@ import com.practica.si3.domain.Reservation;
 public interface ReservationDao {
 	
 	/**
-	 * Añade un registro de la clase Reservation en la BD
-	 * @param reservation - objeto/registro a añadir
+	 * AÃ±ade un registro de la clase Reservation en la BD
+	 * @param reservation - objeto/registro a aÃ±adir
 	 */
 	public void insertData(Reservation reservation);
 	

@@ -18,27 +18,27 @@
   <script>
 	 $(function() {
 
-		 //Array para dar formato en español
+		 //Array para dar formato en espaÃ±ol
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Próximo',
+		  nextText: 'PrÃ³ximo',
 
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
-		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro aÃ±o',
+		  dayNames: ['Domingo','Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','SÃ¡b'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'yy-mm-dd', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
 		 $.datepicker.setDefaults($.datepicker.regional['es']);
 
-		 //miDate: fecha de comienzo D=días | M=mes | Y=año
-		 //maxDate: fecha tope D=días | M=mes | Y=año
+		 //miDate: fecha de comienzo D=dÃ­as | M=mes | Y=aÃ±o
+		 //maxDate: fecha tope D=dÃ­as | M=mes | Y=aÃ±o
 		    $( "#fechaInicio" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		    $( "#fechaFin" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		  });
@@ -91,7 +91,7 @@
                  
                  <div class="product_img_big">
                  
-                 <%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
+                 <%-- Cdigo temporal, para gestionar imÃ¡genes genÃ©ricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 				        		
@@ -109,7 +109,7 @@
 		                 <img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>				        		
 					    </c:when>
 					</c:choose>
-	<%--  Fin selección imágenes de ofertas --%>
+	<%--  Fin selecciÃ³n imÃ¡genes de ofertas --%>
 		               
                        
                  </div>

@@ -20,7 +20,7 @@
         <form:form method="post" action="/filtroOfertas" name="formEntradas" modelAttribute="criterioBusqueda">
 				<input type="hidden" name="tipo" value="Entradas">
 		</form:form>    	        
-        <li class="odd"><a href="<c:url value="javascript:enviar_formulario_entradas()"/>">Entradas de espect&aacute;culos</a></li>
+        <li class="odd"><a href="<c:url value="javascript:enviar_formulario_entradas()"/>">Entradas de espectáculos</a></li>
         
         
         <form:form method="post" action="/filtroOfertas" name="formRestaurantes" modelAttribute="criterioBusqueda">

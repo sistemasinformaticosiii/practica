@@ -18,27 +18,27 @@
   <script>
 	 $(function() {
 
-		 //Array para dar formato en español
+		 //Array para dar formato en espaÃ±ol
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Próximo',
+		  nextText: 'PrÃ³ximo',
 
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
-		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro aÃ±o',
+		  dayNames: ['Domingo','Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','SÃ¡b'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'yy-mm-dd', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
 		 $.datepicker.setDefaults($.datepicker.regional['es']);
 
-		 //miDate: fecha de comienzo D=días | M=mes | Y=año
-		 //maxDate: fecha tope D=días | M=mes | Y=año
+		 //miDate: fecha de comienzo D=dÃ­as | M=mes | Y=aÃ±o
+		 //maxDate: fecha tope D=dÃ­as | M=mes | Y=aÃ±o
 		    $( "#fechaInicio" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		    $( "#fechaFin" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		  });
@@ -47,10 +47,10 @@
   <script>
   $(function() {
     var localidades = [
-                   	"Albacete",	"Alicante",	"Almería", "Álava",	"Asturias", "Ávila", "Badajoz",	"Islas Baleares",
-                	"Barcelona", "Bizkaia", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ceuta", "Ciudad Real",
-                	"Córdoba", "Coruña A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
-                	"Jaén",	"León", "Lugo", "Lleida", "Madrid",	"Málaga", "Melilla", "Murcia", "Navarra", "Ourense",
+                   	"Albacete",	"Alicante",	"AlmerÃ­a", "Ãlava",	"Asturias", "Ãvila", "Badajoz",	"Islas Baleares",
+                	"Barcelona", "Bizkaia", "Burgos", "CÃ¡ceres", "CÃ¡diz", "Cantabria", "CastellÃ³n", "Ceuta", "Ciudad Real",
+                	"CÃ³rdoba", "CoruÃ±a A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
+                	"JaÃ©n",	"LeÃ³n", "Lugo", "Lleida", "Madrid",	"MÃ¡laga", "Melilla", "Murcia", "Navarra", "Ourense",
                 	"Palencia",	"Palmas Las", "Pontevedra", "Rioja La", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
                 	"Sevilla", "Soria",	"Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Zamora", "Zaragoza"
     ];

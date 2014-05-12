@@ -126,8 +126,8 @@ public class OfertaDaoImpl implements OfertaDao {
 			where = where + " precio <= " + criterioBusqueda.getPrecio() + " AND ";
 		}
 
-// Modificaciones del c�digo anterior para que si no se introduce fecha ninguna como criterio de b�squeda, coja la fecha de hoy.
-//		Introduzco las modificaciones que sugiri� Miguel Angel a la fecha df.format formatea la fecha a texto
+// Modificaciones del código anterior para que si no se introduce fecha ninguna como criterio de búsqueda, coja la fecha de hoy.
+//		Introduzco las modificaciones que sugirió Miguel Angel a la fecha df.format formatea la fecha a texto
 		String mifecha="";
 		if(criterioBusqueda.getFecha() != null)		{
 			mifecha= df.format(criterioBusqueda.getFecha());			

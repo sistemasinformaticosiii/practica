@@ -1,7 +1,7 @@
-INSERT INTO oferta values(0,1,'Restaurantes','menu','Cena rom�ntica', '2014-04-10' , '2014-05-15', 'Madrid', 'c/Gran V�a, 5', 'Cena rom�ntica para dos, con espect�culo. Dos primeros y dos segundos, incluido postre', 10, 5, 37, 5);
-INSERT INTO oferta values(1,1,'Actividades','comida','Ruta a Caballo', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran V�a, 5', 'Ruta a caballo por la Sierra de Gredos. Duraci�n: 1 hora. Todo el material est� incluido en la oferta', 10, 5, 37, 5);
-INSERT INTO oferta values(3,1,'Entradas','teatro','Circo del Sol', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran V�a, 5', 'Entradas Circo del Sol', 10, 5, 37, 5);
-INSERT INTO oferta values(4,1,'Entradas','cine','El Se�or de los anillos', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran V�a, 5', 'El Se�or de los Anillos', 10, 5, 37, 5);
+INSERT INTO oferta values(0,1,'Restaurantes','menu','Cena romántica', '2014-04-10' , '2014-05-15', 'Madrid', 'c/Gran Vía, 5', 'Cena romántica para dos, con espectáculo. Dos primeros y dos segundos, incluido postre', 10, 5, 37, 5);
+INSERT INTO oferta values(1,1,'Actividades','comida','Ruta a Caballo', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran Vía, 5', 'Ruta a caballo por la Sierra de Gredos. Duración: 1 hora. Todo el material está incluido en la oferta', 10, 5, 37, 5);
+INSERT INTO oferta values(3,1,'Entradas','teatro','Circo del Sol', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran Vía, 5', 'Entradas Circo del Sol', 10, 5, 37, 5);
+INSERT INTO oferta values(4,1,'Entradas','cine','El Señor de los anillos', '2014-04-10' , '2014-10-30', 'Madrid', 'c/Gran Vía, 5', 'El Señor de los Anillos', 10, 5, 37, 5);
 
 
 
@@ -9,11 +9,11 @@ INSERT INTO subscription values('0', '4', 'Restaurantes');
 INSERT INTO subscription values('1', '4', 'Entradas');
 INSERT INTO subscription values('2', '3', 'Entradas');
 
-/*Password de usuario est�n codificadas: para los usuarios pre-cargados se ha establecido una password con valor "1234"*/
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('juan','TRUE',0,'Juan','Garc�a','Vigo','6000000','pepe@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('maria','TRUE',1,'Juan','Garc�a','Vigo','6000000','pepe@hotmail.com', 'Restaurantes', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('pepe','TRUE',2,'Juan','Garc�a','Vigo','6000000','pepe@hotmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('luis','TRUE',3,'Juan','Garc�a','Vigo','6000000','pepe@hotmail.com', 'Entradas', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+/*Password de usuario estan codificadas: para los usuarios pre-cargados se ha establecido una password con valor "1234"*/
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('juan','TRUE',0,'Juan','García','Vigo','6000000','pepe@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('maria','TRUE',1,'Juan','García','Vigo','6000000','pepe@hotmail.com', 'Restaurantes', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('pepe','TRUE',2,'Juan','García','Vigo','6000000','pepe@hotmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('luis','TRUE',3,'Juan','García','Vigo','6000000','pepe@hotmail.com', 'Entradas', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('andres','TRUE',4,'Andres','Gil','Vigo','6000000','andresgil@gmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('mfsegura@gmail.com','TRUE',5,'Miguel Angel','Fernandez','Toledo','6000000','mfsegura@gmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('josemanuelroma@gmail.com','TRUE',6,'Miguel Angel','Fernandez','Toledo','6000000','josemanuelroma@gmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
@@ -310,6 +310,6 @@ INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, local
 INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, localidad,direccion,descripcion,plazastotal,plazasdisponibles,precio,descuento) VALUES (25, 'Restaurantes', '', 'Descrip', '2014-08-10', '2014-08-26', 'Madrid', 'Calle 68', 'blablabla',37,32,44,21);
 INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, localidad,direccion,descripcion,plazastotal,plazasdisponibles,precio,descuento) VALUES (25, 'Entradas', 'Cine', 'Descrip', '2015-01-18', '2015-03-31', 'Murcia', 'Calle 5', 'blablabla',78,51,95,15);
 INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, localidad,direccion,descripcion,plazastotal,plazasdisponibles,precio,descuento) VALUES (25, 'Entradas', 'Teatro', 'Descrip', '2014-07-07', '2014-09-09', 'Cuenca', 'Calle 4', 'blablabla',84,45,46,15);
-INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, localidad,direccion,descripcion,plazastotal,plazasdisponibles,precio,descuento) VALUES (25, 'Actividades', 'Viajes', 'Crucero por el mediterr�neo', '2014-06-14', '2014-07-28', 'Cuenca', 'Calle 62', 'Recorrido: Barcelona, Navegaci�n, La Goulette (T�nez), N�poles (Pompeya), Civitavecchia (Roma), La Spezia (Florencia/Pisa),Niza (Francia), Barcelona,',25,1,60,15);
+INSERT INTO oferta (codusuario,tipo,categoria,titulo,fechainicio,fechafin, localidad,direccion,descripcion,plazastotal,plazasdisponibles,precio,descuento) VALUES (25, 'Actividades', 'Viajes', 'Crucero por el mediterráneo', '2014-06-14', '2014-07-28', 'Cuenca', 'Calle 62', 'Recorrido: Barcelona, Navegación, La Goulette (Túnez), Nápoles (Pompeya), Civitavecchia (Roma), La Spezia (Florencia/Pisa),Niza (Francia), Barcelona,',25,1,60,15);
 
 

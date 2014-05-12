@@ -38,7 +38,7 @@
 					<td><a href="/si3/delete?id=${user.userId}">Borrar</a></td>
 				</tr>
 			</c:forEach>
-			<tr><td colspan="8"><a href="register">Añadir Proveedor</a></td></tr>
+			<tr><td colspan="8"><a href="register">AÃ±adir Proveedor</a></td></tr>
 		</table>
 
 	</center>

@@ -23,7 +23,7 @@ function Sumar(){
                  
                  <div class="product_img_big">
                  
-                 <%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
+                 <%-- CÃ³digo temporal, para gestionar imÃ¡genes genÃ©ricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 				        		
@@ -41,7 +41,7 @@ function Sumar(){
 		                 <img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>				        		
 					    </c:when>
 					</c:choose>
-	<%--  Fin selección imágenes de ofertas --%>
+	<%--  Fin selecciÃ³n imÃ¡genes de ofertas --%>
 		               
                  
     

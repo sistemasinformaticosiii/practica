@@ -8,10 +8,10 @@
 <div align="center">
 <form name='f' action='j_spring_security_check' method='POST'>
    <fieldset>
-   	<legend> Inicio de sesión</legend>
+   	<legend> Inicio de sesiÃ³n</legend>
 <!--   	<c:if test="${param.error != null}">
 	    <div class="alert alert-error">
-	                    Usuario o contraseña incorrectos
+	                    Usuario o contraseÃ±a incorrectos
 	    </div>
     </c:if>
     <c:if test="${param.logout != null}">
@@ -23,9 +23,9 @@
 
    	  <label for="j_username">Usuario:</label>
       <input type="text" id="j_username" name="j_username" value="" placeholder='e-mail'>
-      <label for="password">Contraseña:</label>
-      <input type='password' id='j_password' name="j_password" placeholder='contraseña'/>
-      <button type="submit">Iniciar sesión</button>
+      <label for="password">ContraseÃ±a:</label>
+      <input type='password' id='j_password' name="j_password" placeholder='contraseÃ±a'/>
+      <button type="submit">Iniciar sesiÃ³n</button>
 
       
    </fieldset>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
    <div class="left_content">
-	<div class="title_box">Gestión de Ofertas</div>   
+	<div class="title_box">GestiÃ³n de Ofertas</div>   
         <ul class="left_menu">
 	        <li class="odd"><a href="<c:url value="/getListOffer"/>">Ver lista de ofertas</a></li>
 	        <li class="even"><a href="<c:url value="/registerOferta?type=Proveedor"/>">Publicar oferta</a></li>

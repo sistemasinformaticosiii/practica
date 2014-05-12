@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 			String selectedroles="";
 			for(int i=0; i<roles.size(); i++){
 				if (i == (roles.size()-1)){
-					//Último elemento
+					//Ãšltimo elemento
 					selectedroles = selectedroles + "'" + roles.get(i)+ "'";
 				}
 				else

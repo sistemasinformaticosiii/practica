@@ -15,7 +15,7 @@
 						</form:form>    	        
                          <li><a class="nav5" href="<c:url value="/logout"/>">Logout </a></li>
                          <li class="divider"></li>
-                         <li><a class="nav7" href="<c:url value="/resources/pdf/guiausuario.pdf"/>" target="_blank">Gu&iacute;a de usuario</a>
+                         <li><a class="nav7" href="<c:url value="/resources/pdf/guiausuario.pdf"/>" target="_blank">Guía de usuario</a>
                          <li class="divider"></li>
                           <security:authorize access="isAuthenticated()">
                          <li><a class="nav8" href="<c:url value="/cuenta"/>">Usuario:

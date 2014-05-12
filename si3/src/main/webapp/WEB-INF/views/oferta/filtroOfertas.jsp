@@ -4,7 +4,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
-<tiles:insertDefinition name="usuariosRegistradosTemplate">
+<tiles:insertDefinition name="defaultTemplateGeneral">
 	<tiles:putAttribute name="body">  
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -15,20 +15,20 @@
 	<script>
 	 $(function() {
 		    
-		 //Array para dar formato en español
+		 //Array para dar formato en espaÃ±ol
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Próximo',
+		  nextText: 'PrÃ³ximo',
 		  
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
-		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro aÃ±o',
+		  dayNames: ['Domingo','Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','SÃ¡b'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'dd/mm/yy', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
@@ -38,8 +38,8 @@
 		 var currentDate = new Date();  
 		 $("#fecha").datepicker("setDate",currentDate);--%>		 
 		 
-		 //miDate: fecha de comienzo D=días | M=mes | Y=año
-		 //maxDate: fecha tope D=días | M=mes | Y=año
+		 //miDate: fecha de comienzo D=dÃ­as | M=mes | Y=aÃ±o
+		 //maxDate: fecha tope D=dÃ­as | M=mes | Y=aÃ±o
 		    $( "#fecha" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		 
 	

@@ -15,7 +15,7 @@
                  
                  <div class="product_img_big">
                  
-                 <%-- C骴igo temporal, para gestionar im醙enes gen閞icas para los tipos: Restaurantes, Actividades y Entradas --%>
+                 <%-- C贸digo temporal, para gestionar im谩genes gen茅ricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 				        		
@@ -33,7 +33,7 @@
 		                 <img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>				        		
 					    </c:when>
 					</c:choose>
-	<%--  Fin selecci髇 im醙enes de ofertas --%>
+	<%--  Fin selecci贸n im谩genes de ofertas --%>
 		               
                  
     
@@ -51,12 +51,12 @@
                          Precio especial PortalOcio:&nbsp;&nbsp;&nbsp;&nbsp;<span class="price"><b>${oferta.precio-(oferta.precio*(oferta.descuento/100))}&euro;</b></span></div>
                           <b>Descuento: <span class="blue">${oferta.descuento}</span><br /></b> 
                           <b>Tipo de oferta: <span class="blue">${oferta.tipo}</span></b><br/>
-                          <b>Descripcion detallada: <span class="blue">${oferta.descripcion }</span><br /></b>
+                          <b>Descripci贸n detallada: <span class="blue">${oferta.descripcion }</span><br /></b>
                           <br/>
                           Fecha Inicio Oferta: <span class="blue">${oferta.fechaInicio}</span><br/>
                           Fecha Fin Oferta: <span class="blue">${oferta.fechaFin}</span><br/>
                           Localidad: <span class="blue">${oferta.localidad}</span><br />
-                          Direcci&oacute;n <span class="blue">${oferta.direccion}</span><br />
+                          Direcci贸n <span class="blue">${oferta.direccion}</span><br />
                          
                           Plazas totales: <span class="blue">${oferta.plazasTotal}</span><br />
                           Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />

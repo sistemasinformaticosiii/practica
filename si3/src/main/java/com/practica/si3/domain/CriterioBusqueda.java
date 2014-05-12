@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 
 /*CriterioBusqueda es un objeto para almacenar los criterios de busqueda
- * haciendo m·s clara su manipulaciÛn para no confundirlo con una oferta
+ * haciendo m√°s clara su manipulaci√≥n para no confundirlo con una oferta
 */
 
 public class CriterioBusqueda {

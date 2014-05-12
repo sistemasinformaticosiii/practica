@@ -11,13 +11,13 @@
 		<div>
 				<table>
 					<tr>
-						<td>JosÈ Manuel Rom·n</td>
+						<td>Jos√© Manuel Rom√°n</td>
 					</tr>
 					<tr>
-						<td>Miguel ¡ngel Fern·ndez</td>
+						<td>Miguel √Ångel Fern√°ndez</td>
 					</tr>
 					<tr>
-						<td>AndrÈs Gil RodrÌguez</td>
+						<td>Andr√©s Gil Rodr√≠guez</td>
 					</tr>				
 				</table>
 			

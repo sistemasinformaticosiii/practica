@@ -4,7 +4,7 @@
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 		<center>
-			<br /> <br /> <br /> <b>Su reserva se ha borrado con exito, esperamos seguir ofrenciendole nuestros servicios</b> <br /> <br />
+			<br /> <br /> <br /> <b>Su reserva se ha borrado con exito, esperamos seguir ofreciéndole nuestros servicios</b> <br /> <br />
 		</center>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

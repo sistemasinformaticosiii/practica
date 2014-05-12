@@ -21,12 +21,12 @@
 			<c:when test="${not empty subscriptionList}">
 				<tr>
 					<security:authorize access="hasRole('Administrador')">
-		      			<td class="heading">C&oacute;digo usuario suscripci&oacute;n</td>
+		      			<td class="heading">Código usuario suscripción</td>
 	      			</security:authorize>
 				
-					<td class="heading">Tipo de suscripci&oacute;n</td>
+					<td class="heading">Tipo de suscripción</td>
 					
-					<td class="heading">Acci&oacute;n disponible</td>
+					<td class="heading">Acción disponible</td>
 				</tr>
 				<c:forEach var="subscription" items="${subscriptionList}">
 					<tr>
@@ -39,7 +39,7 @@
 				</c:forEach>					  
 			</c:when>
 			<c:otherwise>
-				<b>No est� suscrito a ning�n boletin de Ofertas en este momento</b>
+				<b>No está suscrito a ningún boletin de Ofertas en este momento</b>
 			</c:otherwise>
 		</c:choose>		
 				
@@ -56,10 +56,10 @@
        </div> 
 </div> 
 				<security:authorize access="hasRole('Cliente')">
-					<a href="<c:url value="/registerSubscription"/>"class="prod_details">A�adir suscripcion</a>
+					<a href="<c:url value="/registerSubscription"/>"class="prod_details">Añadir suscripcion</a>
       			</security:authorize>
       			<security:authorize access="hasRole('Administrador')">
-					<a href="<c:url value="/registerSubscriptionAdmin"/>"class="prod_details">A�adir suscripcion</a>
+					<a href="<c:url value="/registerSubscriptionAdmin"/>"class="prod_details">Añadir suscripcion</a>
 				</security:authorize>									
 		
 

@@ -18,10 +18,10 @@
   <script>
   $(function() {
     var localidades = [
-                   	"Albacete",	"Alicante",	"AlmerÌa", "¡lava",	"Asturias", "¡vila", "Badajoz",	"Islas Baleares",
-                	"Barcelona", "Bizkaia", "Burgos", "C·ceres", "C·diz", "Cantabria", "CastellÛn", "Ceuta", "Ciudad Real",
-                	"CÛrdoba", "CoruÒa A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
-                	"JaÈn",	"LeÛn", "Lugo", "Lleida", "Madrid",	"M·laga", "Melilla", "Murcia", "Navarra", "Ourense",
+                   	"Albacete",	"Alicante",	"Almer√≠a", "√Ålava",	"Asturias", "√Åvila", "Badajoz",	"Islas Baleares",
+                	"Barcelona", "Bizkaia", "Burgos", "C√°ceres", "C√°diz", "Cantabria", "Castell√≥n", "Ceuta", "Ciudad Real",
+                	"C√≥rdoba", "Coru√±a A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
+                	"Ja√©n",	"Le√≥n", "Lugo", "Lleida", "Madrid",	"M√°laga", "Melilla", "Murcia", "Navarra", "Ourense",
                 	"Palencia",	"Palmas Las", "Pontevedra", "Rioja La", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
                 	"Sevilla", "Soria",	"Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Zamora", "Zaragoza"
     ];
@@ -89,7 +89,7 @@
 <td><form:input path="localidad" id="localidad" name="localidad" class="input_text" /></td>
 </tr>
 <tr>
-<td>Telefono :</td>
+<td>Tel√©fono :</td>
 <td><form:input path="telefono" /></td>
 </tr>
 <tr>

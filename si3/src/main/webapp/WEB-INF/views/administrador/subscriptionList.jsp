@@ -18,7 +18,7 @@
 								<c:choose>
 								  <c:when test="${not empty subscriptionList}">
 									<tr>
-										<td class="heading">Usuario suscripción</td>
+										<td class="heading">Usuario suscripciÃ³n</td>
 										<td class="heading">Tipo de suscripcion</td>
 										<td class="heading">Accion disponible</td>
 									</tr>
@@ -45,8 +45,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="<c:url value="/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_details">Añadir
-				suscripcion</a>
+			<a href="<c:url value="/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_details">AÃ±adir suscripcion</a>
 
 
 		</body>

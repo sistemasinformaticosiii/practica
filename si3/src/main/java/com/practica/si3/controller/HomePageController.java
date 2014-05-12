@@ -61,7 +61,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Registro de nuevos usuarios. Tanto para usuarios an�nimos para registrarse en la aplicaci�n, como para que el administrador registre uno nuevo.
+	 * Registro de nuevos usuarios. Tanto para usuarios anónimos para registrarse en la aplicación, como para que el administrador registre uno nuevo.
 	 */
 	@RequestMapping("/register")
 	public String registerUser(@ModelAttribute User user, ModelMap model, @RequestParam("type") String tiporegistro) {
@@ -72,7 +72,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Registro de suscripci�n a e-mail para usuarios registrados (Clientes).
+	 * Registro de suscripción e-mail para usuarios registrados (Clientes).
 	 */
 	@RequestMapping("/registerSubscription")
 	public ModelAndView registerSubscription(@ModelAttribute Subscription subscription) {
@@ -82,7 +82,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Registro de suscripci�n a e-mail para ser utilizado por el Administrador.
+	 * Registro de suscripción e-mail para ser utilizado por el Administrador.
 	 */
 	@RequestMapping("/registerSubscriptionAdmin")
 	public ModelAndView registerSubscriptionAdmin(@RequestParam(value="roles", required=false) List<String> roles, 
@@ -96,7 +96,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Registro de Oferta (Publicaci�n): tanto para el para rol Proveedor como para el Administrador 
+	 * Registro de Oferta (Publicación): tanto para el para rol Proveedor como para el Administrador 
 	 */
 	@RequestMapping("/registerOferta")
 	public String registerOferta(@ModelAttribute Oferta oferta, Model model, @RequestParam("type") String tiporegistrador) {
@@ -107,7 +107,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * A�adir un nuevo usuario 
+	 * Añade un nuevo usuario 
 	 */
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
@@ -121,7 +121,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * A�adir nueva suscripci�n
+	 * Añadir nueva suscripción
 	 */
 	@RequestMapping("/insertSubscription")
 	public String inserDataSubscription(@RequestParam("tipoSubscription") String tipo,@ModelAttribute Subscription subscription) {
@@ -138,7 +138,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * A�adir nueva suscripci�n (para el Administrador) 
+	 * Añaadir nueva suscripción (para el Administrador) 
 	 */
 	@RequestMapping("/insertSubscriptionAdmin")
 	public String inserDataSubscriptionAdmin(@RequestParam("tipoSubscription") String tipo, @RequestParam("userId") int id,
@@ -171,8 +171,8 @@ public class HomePageController {
 	/**
 	 * @param  
 	 * @return 
-	 * Obtenci�n del listado de usuarios. Si recibe par�metro roles, obtiene los usuarios de esos roles. 
-	 * Si recibe par�metro vac�o, obtiene todos los usuarios. 
+	 * Obtenció del listado de usuarios. Si recibe parámetro roles, obtiene los usuarios de esos roles. 
+	 * Si recibe parámetro vacío, obtiene todos los usuarios. 
 	 */
 	@RequestMapping("/getUserList")
 	public ModelAndView getUserLIst(@RequestParam(value="roles", required=false) List<String> roles) {
@@ -183,7 +183,7 @@ public class HomePageController {
 	/**
 	 * @param  
 	 * @return 
-	 * Obtenci�n del listado de suscripciones de un usuario registrado 
+	 * Obtención del listado de suscripciones de un usuario registrado 
 	 */
 	@RequestMapping("/getListSubscription")
 	public ModelAndView getSubscriptionList() {
@@ -198,7 +198,7 @@ public class HomePageController {
 	/**
 	 * @param  
 	 * @return 
-	 * Obtenci�n del listado de suscripciones de todos los usuarios. 
+	 * Obtención del listado de suscripciones de todos los usuarios. 
 	 */
 	@RequestMapping("/getListSubscriptionAdmin")
 	public ModelAndView getSubscriptionListAdmin() {
@@ -209,7 +209,7 @@ public class HomePageController {
 	/**
 	 * @param  
 	 * @return 
-	 * Obtenci�n del listado de ofertas publicadas por un proveedor 
+	 * Obtención del listado de ofertas publicadas por un proveedor 
 	 */
 	@RequestMapping("/getListOffer")
 	public ModelAndView getOfertaList() {
@@ -227,7 +227,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return 
-	 * Listado de todas las oferta vigentes iniciales, mostrado al arrancar la aplicaci�n 
+	 * Listado de todas las oferta vigentes iniciales, mostrado al arrancar la aplicación 
 	 */
 	@RequestMapping("/getListOfferInicio") 
 	public ModelAndView getOfertaListInicio()  throws Exception {
@@ -258,7 +258,7 @@ public class HomePageController {
 	}
 
 	/**
-	 * Permitimos que nos asocie parametros de jsp a parametros del m�todo para
+	 * Permitimos que nos asocie parametros de jsp a parametros del método para
 	 * utilizar criterioBusqueda como un objeto
 	 */
 	@InitBinder
@@ -278,18 +278,18 @@ public class HomePageController {
 	@RequestMapping(value="/filtroOfertas", method = RequestMethod.POST)
 	public String mostrarOfertas(ModelMap model, @Valid CriterioBusqueda criterioBusqueda, BindingResult result, HttpServletRequest request) {
 		if(result.hasErrors()) {
-			//Salimos si hay un error en la validaci�n
+			//Salimos si hay un error en la validación
 			return "/oferta/filtroOfertas";
         }		
 		//Creamos un listado con todas las ofertas que cumplen el criterio 
 		List<Oferta> listaOfertas = new ArrayList<Oferta>();
 		listaOfertas=this.ofertaService.filterOferta(criterioBusqueda);
 		
-		// Lo a�adimos al modelo		
+		// Lo añadimos al modelo		
 		model.addAttribute("listaOfertas",listaOfertas);
 		model.addAttribute("numeroOfertas", listaOfertas.size());
 		
-		//a�adimos criterio de busqueda a la sesion para utilizarlo en la reserva
+		//añadimos criterio de busqueda a la sesion para utilizarlo en la reserva
 		request.getSession().setAttribute("criterioBusquedaCliente", criterioBusqueda);
 		
 		//return "/oferta/filtroOfertas";
@@ -406,7 +406,7 @@ public class HomePageController {
 		Calendar cal = Calendar.getInstance();
 		CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
 		Date fecha=new Date();
-		String mensaje ="Recuerde que el n�mero m�ximo de reservas por evento es 6";
+		String mensaje ="Recuerde que el número máximo de reservas por evento es 6";
 		
 		//recuperamos los datos de la oferta
 		Oferta oferta=ofertaService.getOferta(id);
@@ -425,16 +425,16 @@ public class HomePageController {
 		criterioBusquedaCliente=(CriterioBusqueda) request.getSession().getAttribute("criterioBusquedaCliente");
 		//Utilidad para formatear la fecha del criterio de busqueda
 		SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_ES"));				
-		//Comprobamos que existe la busqueda por si ven�a de otro sitio
+		//Comprobamos que existe la busqueda por si venía de otro sitio
 		if(criterioBusquedaCliente!=null && criterioBusquedaCliente.getFecha()!=null){
 			//guardamos la fecha en la reserva con el formato correcto
 			fecha=criterioBusquedaCliente.getFecha();
 			reserva.setFechaReserva( formateador.format(fecha));
-			//guardamos el n�mero de plazas
+			//guardamos el número de plazas
 			reserva.setPlazasReservadas(criterioBusquedaCliente.getPlazas());
 			
 		}
-		//si no hubo busqueda sugerimos el d�a actual y n�mero de reservas 1
+		//si no hubo busqueda sugerimos el día actual y número de reservas 1
 		else{
 			
 			reserva.setFechaReserva(formateador.format(cal.getTime()));
@@ -442,7 +442,7 @@ public class HomePageController {
 		}
 		criterioBusquedaCliente=null;
 		model.addAttribute("reservation", reserva);
-		//y lo guardamos en la sesi�n
+		//y lo guardamos en la sesión
 		request.getSession().setAttribute("reserva", reserva);
 		model.addAttribute("titulo", oferta.getTitulo());
 		model.addAttribute("mensaje",mensaje);
@@ -470,7 +470,7 @@ public class HomePageController {
 	    
 	    listaReservas=reservationService.getReservationListPorCliente(usuario.getUserId());
 	    for (Iterator iter = listaReservas.iterator(); iter.hasNext(); ) {
-	        // c�digo aqu�
+	        // código aquí
 	    	reserva=(Reservation) iter.next();
 	    	oferta=ofertaService.getOferta(Integer.toString(reserva.getOfferId()));
 	    	map.put(reserva, oferta);
@@ -519,7 +519,7 @@ public class HomePageController {
 	public String reservaOferta(@Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
 		Reservation reserva=(Reservation) request.getSession().getAttribute("reserva");
 		if(result.hasErrors()) {
-			//Salimos si hay un error en la validaci�n
+			//Salimos si hay un error en la validación
 			
 			return "/reserva/reservaOferta?id="+reserva.getOfferId();
         }	
@@ -604,7 +604,7 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Borrado de la suscripci�n de un usuario
+	 * Borrado de la suscripción de un usuario
 	 */ 
 	@RequestMapping("/deleteSubscription")
 	public String deleteSubscription(@RequestParam String id) {

@@ -6,7 +6,7 @@
 	<tiles:putAttribute name="center">
 
 	<center>
-		<br /> <br /> <br /> <b>Editar Subscripcion </b><br /> <br />
+		<br /> <br /> <br /> <b>Editar Subscripción </b><br /> <br />
 		<div>
 			<form:form method="post" action='<c:url value="updateSubscription"/>' modelAttribute="subscription">
 				<table>
