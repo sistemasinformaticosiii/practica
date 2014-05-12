@@ -6,7 +6,7 @@
 
 		<body>
 			<div class="center_content">
-				<div class="center_title_bar">Alta en suscripciones</div>
+				<div class="center_title_bar">Alta en suscripciones - Administrador -</div>
 
 				<div class="prod_box_big">
 					<div class="top_prod_box_big"></div>

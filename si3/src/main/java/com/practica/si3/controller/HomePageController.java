@@ -85,8 +85,11 @@ public class HomePageController {
 	 * Registro de suscripción a e-mail para ser utilizado por el Administrador.
 	 */
 	@RequestMapping("/registerSubscriptionAdmin")
-	public ModelAndView registerSubscriptionAdmin(@ModelAttribute Subscription subscription) {
-		List<User> userList = userService.getUserList(null);
+	public ModelAndView registerSubscriptionAdmin(@RequestParam(value="roles", required=false) List<String> roles, 
+			@ModelAttribute Subscription subscription) {
+		/*List<String> role = new ArrayList<String>();
+		role.add("Cliente");*/
+		List<User> userList = userService.getUserList(roles);
 		return new ModelAndView("/administrador/registerSubscriptionAdmin", "userList", userList);
 	}
 		
