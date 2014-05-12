@@ -523,7 +523,7 @@ public class HomePageController {
 		
 		reserva.setFechaReserva(reservation.getFechaReserva());
 		reserva.setPlazasReservadas(reservation.getPlazasReservadas());
-		reservationService.insertData(reservation);
+		reservationService.insertData(reserva);
 		request.getSession().removeAttribute("reserva");
 		request.getSession().removeAttribute("criterioBusquedaCliente");
 		
