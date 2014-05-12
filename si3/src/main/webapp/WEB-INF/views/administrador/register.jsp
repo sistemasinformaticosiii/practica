@@ -61,6 +61,7 @@
 </head>
 
 <center>
+	<div class="center_content">
 		<div class="center_title_bar">
 			<c:if test="${tiporegistro =='user'}" >
  				Registro de nuevo usuario 

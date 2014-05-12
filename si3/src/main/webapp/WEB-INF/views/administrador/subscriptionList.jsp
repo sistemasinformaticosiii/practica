@@ -5,7 +5,6 @@
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
-		<body>
 			<div class="center_content">
 				<div class="center_title_bar">Listado de suscripciones activas - Administrador -</div>
 
@@ -45,9 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="<c:url value="/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_details">Añadir suscripcion</a>
+			<a href="<c:url value="/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_detailssubscription">Añadir suscripcion</a>
 
-
-		</body>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

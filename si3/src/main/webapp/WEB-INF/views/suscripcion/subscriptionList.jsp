@@ -56,10 +56,10 @@
        </div> 
 </div> 
 				<security:authorize access="hasRole('Cliente')">
-					<a href="<c:url value="/registerSubscription"/>"class="prod_details">Añadir suscripcion</a>
+					<a href="<c:url value="/registerSubscription"/>"class="prod_detailssubscription">Añadir suscripcion</a>
       			</security:authorize>
       			<security:authorize access="hasRole('Administrador')">
-					<a href="<c:url value="/registerSubscriptionAdmin"/>"class="prod_details">Añadir suscripcion</a>
+					<a href="<c:url value="/registerSubscriptionAdmin"/>"class="prod_detailssubscription">Añadir suscripcion</a>
 				</security:authorize>									
 		
 

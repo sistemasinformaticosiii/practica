@@ -455,6 +455,17 @@ _margin:6px 0 0 35px;
 text-decoration:none;
 color:#0fa0dd;
 }
+a.prod_detailssubscription{
+width:100px;
+display:block;
+float:left;
+background:url(../images/square-blue-add.gif) no-repeat left;
+padding:0 0 0 20px;
+margin:7px 0 0 38px;
+_margin:6px 0 0 35px;
+text-decoration:none;
+color:#0fa0dd;
+}
 /*---------prod_box_big----------*/
 .prod_box_big{
 width:554px;
