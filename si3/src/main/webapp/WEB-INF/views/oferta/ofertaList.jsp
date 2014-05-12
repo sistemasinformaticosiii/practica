@@ -41,7 +41,7 @@
 
 		
 		
-		            <div class="prod_price"><span class="reduce">${oferta.precio}&euro;</span> <span class="price">${oferta.precio}&euro;</span></div>                        
+		            <div class="prod_price"><span class="reduce">${oferta.precio}&euro;</span> <span class="price">${oferta.precio-(oferta.precio*(oferta.descuento/100))}&euro;</span></div>                        
 		            </div>
 		            <div class="bottom_prod_box"></div>             
 		            <div class="prod_details_tab">

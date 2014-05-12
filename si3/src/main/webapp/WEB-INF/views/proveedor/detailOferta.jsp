@@ -52,7 +52,7 @@ function Sumar(){
                          <div class="specifications">
                          </div>
                          <div class="prod_price_big">Precio original:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="reduce">${oferta.precio}&euro;</span><br/> 
-                         Precio especial PortalOcio:&nbsp;&nbsp;&nbsp;&nbsp;<span class="price"><b>${oferta.precio}&euro;</b></span></div>
+                         Precio especial PortalOcio:&nbsp;&nbsp;&nbsp;&nbsp;<span class="price"><b>${oferta.precio-(oferta.precio*(oferta.descuento/100))}&euro;</b></span></div>
                           <b>Descuento: <span class="blue">${oferta.descuento}</span><br /></b> 
                           <b>Tipo de oferta: <span class="blue">${oferta.tipo}</span></b><br/>
                           <b>Descripcion detallada: <span class="blue">${oferta.descripcion }</span><br /></b>
