@@ -126,8 +126,8 @@ public class OfertaDaoImpl implements OfertaDao {
 			where = where + " precio <= " + criterioBusqueda.getPrecio() + " AND ";
 		}
 
-// Modificaciones del código anterior para que si no se introduce fecha ninguna como criterio de búsqueda, coja la fecha de hoy.
-//		Introduzco las modificaciones que sugirió Miguel Angel a la fecha df.format formatea la fecha a texto
+// Modificaciones del cï¿½digo anterior para que si no se introduce fecha ninguna como criterio de bï¿½squeda, coja la fecha de hoy.
+//		Introduzco las modificaciones que sugiriï¿½ Miguel Angel a la fecha df.format formatea la fecha a texto
 		String mifecha="";
 		if(criterioBusqueda.getFecha() != null)		{
 			mifecha= df.format(criterioBusqueda.getFecha());			
@@ -136,7 +136,7 @@ public class OfertaDaoImpl implements OfertaDao {
 			Date today = new Date();
 			mifecha = df.format(today);
 		}
-		String sql = "select * from oferta where" + where + " fechainicio <= " + "'" + mifecha + "'" + " AND " +  "'" + mifecha + "'" + "<= fechafin" + " AND " + "plazasdisponibles >= " + criterioBusqueda.getPlazas();
+		String sql = "select * from oferta where" + where + " fechainicio <= " + "'" + mifecha + "'" + " AND " +  "'" + mifecha + "'" + "<= fechafin" + " AND " + "plazasdisponibles > " + criterioBusqueda.getPlazas();
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
 		return ofertaList;
