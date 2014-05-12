@@ -110,7 +110,7 @@ public class OfertaDaoImpl implements OfertaDao {
 //		Herramienta para cambiar el formato de la fecha
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		
-		List<Oferta> ofertaList = new ArrayList<>();
+		List<Oferta> ofertaList = new ArrayList<Oferta>();
 		String where = "";
 		if (criterioBusqueda.getTipo()!="") {
 			if(!criterioBusqueda.getTipo().equals("Todas")){

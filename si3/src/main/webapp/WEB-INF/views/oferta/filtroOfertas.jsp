@@ -85,7 +85,7 @@
 	    				<td><form:errors path="fecha" cssClass="error"/></td>
 	    				
 	    			</tr>
-	    			<td><label for="precio">Precio máximo</label></td>
+	    			<td><label for="precio">Precio m&aacute;ximo</label></td>
                		
                 		<td><form:input path="precio"  size="10" /></td>
                 		<td><form:errors path="precio" cssClass="error" /></td>
@@ -95,7 +95,7 @@
                 		
             		</tr>
             		<tr>
-                		<td><label for="plazas">Plazas mínimas disponibles:</label></td>
+                		<td><label for="plazas">Plazas m&iacute;nimas disponibles:</label></td>
                 		<td><form:input path="plazas" /></td>
                 		<td><form:errors path="plazas" cssClass="error" /></td>
             		</tr>

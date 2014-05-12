@@ -8,7 +8,7 @@
 	
 <div align="center">
 <security:authorize access="isAuthenticated()">
-Sesión iniciada. Soy el usuario:  <security:authentication property="principal.username" />
+Sesi&oacute;n iniciada. Soy el usuario:  <security:authentication property="principal.username" />
 Y mi perfil es: <security:authentication property="principal.authorities"/>
 
 </security:authorize>
