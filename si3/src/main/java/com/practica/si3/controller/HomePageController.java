@@ -515,19 +515,30 @@ public class HomePageController {
 	@RequestMapping(value="/reserva/reservaOferta", method = RequestMethod.POST)
 	public String reservaOferta(@Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
 		Reservation reserva=(Reservation) request.getSession().getAttribute("reserva");
-		if(result.hasErrors()) {
-			//Salimos si hay un error en la validación
+		Oferta oferta=ofertaService.getOferta(Integer.toString(reserva.getOfferId()));
+		String vista="";
+		if (reservation.getPlazasReservadas()>6){
+			vista="/reserva/numeroExcesivo";
+		}
+		else{
+			if (reservation.getPlazasReservadas()>oferta.getPlazasDisponibles()){
+				vista="/reserva/noEntradasDisponibles";
+			}
+			else {
+				reserva.setFechaReserva(reservation.getFechaReserva());
+				reserva.setPlazasReservadas(reservation.getPlazasReservadas());
+				reservationService.insertData(reserva);
+				ofertaService.decreasePlazasDisponibles(reserva.getOfferId(), reserva.getPlazasReservadas());
+				vista="/reserva/ofertaCompletada";
+				
+			}
 			
-			return "/reserva/reservaOferta?id="+reserva.getOfferId();
-        }	
+		}
 		
-		reserva.setFechaReserva(reservation.getFechaReserva());
-		reserva.setPlazasReservadas(reservation.getPlazasReservadas());
-		reservationService.insertData(reserva);
 		request.getSession().removeAttribute("reserva");
 		request.getSession().removeAttribute("criterioBusquedaCliente");
 		
-		return "/reserva/ofertaCompletada";
+		return vista;
 	}
 	
 	/**
