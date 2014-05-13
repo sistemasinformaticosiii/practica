@@ -20,7 +20,7 @@
 			<tr>
 				<td class="heading">Username</td>
 				<td class="heading">Enabled</td>
-<!-- 				<td class="heading">User Id</td> -->
+ 				<td class="heading">User Id</td> 
 				<td class="heading">Nombre</td>
 				<td class="heading">Apellidos</td>
 				<td class="heading">Localidad</td>
@@ -35,7 +35,7 @@
 				<tr>
 					<td>${user.username}</td>
 					<td>${user.enabled}</td>										
-<%-- 					<td>${user.userId}</td> --%>
+					<td>${user.userId}</td>
 					<td>${user.nombre}</td>
 					<td>${user.apellidos}</td>
 					<td>${user.localidad}</td>

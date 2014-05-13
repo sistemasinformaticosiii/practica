@@ -17,8 +17,8 @@
         
 	<div class="title_box">Gestión de Ofertas</div>   
         <ul class="left_menu">
-	        <li class="odd"><a href="<c:url value="/getListOfferInicio"/>">Ver lista de ofertas</a></li>
-	        <li class="even"><a href="<c:url value="/registerOferta?type=Administrador"/>">Añadir oferta</a></li>
+	        <li class="odd"><a href="<c:url value="/getListOfferAdmin"/>">Ver lista de ofertas</a></li>
+	        <li class="even"><a href="<c:url value="/registerOfertaAdmin?roles=Entradas&roles=Restaurantes&roles=Actividades"/>">Añadir oferta</a></li>
         </ul> 
 	<div class="title_box">Gestión de Reservas</div>   
         <ul class="left_menu">

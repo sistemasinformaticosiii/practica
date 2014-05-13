@@ -45,6 +45,12 @@ public interface OfertaDao {
 	 *
 	 */
 	public List<Oferta> getOfertasList();
+	
+	/**
+	 * Obtiene un listado de todos los registro de la BD sin ningun criterio.
+	 *
+	 */
+	public List<Oferta> getOfertasListAll();
 	/**
 	 * Obtiene un listado de ofertas por tipo de perfil, en base a los criterios fecha y plazas disponibles.
 	 * 

@@ -35,6 +35,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	}
 	
 	@Override
+	public void deleteDataByCodigo(int id){
+		subscriptiondao.deleteDataByCodigo(id);
+	}
+	
+	@Override
 	public void deleteDataByUser(int id, String tipo) {
 		subscriptiondao.deleteDataByUser(id, tipo);
 	}

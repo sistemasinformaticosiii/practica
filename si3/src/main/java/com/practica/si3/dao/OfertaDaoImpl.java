@@ -58,8 +58,8 @@ public class OfertaDaoImpl implements OfertaDao {
 	}
 
 	/**
-	 * Obtiene un listado de todas las ofertas existentes en la BD.
-	 * @return listado de ofertas obtenido de la BD.
+	 * Obtiene un listado de todas las ofertas existentes en la BD a dia actual y plazas disponibles>0.
+	 * @return listado de ofertas obtenido de la tabla ofertas que cumple criterio.
 	 */
 	public List<Oferta> getOfertasList() {
 		
@@ -72,6 +72,20 @@ public class OfertaDaoImpl implements OfertaDao {
 		return ofertaList;
 	}
 	
+	/**
+	 * Obtine un listado de todos los registros de la tabla oferta.
+	 * @return listado de registros tipo oferta.
+	 */
+	public List<Oferta> getOfertasListAll() {
+		
+		List<Oferta> ofertaList = new ArrayList<Oferta>();
+		
+		String sql = "select * from oferta";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
+		return ofertaList;
+	}
 	
 	/**
 	 *  Obtiene un listado de ofertas por tipo de perfil, en base a los criterios fecha y plazas disponibles.
@@ -126,8 +140,8 @@ public class OfertaDaoImpl implements OfertaDao {
 			where = where + " precio <= " + criterioBusqueda.getPrecio() + " AND ";
 		}
 
-// Modificaciones del cÃ³digo anterior para que si no se introduce fecha ninguna como criterio de bÃºsqueda, coja la fecha de hoy.
-//		Introduzco las modificaciones que sugiriÃ³ Miguel Angel a la fecha df.format formatea la fecha a texto
+// Modificaciones del código anterior para que si no se introduce fecha ninguna como criterio de búsqueda, coja la fecha de hoy.
+//		Introduzco las modificaciones que sugirió Miguel Angel a la fecha df.format formatea la fecha a texto
 		String mifecha="";
 		if(criterioBusqueda.getFecha() != null)		{
 			mifecha= df.format(criterioBusqueda.getFecha());			
@@ -136,7 +150,7 @@ public class OfertaDaoImpl implements OfertaDao {
 			Date today = new Date();
 			mifecha = df.format(today);
 		}
-		String sql = "select * from oferta where" + where + " fechainicio <= " + "'" + mifecha + "'" + " AND " +  "'" + mifecha + "'" + "<= fechafin" + " AND " + "plazasdisponibles > " + criterioBusqueda.getPlazas();
+		String sql = "select * from oferta where" + where + " fechainicio <= " + "'" + mifecha + "'" + " AND " +  "'" + mifecha + "'" + "<= fechafin" + " AND " + "plazasdisponibles >= " + criterioBusqueda.getPlazas();
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		ofertaList = jdbcTemplate.query(sql, new OfertaRowMapper());
 		return ofertaList;

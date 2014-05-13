@@ -96,12 +96,25 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 * Registro de Oferta (Publicación): tanto para el para rol Proveedor como para el Administrador 
+	 * Registro de Oferta (Publicación): Para el rol Proveedor
 	 */
 	@RequestMapping("/registerOferta")
 	public String registerOferta(@ModelAttribute Oferta oferta, Model model, @RequestParam("type") String tiporegistrador) {
 		model.addAttribute("tiporegistrador", tiporegistrador);
 		return "/proveedor/registerOferta";
+	}
+	
+	/**
+	 * @param
+	 * @return
+	 * Registro de Oferta (Publicacion): Para el rol Administrador
+	 */
+	@RequestMapping("/registerOfertaAdmin")
+	public ModelAndView registerOfertaAdmin(@RequestParam(value="roles", required=false) List<String> roles, 
+			@ModelAttribute Oferta oferta) {
+		
+		List<User> userList = userService.getUserList(roles);
+		return new ModelAndView("/administrador/registerOfertaAdmin", "userList", userList);
 	}
 
 	/**
@@ -167,7 +180,23 @@ public class HomePageController {
 			ofertaService.insertData(oferta);
 		return "redirect:/getListOffer";
 	}
+	
+	/**
+	 * @param
+	 * @return
+	 * Insercion de una oferta desde el rol Administrador
+	 */
+	@RequestMapping("/insertOfertaAdmin")
+	public String inserDataOfertaAdmin(@RequestParam int codUsuario, @ModelAttribute Oferta oferta) {
 
+		User userSelect = userService.getUser(Integer.toString(codUsuario));
+		oferta.setTipo(userSelect.getPerfil());
+		if (oferta != null)
+			ofertaService.insertData(oferta);
+		return "redirect:/getListOfferAdmin";
+	}
+	
+	
 	/**
 	 * @param  
 	 * @return 
@@ -234,6 +263,18 @@ public class HomePageController {
 		//OJO COMENTADO HASTA QUE PASEN 24 HORAS. BLOQUEO DE GMAIL: mailInicio.doSendEmail();
 		List<Oferta> ofertaListInicio = ofertaService.getOfertaList();
 		return new ModelAndView("/oferta/ofertaList","listaOfertas", ofertaListInicio);
+	}
+	
+	/**
+	 * @param
+	 * @return
+	 * Listado de todas las ofertas vigentes o no para el perfil Administrador
+	 */
+	@RequestMapping("/getListOfferAdmin") 
+	public ModelAndView getOfertaListAdmin(){
+		
+		List<Oferta> ofertaListInicio = ofertaService.getOfertaListAll();
+		return new ModelAndView("/administrador/ofertaList","listaOfertas", ofertaListInicio);
 	}
 	
 	/**
@@ -584,6 +625,17 @@ public class HomePageController {
 	}
 	
 	/**
+	 * @param
+	 * @return
+	 * Actualiza valores de una oferta desde el perfil Administrador. Redirige a listado de ofertas.
+	 */
+	@RequestMapping("/updateOfertaAdmin")
+	public String updateOfertaAdmin(@ModelAttribute Oferta oferta) {
+		ofertaService.updateData(oferta);
+		return "redirect:/getListOfferAdmin";
+	}
+	
+	/**
 	 * @param 
 	 * @return
 	 */
@@ -600,8 +652,9 @@ public class HomePageController {
 	 */
 	@RequestMapping("/delete")
 	public String deleteUser(@RequestParam String id, HttpServletRequest request) {
-		System.out.println("id = " + id);
+		
 		userService.deleteData(id);
+		subscriptionService.deleteDataByCodigo(Integer.parseInt(id));
 		String referer = request.getHeader("Referer");
 		return "redirect:" + referer;
 	}
@@ -632,9 +685,9 @@ public class HomePageController {
 
 	@RequestMapping("/deleteOferta")
 	public String deleteOferta(@RequestParam String id) {
-		System.out.println("id = " + id);
+		
 		ofertaService.deleteData(id);
-		return "redirect:/getListOffer";
+		return "redirect:/getListOfferAdmin";
 	}
 
 	@RequestMapping("/contact")

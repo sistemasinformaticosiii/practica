@@ -69,6 +69,15 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sql);
 	}
+	
+	@Override
+	public void deleteDataByCodigo(int id){
+		
+		String sql = "delete from subscription where coduser=" + id;
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(sql);
+	}
 
 	@Override
 	public void updateData(Subscription subscription) {

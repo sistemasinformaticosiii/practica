@@ -30,6 +30,11 @@ public class OfertaServiceImpl implements OfertaService {
 	}
 	
 	@Override
+	public List<Oferta> getOfertaListAll() {
+		return ofertaDao.getOfertasListAll();
+	}
+	
+	@Override
 	public void updateData(Oferta oferta) {
 		ofertaDao.updateData(oferta);
 		

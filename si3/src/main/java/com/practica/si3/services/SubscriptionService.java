@@ -11,6 +11,7 @@ public interface SubscriptionService {
 	public List<Subscription> getSubscriptionListId(int id);
 	public void deleteData(String id);
 	public void deleteDataByUser(int id, String tipo);
+	public void deleteDataByCodigo(int id);
 	public Subscription getSubscription(String id);
 	public void updateData(Subscription subscription);
 }

@@ -9,6 +9,7 @@ public interface OfertaService {
 
 	public void insertData(Oferta oferta);
 	public List<Oferta> getOfertaList();
+	public List<Oferta> getOfertaListAll();
 	public void updateData(Oferta oferta);
 	public Oferta getOferta(String id);
 	public void deleteData(String id);
