@@ -125,8 +125,17 @@ public class HomePageController {
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
 		if (!userService.existUser(user.getEmail()) && (user != null)) {
-			userService.insertData(user);
-			return "redirect:/getUserList";
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
+			if(!(authentication instanceof AnonymousAuthenticationToken)){
+				//Usuario que está logueado (es decir, en este caso: Administrador que registra a un nuevo usuario)	
+				userService.insertData(user);
+				return "redirect:/getUserList";
+			}		
+			else{ //Usuario anónimo, que acaba de completar el registro.
+				userService.insertData(user);
+				return "redirect:/login";
+			}	
 		} else
 			return "redirect:/errorUser";
 	}
