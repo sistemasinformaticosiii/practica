@@ -38,10 +38,16 @@
 				</c:choose>
 			</table>
 
-            </div>                               
-       </div> 
-</div>
-</div> 	 			
+   					</div>
+						<div class="top_prod_box_big"></div>
+						<div class="bottom_prod_box_big"></div>
+
+
+
+
+					</div>
+				</div>
+			</div> 	 			
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

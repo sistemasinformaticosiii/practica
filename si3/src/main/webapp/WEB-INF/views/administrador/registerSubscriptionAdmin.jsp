@@ -15,7 +15,7 @@
 						<div align="center">
 							<br />
 							<div>
-								<form:form method="post" action="/si3/insertSubscriptionAdmin"
+								<form:form method="post" action="/insertSubscriptionAdmin"
 									modelAttribute="subscription">
 									<table>
 										<tr>

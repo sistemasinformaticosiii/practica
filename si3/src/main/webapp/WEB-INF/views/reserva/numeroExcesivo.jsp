@@ -8,7 +8,8 @@
 				<div class="top_prod_box_big"></div>
 				<div class="center_prod_box_big">
 					<div align="center">
-						 <b>Su reserva se ha completado con éxito, enhorabuena</b>
+						<b>Número excesivo </b> <br />
+						<br /> <a href="javascript:history.back()" class="return_center">Volver</a>
 						<div class="top_prod_box_big"></div>
 						<div class="bottom_prod_box_big"></div>
 					</div>

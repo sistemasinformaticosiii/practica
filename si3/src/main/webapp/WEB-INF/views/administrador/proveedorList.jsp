@@ -35,7 +35,7 @@
 					<td>${user.perfil}</td>
 					<td>${user.pass}</td>
 					<td><a href="edit?id=${user.userId}">Editar</a></td>
-					<td><a href="/si3/delete?id=${user.userId}">Borrar</a></td>
+					<td><a href="/delete?id=${user.userId}">Borrar</a></td>
 				</tr>
 			</c:forEach>
 			<tr><td colspan="8"><a href="register">Añadir Proveedor</a></td></tr>

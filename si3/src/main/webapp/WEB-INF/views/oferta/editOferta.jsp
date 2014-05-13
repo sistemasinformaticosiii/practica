@@ -7,7 +7,7 @@
 	<center>
 		<br /> <br /> <br /> <b>Editar Oferta </b><br /> <br />
 		<div>
-			<form:form method="post" action="/si3/updateOferta" modelAttribute="oferta">
+			<form:form method="post" action="/updateOferta" modelAttribute="oferta">
 				<table>
 					<tr>
 						<td>Cod Usuario :</td>

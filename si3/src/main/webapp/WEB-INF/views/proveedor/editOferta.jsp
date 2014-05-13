@@ -113,7 +113,7 @@
 		               
                        
                  </div>
- 			<form:form method="post" id="ofertaeditform" action="/si3/updateOferta" modelAttribute="oferta">
+ 			<form:form method="post" id="ofertaeditform" action="/updateOferta" modelAttribute="oferta">
 				<table>
 					<tr>
 						<td><form:input path="codUsuario" style="display:none" value="${map.oferta.codUsuario}" /></td>
