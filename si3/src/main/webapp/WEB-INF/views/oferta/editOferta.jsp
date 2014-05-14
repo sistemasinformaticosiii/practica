@@ -18,27 +18,27 @@
   <script>
 	 $(function() {
 
-		 //Array para dar formato en español
+		 //Array para dar formato en espaï¿½ol
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Próximo',
+		  nextText: 'Prï¿½ximo',
 
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
-		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro aï¿½o',
+		  dayNames: ['Domingo','Lunes','Martes','Miï¿½rcoles','Jueves','Viernes','Sï¿½bado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sï¿½b'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'yy-mm-dd', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
 		 $.datepicker.setDefaults($.datepicker.regional['es']);
 
-		 //miDate: fecha de comienzo D=días | M=mes | Y=año
-		 //maxDate: fecha tope D=días | M=mes | Y=año
+		 //miDate: fecha de comienzo D=dï¿½as | M=mes | Y=aï¿½o
+		 //maxDate: fecha tope D=dï¿½as | M=mes | Y=aï¿½o
 		    $( "#fechaInicio" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		    $( "#fechaFin" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		  });
@@ -91,7 +91,7 @@
                  
                  <div class="product_img_big">
                  
-                 <%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
+                 <%-- Cï¿½digo temporal, para gestionar imï¿½genes genï¿½ricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 				        		
@@ -109,11 +109,11 @@
 		                 <img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>				        		
 					    </c:when>
 					</c:choose>
-	<%--  Fin selección imágenes de ofertas --%>
+	<%--  Fin selecciï¿½n imï¿½genes de ofertas --%>
 		               
                        
                  </div>
- 			<form:form method="post" id="ofertaeditform" action="/si3/updateOfertaAdmin" modelAttribute="oferta">
+ 			<form:form method="post" id="ofertaeditform" action="/admin/updateOfertaAdmin" modelAttribute="oferta">
 				<table>
 					<tr>
 						<td><form:input path="codUsuario" style="display:none" value="${map.oferta.codUsuario}" /></td>

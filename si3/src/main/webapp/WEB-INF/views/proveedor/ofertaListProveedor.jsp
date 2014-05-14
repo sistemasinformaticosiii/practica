@@ -49,62 +49,6 @@
 		            </div>                     
 		        </div>
 		</c:forEach>
-
-
- <%--
-
-		<br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /> 
-		<br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br />
-		<b>Lista de Ofertas | Practica </b><br /> <br />
-		<table border="1">
-			<tr>
-				<td class="heading">Cod Oferta</td>
-				<td class="heading">Cod Usuario</td>
-				<td class="heading">Tipo</td>
-				<td class="heading">Categoria</td>
-				<td class="heading">Titulo</td>
-				<td class="heading">Fecha Inicio</td>
-				<td class="heading">Fecha Fin</td>
-				<td class="heading">Localidad</td>
-				<td class="heading">Direccion</td>
-				<td class="heading">Descripcion</td>
-				<td class="heading">Plazas totales</td>
-				<td class="heading">Plazas disponibles</td>
-				<td class="heading">Precio</td>
-				<td class="heading">Descuento</td>
-				<td class="heading">Editar</td>
-				<td class="heading">Borrar</td>
-			</tr>
-			<tr>
-			<td>Número de ofertas encontradas: ${numeroOfertas}</td> 
-			</tr>
-			
-			<c:forEach var="oferta" items="${listaOfertas}">
-				<tr>
-					<td>${oferta.codOferta}</td>
-					<td>${oferta.codUsuario}</td>
-					<td>${oferta.tipo}</td>
-					<td>${oferta.categoria}</td>
-					<td>${oferta.titulo}</td>
-					<td>${oferta.fechaInicio}</td>
-					<td>${oferta.fechaFin}</td>
-					<td>${oferta.localidad}</td>
-					<td>${oferta.direccion}</td>
-					<td>${oferta.descripcion}</td>
-					<td>${oferta.plazasTotal}</td>
-					<td>${oferta.plazasDisponibles}</td>
-					<td>${oferta.precio}</td>
-					<td>${oferta.descuento}</td>
-					<td><a href="editOferta?id=${oferta.codOferta}">Editar</a></td>
-					<td><a href="/deleteOferta?id=${oferta.codOferta}">Borrar</a></td>
-					<td><a href="/reservaOferta?id=${oferta.codOferta}">Reservar</a></td>
-				</tr>
-			</c:forEach>
-			<tr><td colspan="8"><a href="registerOferta">Añadir Oferta</a></td></tr>
-		</table>
- 
- --%>
-
     </tiles:putAttribute>
 </tiles:insertDefinition>
 

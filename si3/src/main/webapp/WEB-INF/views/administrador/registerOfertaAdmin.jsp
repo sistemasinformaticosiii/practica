@@ -18,27 +18,27 @@
   <script>
 	 $(function() {
 
-		 //Array para dar formato en español
+		 //Array para dar formato en espaï¿½ol
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Próximo',
+		  nextText: 'Prï¿½ximo',
 
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
-		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro aï¿½o',
+		  dayNames: ['Domingo','Lunes','Martes','Miï¿½rcoles','Jueves','Viernes','Sï¿½bado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sï¿½b'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'yy-mm-dd', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
 		 $.datepicker.setDefaults($.datepicker.regional['es']);
 
-		 //miDate: fecha de comienzo D=días | M=mes | Y=año
-		 //maxDate: fecha tope D=días | M=mes | Y=año
+		 //miDate: fecha de comienzo D=dï¿½as | M=mes | Y=aï¿½o
+		 //maxDate: fecha tope D=dï¿½as | M=mes | Y=aï¿½o
 		    $( "#fechaInicio" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		    $( "#fechaFin" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		  });
@@ -47,10 +47,10 @@
   <script>
   $(function() {
     var localidades = [
-                   	"Albacete",	"Alicante",	"Almería", "Álava",	"Asturias", "Ávila", "Badajoz",	"Islas Baleares",
-                	"Barcelona", "Bizkaia", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ceuta", "Ciudad Real",
-                	"Córdoba", "Coruña A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
-                	"Jaén",	"León", "Lugo", "Lleida", "Madrid",	"Málaga", "Melilla", "Murcia", "Navarra", "Ourense",
+                   	"Albacete",	"Alicante",	"Almerï¿½a", "ï¿½lava",	"Asturias", "ï¿½vila", "Badajoz",	"Islas Baleares",
+                	"Barcelona", "Bizkaia", "Burgos", "Cï¿½ceres", "Cï¿½diz", "Cantabria", "Castellï¿½n", "Ceuta", "Ciudad Real",
+                	"Cï¿½rdoba", "Coruï¿½a A", "Cuenca", "Gipuzkoa", "Girona", "Granada", "Guadalajara", "Huelva", "Huesca",
+                	"Jaï¿½n",	"Leï¿½n", "Lugo", "Lleida", "Madrid",	"Mï¿½laga", "Melilla", "Murcia", "Navarra", "Ourense",
                 	"Palencia",	"Palmas Las", "Pontevedra", "Rioja La", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
                 	"Sevilla", "Soria",	"Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Zamora", "Zaragoza"
     ];
@@ -107,7 +107,7 @@
 		<div align="center">
 		<br />
 		<div>
-			<form:form method="post" id="ofertaaltaform" action="/si3/insertOfertaAdmin" modelAttribute="oferta">
+			<form:form method="post" id="ofertaaltaform" action="/admin/insertOfertaAdmin" modelAttribute="oferta">
 				<table>
 							<tr>
 							<td>Proveedor:</td>

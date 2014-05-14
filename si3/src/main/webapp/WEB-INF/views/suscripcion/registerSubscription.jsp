@@ -17,7 +17,7 @@
 						<div align="center">
 							<br />
 							<div>
-								<form:form method="post" action="/insertSubscription" modelAttribute="subscription">
+								<form:form method="post" action="/cliente/insertSubscription" modelAttribute="subscription">
 									<table>
 										<tr>
 											<!-- Campo oculto<td>Cod Usuario :</td>-->

@@ -63,7 +63,7 @@ public class HomePageController {
 	 * @return
 	 * Registro de nuevos usuarios. Tanto para usuarios anónimos para registrarse en la aplicación, como para que el administrador registre uno nuevo.
 	 */
-	@RequestMapping("/register")
+	@RequestMapping("/public/register")
 	public String registerUser(@ModelAttribute User user, ModelMap model, @RequestParam("type") String tiporegistro) {
 		model.addAttribute("tiporegistro", tiporegistro);
 		return "/administrador/register";
@@ -74,7 +74,7 @@ public class HomePageController {
 	 * @return
 	 * Registro de suscripción e-mail para usuarios registrados (Clientes).
 	 */
-	@RequestMapping("/registerSubscription")
+	@RequestMapping("/cliente/registerSubscription")
 	public ModelAndView registerSubscription(@ModelAttribute Subscription subscription) {
 		return new ModelAndView("/suscripcion/registerSubscription");
 	}
@@ -84,7 +84,7 @@ public class HomePageController {
 	 * @return
 	 * Registro de suscripción e-mail para ser utilizado por el Administrador.
 	 */
-	@RequestMapping("/registerSubscriptionAdmin")
+	@RequestMapping("/admin/registerSubscriptionAdmin")
 	public ModelAndView registerSubscriptionAdmin(@RequestParam(value="roles", required=false) List<String> roles, 
 			@ModelAttribute Subscription subscription) {
 		/*List<String> role = new ArrayList<String>();
@@ -98,7 +98,8 @@ public class HomePageController {
 	 * @return
 	 * Registro de Oferta (Publicación): Para el rol Proveedor
 	 */
-	@RequestMapping("/registerOferta")
+	/*TO-DO: Este método ya no necesita el parámetro tiporegistrador? Si se ha duplicado el método para el Admin, ya no es necesario. A revisar.*/
+	@RequestMapping("/proveedor/registerOferta")
 	public String registerOferta(@ModelAttribute Oferta oferta, Model model, @RequestParam("type") String tiporegistrador) {
 		model.addAttribute("tiporegistrador", tiporegistrador);
 		return "/proveedor/registerOferta";
@@ -109,7 +110,7 @@ public class HomePageController {
 	 * @return
 	 * Registro de Oferta (Publicacion): Para el rol Administrador
 	 */
-	@RequestMapping("/registerOfertaAdmin")
+	@RequestMapping("/admin/registerOfertaAdmin")
 	public ModelAndView registerOfertaAdmin(@RequestParam(value="roles", required=false) List<String> roles, 
 			@ModelAttribute Oferta oferta) {
 		
@@ -122,7 +123,7 @@ public class HomePageController {
 	 * @return
 	 * Añade un nuevo usuario 
 	 */
-	@RequestMapping("/insert")
+	@RequestMapping("/registered/insert")
 	public String inserData(@ModelAttribute User user) {
 		if (!userService.existUser(user.getEmail()) && (user != null)) {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -130,14 +131,14 @@ public class HomePageController {
 			if(!(authentication instanceof AnonymousAuthenticationToken)){
 				//Usuario que está logueado (es decir, en este caso: Administrador que registra a un nuevo usuario)	
 				userService.insertData(user);
-				return "redirect:/getUserList";
+				return "redirect:/admin/getUserList";
 			}		
 			else{ //Usuario anónimo, que acaba de completar el registro.
 				userService.insertData(user);
 				return "redirect:/login";
 			}	
 		} else
-			return "redirect:/errorUser";
+			return "redirect:/public/errorUser";
 	}
 
 	/**
@@ -145,7 +146,7 @@ public class HomePageController {
 	 * @return
 	 * Añadir nueva suscripción
 	 */
-	@RequestMapping("/insertSubscription")
+	@RequestMapping("/cliente/insertSubscription")
 	public String inserDataSubscription(@RequestParam("tipoSubscription") String tipo,@ModelAttribute Subscription subscription) {
 		if (subscription != null){
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -154,7 +155,7 @@ public class HomePageController {
 			subscriptionService.deleteDataByUser(currentUser.getUserId(), tipo);	
 			subscriptionService.insertData(subscription);
 		}
-		return "redirect:/getListSubscription";
+		return "redirect:/cliente/getListSubscription";
 	}
 	
 	/**
@@ -162,14 +163,14 @@ public class HomePageController {
 	 * @return
 	 * Añaadir nueva suscripción (para el Administrador) 
 	 */
-	@RequestMapping("/insertSubscriptionAdmin")
+	@RequestMapping("/admin/insertSubscriptionAdmin")
 	public String inserDataSubscriptionAdmin(@RequestParam("tipoSubscription") String tipo, @RequestParam("userId") int id,
 		@ModelAttribute Subscription subscription) {
 		if (subscription != null){
 			subscriptionService.deleteDataByUser(id, tipo);	
 			subscriptionService.insertData(subscription);
 		}
-		return "redirect:/getListSubscriptionAdmin";
+		return "redirect:/admin/getListSubscriptionAdmin";
 	}
 
 	
@@ -177,7 +178,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/insertOferta")
+	@RequestMapping("/proveedor/insertOferta")
 	public String inserDataOferta(@ModelAttribute Oferta oferta) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -187,7 +188,7 @@ public class HomePageController {
 		oferta.setTipo(currentUser.getPerfil());
 		if (oferta != null)
 			ofertaService.insertData(oferta);
-		return "redirect:/getListOffer";
+		return "redirect:/proveedor/getListOffer";
 	}
 	
 	/**
@@ -195,14 +196,14 @@ public class HomePageController {
 	 * @return
 	 * Insercion de una oferta desde el rol Administrador
 	 */
-	@RequestMapping("/insertOfertaAdmin")
+	@RequestMapping("/admin/insertOfertaAdmin")
 	public String inserDataOfertaAdmin(@RequestParam int codUsuario, @ModelAttribute Oferta oferta) {
 
 		User userSelect = userService.getUser(Integer.toString(codUsuario));
 		oferta.setTipo(userSelect.getPerfil());
 		if (oferta != null)
 			ofertaService.insertData(oferta);
-		return "redirect:/getListOfferAdmin";
+		return "redirect:/admin/getListOfferAdmin";
 	}
 	
 	
@@ -212,7 +213,7 @@ public class HomePageController {
 	 * Obtenció del listado de usuarios. Si recibe parámetro roles, obtiene los usuarios de esos roles. 
 	 * Si recibe parámetro vacío, obtiene todos los usuarios. 
 	 */
-	@RequestMapping("/getUserList")
+	@RequestMapping("/admin/getUserList")
 	public ModelAndView getUserLIst(@RequestParam(value="roles", required=false) List<String> roles) {
 		List<User> userList = userService.getUserList(roles);
 		return new ModelAndView("/administrador/userList", "userList", userList);
@@ -223,7 +224,7 @@ public class HomePageController {
 	 * @return 
 	 * Obtención del listado de suscripciones de un usuario registrado 
 	 */
-	@RequestMapping("/getListSubscription")
+	@RequestMapping("/cliente/getListSubscription")
 	public ModelAndView getSubscriptionList() {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -238,7 +239,7 @@ public class HomePageController {
 	 * @return 
 	 * Obtención del listado de suscripciones de todos los usuarios. 
 	 */
-	@RequestMapping("/getListSubscriptionAdmin")
+	@RequestMapping("/admin/getListSubscriptionAdmin")
 	public ModelAndView getSubscriptionListAdmin() {
 		List<Subscription> subscriptionList = subscriptionService.getSubscriptionList();
 		return new ModelAndView("/administrador/subscriptionList", "subscriptionList", subscriptionList);
@@ -249,7 +250,7 @@ public class HomePageController {
 	 * @return 
 	 * Obtención del listado de ofertas publicadas por un proveedor 
 	 */
-	@RequestMapping("/getListOffer")
+	@RequestMapping("/proveedor/getListOffer")
 	public ModelAndView getOfertaList() {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -267,7 +268,7 @@ public class HomePageController {
 	 * @return 
 	 * Listado de todas las oferta vigentes iniciales, mostrado al arrancar la aplicación 
 	 */
-	@RequestMapping("/getListOfferInicio") 
+	@RequestMapping("/public/getListOfferInicio") 
 	public ModelAndView getOfertaListInicio()  throws Exception {
 		//OJO COMENTADO HASTA QUE PASEN 24 HORAS. BLOQUEO DE GMAIL: mailInicio.doSendEmail();
 		List<Oferta> ofertaListInicio = ofertaService.getOfertaList();
@@ -279,7 +280,7 @@ public class HomePageController {
 	 * @return
 	 * Listado de todas las ofertas vigentes o no para el perfil Administrador
 	 */
-	@RequestMapping("/getListOfferAdmin") 
+	@RequestMapping("/admin/getListOfferAdmin") 
 	public ModelAndView getOfertaListAdmin(){
 		
 		List<Oferta> ofertaListInicio = ofertaService.getOfertaListAll();
@@ -290,7 +291,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value = "/filtroOfertas", method = RequestMethod.GET)
+	@RequestMapping(value = "/public/filtroOfertas", method = RequestMethod.GET)
 	public ModelAndView filtroOfertas(
 			@ModelAttribute CriterioBusqueda criterioBusqueda) {
 		List<Oferta> listaOfertas = new ArrayList<Oferta>();
@@ -325,7 +326,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value="/filtroOfertas", method = RequestMethod.POST)
+	@RequestMapping(value="/public/filtroOfertas", method = RequestMethod.POST)
 	public String mostrarOfertas(ModelMap model, @Valid CriterioBusqueda criterioBusqueda, BindingResult result, HttpServletRequest request) {
 		if(result.hasErrors()) {
 			//Salimos si hay un error en la validación
@@ -350,31 +351,33 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/errorUser")
+	@RequestMapping("/public/errorUser")
 	public ModelAndView errorUser() {
 
 		return new ModelAndView("/usuario/errorUser");
 	}
 
-	/**
-	 * @param 
-	 * @return
-	 */
-	@RequestMapping("/getListOfertaProducto")
-	public ModelAndView getFilterOferta(@RequestParam("tipo") String id) {
-		CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
-		criterioBusqueda.setTipo(id);
 
-		List<Oferta> ofertaList = ofertaService.filterOferta(criterioBusqueda);
-		return new ModelAndView("/oferta/ofertaList", "ofertaList", ofertaList);
-	}
+	/*TO-DO: Sin uso???? */
+//	/**
+//	 * @param 
+//	 * @return
+//	 */
+//	@RequestMapping("/getListOfertaProducto")
+//	public ModelAndView getFilterOferta(@RequestParam("tipo") String id) {
+//		CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
+//		criterioBusqueda.setTipo(id);
+//
+//		List<Oferta> ofertaList = ofertaService.filterOferta(criterioBusqueda);
+//		return new ModelAndView("/oferta/ofertaList", "ofertaList", ofertaList);
+//	}
 
 	/**
 	 * @param 
 	 * @return
 	 * Editar datos de un usuario
 	 */
-	@RequestMapping("/editUser")
+	@RequestMapping("/admin/editUser")
 	public ModelAndView editUser(@ModelAttribute User user, @RequestParam String id) {
 		user = userService.getUser(id);
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -383,42 +386,42 @@ public class HomePageController {
 		return new ModelAndView("/administrador/editUser", "map", map);
 	}
 	
+//TO-DO: Sin uso??????
+//	/**
+//	 * @param 
+//	 * @return
+//	 * Editar datos de un proveedor
+//	 */
+//	@RequestMapping("/admin/editProveedor")
+//	public ModelAndView editProveedor(@RequestParam String id, @ModelAttribute User user ) {
+//		user = userService.getUser(id);
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		map.put("user", user);
+//		return new ModelAndView("/administrador/editProveedor", "map", map);
+//	}
 
-	/**
-	 * @param 
-	 * @return
-	 * Editar datos de un proveedor
-	 */
-	@RequestMapping("/editProveedor")
-	public ModelAndView editProveedor(@RequestParam String id, @ModelAttribute User user ) {
-		user = userService.getUser(id);
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("user", user);
-		return new ModelAndView("/administrador/editProveedor", "map", map);
-	}
-
+//TO-DO: Sin uso??????	
+//	/**
+//	 * @param 
+//	 * @return
+//	 */
+//	@RequestMapping("/editSubscription")
+//	public ModelAndView editSubscription(@RequestParam String id,
+//			@ModelAttribute Subscription subscription) {
+//
+//		subscription = subscriptionService.getSubscription(id);
+//
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		map.put("subscription", subscription);
+//
+//		return new ModelAndView("/suscripcion/editSubscription", "map", map);
+//	}
 	
 	/**
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/editSubscription")
-	public ModelAndView editSubscription(@RequestParam String id,
-			@ModelAttribute Subscription subscription) {
-
-		subscription = subscriptionService.getSubscription(id);
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("subscription", subscription);
-
-		return new ModelAndView("/suscripcion/editSubscription", "map", map);
-	}
-	
-	/**
-	 * @param 
-	 * @return
-	 */
-	@RequestMapping("/editOferta")
+	@RequestMapping("/proveedor/editOferta")
 	public ModelAndView editOferta(@RequestParam String id,
 			@ModelAttribute Oferta oferta) {
 
@@ -431,73 +434,67 @@ public class HomePageController {
 	}
 
 	/**
-	 * @param 
-	 * @return
-	 */
-	@RequestMapping("/editReserva")
-	public ModelAndView editOferta(@RequestParam String id,@ModelAttribute Reservation reservation) {
-
-		reservation= reservationService.getReservation(id); 
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("reservation", reservation);
-
-		return new ModelAndView("/reserva/editReserva", "map", map);
-	}	
-	
-
-	/**
 	 * @param reservation
 	 * @return
 	 * Procesamos el get de la reserva basicamente vamos a mostrar un formulario con los valores recuperados de criterio de busqueda
 	 */
-	@RequestMapping(value="/reservaOferta", method = RequestMethod.GET)
+	@RequestMapping(value="/cliente/reservaOferta", method = RequestMethod.GET)
 	public String muestraReservaOferta(ModelMap model,  HttpServletRequest request, @RequestParam String id) {
-		Reservation reserva = new Reservation();
-		Calendar cal = Calendar.getInstance();
-		CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
-		Date fecha=new Date();
-		String mensaje ="Recuerde que el número máximo de reservas por evento es 6";
 		
-		//recuperamos los datos de la oferta
-		Oferta oferta=ofertaService.getOferta(id);
-		//Y lo guardamos en la reserva
-		reserva.setOfferId(Integer.parseInt(id));
-		
-		//Recuperamos el usuario
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String nombre = auth.getName(); //obtenemos el usuario
-	    User usuario = userService.getUserByName(nombre);
-	    
-	    //guardamos en la reserva
-	    reserva.setUserId(usuario.getUserId());
-		
-		//recuperamos el criterio de busqueda del cliente(en el caso de que exista)
-		criterioBusquedaCliente=(CriterioBusqueda) request.getSession().getAttribute("criterioBusquedaCliente");
-		//Utilidad para formatear la fecha del criterio de busqueda
-		SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_ES"));				
-		//Comprobamos que existe la busqueda por si venía de otro sitio
-		if(criterioBusquedaCliente!=null && criterioBusquedaCliente.getFecha()!=null){
-			//guardamos la fecha en la reserva con el formato correcto
-			fecha=criterioBusquedaCliente.getFecha();
-			reserva.setFechaReserva( formateador.format(fecha));
-			//guardamos el número de plazas
-			reserva.setPlazasReservadas(criterioBusquedaCliente.getPlazas());
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(!(authentication instanceof AnonymousAuthenticationToken)){
+			//Usuario logueado
+			Reservation reserva = new Reservation();
+			Calendar cal = Calendar.getInstance();
+			CriterioBusqueda criterioBusquedaCliente = new CriterioBusqueda();
+			Date fecha=new Date();
+			String mensaje ="Recuerde que el número máximo de reservas por evento es 6";
 			
-		}
-		//si no hubo busqueda sugerimos el día actual y número de reservas 1
-		else{
+			//recuperamos los datos de la oferta
+			Oferta oferta=ofertaService.getOferta(id);
+			//Y lo guardamos en la reserva
+			reserva.setOfferId(Integer.parseInt(id));
 			
-			reserva.setFechaReserva(formateador.format(cal.getTime()));
-			reserva.setPlazasReservadas(1);
+			//Recuperamos el usuario
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		    String nombre = auth.getName(); //obtenemos el usuario
+		    User usuario = userService.getUserByName(nombre);
+		    
+		    //guardamos en la reserva
+		    reserva.setUserId(usuario.getUserId());
+			
+			//recuperamos el criterio de busqueda del cliente(en el caso de que exista)
+			criterioBusquedaCliente=(CriterioBusqueda) request.getSession().getAttribute("criterioBusquedaCliente");
+			//Utilidad para formatear la fecha del criterio de busqueda
+			SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_ES"));				
+			//Comprobamos que existe la busqueda por si venía de otro sitio
+			if(criterioBusquedaCliente!=null && criterioBusquedaCliente.getFecha()!=null){
+				//guardamos la fecha en la reserva con el formato correcto
+				fecha=criterioBusquedaCliente.getFecha();
+				reserva.setFechaReserva( formateador.format(fecha));
+				//guardamos el número de plazas
+				reserva.setPlazasReservadas(criterioBusquedaCliente.getPlazas());
+				
+			}
+			//si no hubo busqueda sugerimos el día actual y número de reservas 1
+			else{
+				
+				reserva.setFechaReserva(formateador.format(cal.getTime()));
+				reserva.setPlazasReservadas(1);
+			}
+			criterioBusquedaCliente=null;
+			model.addAttribute("reservation", reserva);
+			//y lo guardamos en la sesión
+			request.getSession().setAttribute("reserva", reserva);
+			model.addAttribute("titulo", oferta.getTitulo());
+			model.addAttribute("mensaje",mensaje);
+			
+			return "/reserva/reservaOferta";
 		}
-		criterioBusquedaCliente=null;
-		model.addAttribute("reservation", reserva);
-		//y lo guardamos en la sesión
-		request.getSession().setAttribute("reserva", reserva);
-		model.addAttribute("titulo", oferta.getTitulo());
-		model.addAttribute("mensaje",mensaje);
+		else{ //Usuario anónimo, que acaba de completar el registro.
+			return "redirect:/login";
+		}	
 		
-		return "/reserva/reservaOferta";
 	}
 	
 	
@@ -505,7 +502,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value="/reservasListCliente", method = RequestMethod.GET)
+	@RequestMapping(value="/cliente/reservasListCliente", method = RequestMethod.GET)
 	public String muestraReservasCliente(Model model){
 		int numeroReservas=0;
 		Reservation reserva;
@@ -537,7 +534,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping(value="/reservasListAdmin")
+	@RequestMapping(value="/admin/reservasListAdmin")
 	public String muestraTodasReservas(Model model){
 		
 		int numeroReservas=0;
@@ -564,7 +561,7 @@ public class HomePageController {
 	 * @param
 	 * @return
 	 */
-	@RequestMapping(value="/reserva/reservaOferta", method = RequestMethod.POST)
+	@RequestMapping(value="/cliente/reserva/reservaOferta", method = RequestMethod.POST)
 	public String reservaOferta(@Valid Reservation reservation, HttpServletRequest request, BindingResult result) {
 		Reservation reserva=(Reservation) request.getSession().getAttribute("reserva");
 		Oferta oferta=ofertaService.getOferta(Integer.toString(reserva.getOfferId()));
@@ -589,11 +586,12 @@ public class HomePageController {
 		return vista;
 	}		
 
+
 	/**
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/deletereserva")
+	@RequestMapping("/cliente/deletereserva")
  	public String deleteReserva(@RequestParam String id) {
  		Reservation reserva=reservationService.getReservation(id);
  		Oferta oferta = oferta=ofertaService.getOferta(String.valueOf(reserva.getOfferId()));
@@ -607,30 +605,31 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/update")
+	@RequestMapping("/admin/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
-		return "redirect:/getUserList";
+		return "redirect:/admin/getUserList";
 	}
+
+// TO-DO: Sin uso????
+//	/**
+//	 * @param 
+//	 * @return
+//	 */
+//	@RequestMapping("/updateSubscription")
+//	public String updateSubscription(@ModelAttribute Subscription subscription) {
+//		subscriptionService.updateData(subscription);
+//		return "redirect:/getListSubscription";
+//	}
 
 	/**
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/updateSubscription")
-	public String updateSubscription(@ModelAttribute Subscription subscription) {
-		subscriptionService.updateData(subscription);
-		return "redirect:/getListSubscription";
-	}
-
-	/**
-	 * @param 
-	 * @return
-	 */
-	@RequestMapping("/updateOferta")
+	@RequestMapping("/proveedor/updateOferta")
 	public String updateOferta(@ModelAttribute Oferta oferta) {
 		ofertaService.updateData(oferta);
-		return "redirect:/getListOffer";
+		return "redirect:/proveedor/getListOffer";
 	}
 	
 	/**
@@ -638,10 +637,10 @@ public class HomePageController {
 	 * @return
 	 * Actualiza valores de una oferta desde el perfil Administrador. Redirige a listado de ofertas.
 	 */
-	@RequestMapping("/updateOfertaAdmin")
+	@RequestMapping("/admin/updateOfertaAdmin")
 	public String updateOfertaAdmin(@ModelAttribute Oferta oferta) {
 		ofertaService.updateData(oferta);
-		return "redirect:/getListOfferAdmin";
+		return "redirect:/admin/getListOfferAdmin";
 	}
 	
 	/**
@@ -651,7 +650,7 @@ public class HomePageController {
 	@RequestMapping("/updateReserva")
 	public String updateReserva(@ModelAttribute Reservation reservation) {
 		reservationService.updateData(reservation);
-		return "redirect:/reservasListCliente";
+		return "redirect:/cliente/reservasListCliente";
 	}	
 	
 
@@ -659,7 +658,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/delete")
+	@RequestMapping("/admin/delete")
 	public String deleteUser(@RequestParam String id, HttpServletRequest request) {
 		
 		userService.deleteData(id);
@@ -673,11 +672,11 @@ public class HomePageController {
 	 * @return
 	 * Borrado de la suscripción de un usuario
 	 */ 
-	@RequestMapping("/deleteSubscription")
+	@RequestMapping("/cliente/deleteSubscription")
 	public String deleteSubscription(@RequestParam String id) {
 		System.out.println("id = " + id);
 		subscriptionService.deleteData(id);
-		return "redirect:/getListSubscription";
+		return "redirect:/cliente/getListSubscription";
 	}
 
 	/**
@@ -685,26 +684,41 @@ public class HomePageController {
 	 * @return
 	 * Borrado de suscripciones por parte del Administrador (de cualquier usuario con suscripciones)
 	 */
-	@RequestMapping("/deleteSubscriptionAdmin")
+	@RequestMapping("/admin/deleteSubscriptionAdmin")
 	public String deleteSubscriptionAdmin(@RequestParam String id) {
 		System.out.println("id = " + id);
 		subscriptionService.deleteData(id);
-		return "redirect:/getListSubscriptionAdmin";
+		return "redirect:/admin/getListSubscriptionAdmin";
 	}
 
-	@RequestMapping("/deleteOferta")
+	/**
+	 * @param 
+	 * @return
+	 * Borrado de ofertas por parte del Administrador (de cualquier oferta)
+	 */	
+	@RequestMapping("/admin/deleteOferta")
 	public String deleteOferta(@RequestParam String id) {
 		
 		ofertaService.deleteData(id);
-		return "redirect:/getListOfferAdmin";
+		return "redirect:/admin/getListOfferAdmin";
 	}
-
-	@RequestMapping("/contact")
+	
+	/**
+	 * @param 
+	 * @return
+	 * Datos de contacto de la aplicación
+	 */	
+	@RequestMapping("/public/contact")
 	public ModelAndView contactoWeb() {
 		return new ModelAndView("/public/contact");
 	}
 
-	@RequestMapping("/cuenta")
+	/**
+	 * @param 
+	 * @return
+	 * Datos de la cuenta de usuario (cualquier rol)
+	 */	
+	@RequestMapping("/registered/cuenta")
 	public String datoscuenta(Model model) {
 
 		Authentication authentication = SecurityContextHolder.getContext()

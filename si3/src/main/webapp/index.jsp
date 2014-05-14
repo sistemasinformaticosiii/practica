@@ -1,1 +1,2 @@
-<%response.sendRedirect("getListOfferInicio");%>
+<%-- <%response.sendRedirect("getListOfferInicio");%> --%>
+<% request.getRequestDispatcher("/public/getListOfferInicio").forward(request, response);%>

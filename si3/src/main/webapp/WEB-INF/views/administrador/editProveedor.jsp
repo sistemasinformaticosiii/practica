@@ -11,7 +11,7 @@
 				<div class="top_prod_box_big"></div>
 				<div class="center_prod_box_big">
 					<div align="center">
-						<form:form method="post" action="/update"
+						<form:form method="post" action="/admin/update"
 							modelAttribute="user">
 							<table>
 								<tr>

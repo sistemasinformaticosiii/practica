@@ -12,9 +12,9 @@
         </div>
         
         <div class="right_footer">
-        	<a href="<c:url value="/getListOffer"/>">inicio</a>
-        	<a href="<c:url value="/contact"/>">acerca de</a>
-        	<a href="<c:url value="/contact"/>">contacto</a>
+        	<a href="<c:url value="/public/getListOfferInicio"/>">inicio</a>
+        	<a href="<c:url value="/public/contact"/>">acerca de</a>
+        	<a href="<c:url value="/public/contact"/>">contacto</a>
         </div>   
    
    </div>                 

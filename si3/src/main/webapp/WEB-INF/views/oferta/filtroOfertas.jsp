@@ -81,7 +81,7 @@
 
 
 
-						<form:form method="post" action="/filtroOfertas"
+						<form:form method="post" action="/public/filtroOfertas"
 							modelAttribute="criterioBusqueda">
 							<table>
 								<tr>

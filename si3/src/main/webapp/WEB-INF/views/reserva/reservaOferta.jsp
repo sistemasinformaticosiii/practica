@@ -23,7 +23,7 @@
 						<br />
 						<br />${mensaje}<br /> <br />
 
-						<form:form method="post" action="/reserva/reservaOferta"
+						<form:form method="post" action="/cliente/reserva/reservaOferta"
 							modelAttribute="reservation">
 							<table>
 

@@ -14,13 +14,13 @@ public class LoginController {
 		return "/public/login";
 	}
 
-	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	@RequestMapping(value = "/public/error", method = RequestMethod.GET)
     public String loginWithError(Model model) {
         model.addAttribute("error", true);
         return "/public/loginerror";
     }
 	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/public/logout", method = RequestMethod.GET)
 	public String logout() {
 		return "/public/logout";
 	}

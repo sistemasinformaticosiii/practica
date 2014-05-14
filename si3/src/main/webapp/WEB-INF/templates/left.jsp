@@ -17,19 +17,19 @@
         <ul class="left_menu">
         
                
-        <form:form method="post" action="/filtroOfertas" name="formEntradas" modelAttribute="criterioBusqueda">
+        <form:form method="post" action="/public/filtroOfertas" name="formEntradas" modelAttribute="criterioBusqueda">
 				<input type="hidden" name="tipo" value="Entradas">
 		</form:form>    	        
         <li class="odd"><a href="<c:url value="javascript:enviar_formulario_entradas()"/>">Entradas de espectáculos</a></li>
         
         
-        <form:form method="post" action="/filtroOfertas" name="formRestaurantes" modelAttribute="criterioBusqueda">
+        <form:form method="post" action="/public/filtroOfertas" name="formRestaurantes" modelAttribute="criterioBusqueda">
 				<input type="hidden" name="tipo" value="Restaurantes">
 		</form:form>
         <li class="even"><a href="<c:url value="javascript:enviar_formulario_restaurantes()"/>">Restaurantes</a></li>
         
         
-        <form:form method="post" action="/filtroOfertas" name="formActividades" modelAttribute="criterioBusqueda">
+        <form:form method="post" action="/public/filtroOfertas" name="formActividades" modelAttribute="criterioBusqueda">
 				<input type="hidden" name="tipo" value="Actividades">
 		</form:form>
         <li class="odd"><a href="<c:url value="javascript:enviar_formulario_actividades()"/>">Actividades</a></li>

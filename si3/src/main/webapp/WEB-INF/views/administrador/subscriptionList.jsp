@@ -25,7 +25,7 @@
 										<tr>
 											<td>${subscription.userId}</td>
 											<td>${subscription.tipoSubscription}</td>
-											<td align="center"><a href="<c:url value="/deleteSubscriptionAdmin?id=${subscription.subscriptionId}"/>">Baja</a></td>
+											<td align="center"><a href="<c:url value="/admin/deleteSubscriptionAdmin?id=${subscription.subscriptionId}"/>">Baja</a></td>
 										</tr>
 									</c:forEach>			  
 								  </c:when>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="<c:url value="/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_detailssubscription">Añadir suscripcion</a>
+			<a href="<c:url value="/admin/registerSubscriptionAdmin?roles=Cliente"/>" class="prod_detailssubscription">Añadir suscripcion</a>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

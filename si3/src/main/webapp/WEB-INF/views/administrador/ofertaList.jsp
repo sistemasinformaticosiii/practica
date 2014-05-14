@@ -50,8 +50,8 @@
 					<td>${oferta.plazasDisponibles}</td>
 					<td>${oferta.precio}</td>
 					<td>${oferta.descuento}</td>
-					<td><a href="editOferta?id=${oferta.codOferta}">Editar</a></td>
-					<td><a href="/si3/deleteOferta?id=${oferta.codOferta}">Borrar</a></td>
+					<td><a href="<c:url value="/admin/editOferta?id=${oferta.codOferta}"/>">Editar</a></td>
+					<td><a href="<c:url value="/admin/deleteOferta?id=${oferta.codOferta}"/>">Borrar</a></td>
 				</tr>
 			</c:forEach>
 		</table>

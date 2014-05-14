@@ -60,7 +60,7 @@
                          
                           Plazas totales: <span class="blue">${oferta.plazasTotal}</span><br />
                           Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />
-						 <a href="<c:url value="/reservaOferta?id=${oferta.codOferta}"/>" class="addtocart">Reservar</a>
+						 <a href="<c:url value="/cliente/reservaOferta?id=${oferta.codOferta}"/>" class="addtocart">Reservar</a>
                          <a href="javascript:history.back()" class="return">Volver</a>
          
                      </div>                        

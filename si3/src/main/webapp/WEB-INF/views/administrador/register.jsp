@@ -93,7 +93,7 @@
 					<div align="center">
 
 
-						<form:form method="post" id="altasform" action="/insert"
+						<form:form method="post" id="altasform" action="/registered/insert"
 							modelAttribute="user">
 							<table>
 								<tr>

@@ -130,7 +130,7 @@
 				<div class="center_prod_box_big">
 					<div align="center">
 						<form:form method="post" id="ofertaaltaform"
-							action="/insertOferta" modelAttribute="oferta">
+							action="/proveedor/insertOferta" modelAttribute="oferta">
 							<table>
 								<c:choose>
 									<c:when test="${tiporegistrador=='Proveedor'}">

@@ -17,7 +17,7 @@
 	<ul class="left_menu">
 
 
-		<form:form method="post" action="/filtroOfertas" name="formEntradas"
+		<form:form method="post" action="/public/filtroOfertas" name="formEntradas"
 			modelAttribute="criterioBusqueda">
 			<input type="hidden" name="tipo" value="Entradas">
 		</form:form>
@@ -26,7 +26,7 @@
 				de espect&aacute;culos</a></li>
 
 
-		<form:form method="post" action="/filtroOfertas"
+		<form:form method="post" action="/public/filtroOfertas"
 			name="formRestaurantes" modelAttribute="criterioBusqueda">
 			<input type="hidden" name="tipo" value="Restaurantes">
 		</form:form>
@@ -34,7 +34,7 @@
 			href="<c:url value="javascript:enviar_formulario_restaurantes()"/>">Restaurantes</a></li>
 
 
-		<form:form method="post" action="/filtroOfertas"
+		<form:form method="post" action="/public/filtroOfertas"
 			name="formActividades" modelAttribute="criterioBusqueda">
 			<input type="hidden" name="tipo" value="Actividades">
 		</form:form>
@@ -44,12 +44,12 @@
 
 	<div class="title_box">Mis Reservas</div>
 	<ul class="left_menu">
-		<li class="odd"><a href="<c:url value="/reservasListCliente"/>">Ver mis reservas</a></li>
+		<li class="odd"><a href="<c:url value="/cliente/reservasListCliente"/>">Ver mis reservas</a></li>
 	</ul>
 
 	<div class="title_box">Mis Suscripciones</div>
 	<ul class="left_menu">
-		<li class="odd"><a href="<c:url value="/getListSubscription"/>">Ver mis suscripciones</a></li>
+		<li class="odd"><a href="<c:url value="/cliente/getListSubscription"/>">Ver mis suscripciones</a></li>
 	</ul>
 
 
