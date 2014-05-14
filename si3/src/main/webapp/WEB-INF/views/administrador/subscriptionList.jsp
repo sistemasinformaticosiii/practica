@@ -26,7 +26,7 @@
 										<tr>
 											<td>${subscription.userId}</td>
 											<td>${subscription.tipoSubscription}</td>
-											<td align="center"><a href="<c:url value="/admin/deleteSubscriptionAdmin?id=${subscription.subscriptionId}"/>">Baja</a></td>
+											<td align="center"><a href="<c:url value="/admin/deleteSubscriptionAdmin?id=${subscription.subscriptionId}"/>"><spring:message code="listasuscripcion.acciones.baja"/></a></td>
 										</tr>
 									</c:forEach>			  
 								  </c:when>

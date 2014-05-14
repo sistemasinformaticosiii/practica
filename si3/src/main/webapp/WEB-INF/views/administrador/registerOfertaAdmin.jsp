@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
@@ -124,7 +125,7 @@
 
 
 		<div class="center_content">
-			<div class="center_title_bar">Oferta - Alta</div>
+			<div class="center_title_bar"><spring:message code="proveedor.registro.titulo"/>/div>
 
 			<div class="prod_box_big">
 				<div class="top_prod_box_big"></div>
@@ -137,7 +138,7 @@
 								action="/admin/insertOfertaAdmin" modelAttribute="oferta">
 								<table>
 									<tr>
-										<td>Proveedor:</td>
+										<td><spring:message code="proveedor.foradmin.proveedor"/>:</td>
 										<td><form:select path="codUsuario" id="codUsuario">
 												<form:options items="${userList}" itemValue="userId"
 													itemLabel="email" />
@@ -145,43 +146,43 @@
 									</tr>
 									<tr>
 										<td><form:select path="tipo" style="display:none">
-												<form:option value="Entradas">Entradas</form:option>
-												<form:option value="Restaurantes">Restaurantes</form:option>
-												<form:option value="Actividades">Actividades</form:option>
+												<form:option value="Entradas"><spring:message code="proveedor.registro.tipoentradas"/></form:option>
+												<form:option value="Restaurantes"><spring:message code="proveedor.registro.tiporestaurantes"/></form:option>
+												<form:option value="Actividades"><spring:message code="proveedor.registro.tipoactividades"/></form:option>
 
 											</form:select></td>
 									</tr>
 
 									<tr>
-										<td>Categoria :</td>
+										<td><spring:message code="proveedor.registro.categoria"/>:</td>
 										<td><form:input path="categoria" /></td>
 									</tr>
 									<tr>
-										<td>Titulo :</td>
+										<td><spring:message code="proveedor.registro.titulooferta"/>:</td>
 										<td><form:input path="titulo" /></td>
 									</tr>
 									<tr>
-										<td>Fecha Inicio :</td>
+										<td><spring:message code="proveedor.registro.fechainicio"/>:</td>
 										<td><form:input path="fechaInicio" /></td>
 									</tr>
 									<tr>
-										<td>Fecha Fin :</td>
+										<td><spring:message code="proveedor.registro.fechafin"/>:</td>
 										<td><form:input path="fechaFin" /></td>
 									</tr>
 									<tr>
-										<td>Localidad :</td>
+										<td><spring:message code="proveedor.registro.localidad"/>:</td>
 										<td><form:input path="localidad" /></td>
 									</tr>
 									<tr>
-										<td>direccion :</td>
+										<td><spring:message code="proveedor.registro.direccion"/>:</td>
 										<td><form:input path="direccion" /></td>
 									</tr>
 									<tr>
-										<td>Descripcion :</td>
+										<td><spring:message code="proveedor.registro.descripcion"/>:</td>
 										<td><form:input path="descripcion" /></td>
 									</tr>
 									<tr>
-										<td>Plazas Totales :</td>
+										<td><spring:message code="proveedor.registro.plazastotales"/>:</td>
 										<td><form:input path="plazasTotal" /></td>
 									</tr>
 									<tr>
@@ -190,17 +191,17 @@
 												style="display:none" /></td>
 									</tr>
 									<tr>
-										<td>Precio :</td>
+										<td><spring:message code="proveedor.registro.precio"/>:</td>
 										<td><form:input path="precio" /></td>
 									</tr>
 									<tr>
-										<td>Descuento :</td>
+										<td><spring:message code="proveedor.registro.descuento"/>:</td>
 										<td><form:input path="descuento" /></td>
 									</tr>
 									<tr>
 										<td>&nbsp;</td>
-										<td><input type="submit" value="Guardar" /> <input
-											type="button" value="Cancelar"
+										<td><input type="submit" value="<spring:message code="proveedor.registro.botonguardar"/>" /> <input
+											type="button" value="<spring:message code="proveedor.registro.botoncancelar"/>"
 											onclick="self.location.href = 'getListOfferAdmin'" /></td>
 									</tr>
 
@@ -214,7 +215,6 @@
 			</div>
 		</div>
 
-		</body>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 

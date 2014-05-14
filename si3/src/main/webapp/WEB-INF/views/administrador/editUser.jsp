@@ -1,19 +1,20 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 		<div class="center_content">
 			<c:choose>
 				<c:when test="${map.perfilAEditar=='Cliente'}">
-					<div class="center_title_bar">Editar datos de usuario</div>
+					<div class="center_title_bar"><spring:message code="admin.editar.usuarios.titulo"/></div>
 				</c:when>
 				<c:when test="${map.perfilAEditar=='Administrador'}">
-					<div class="center_title_bar">Editar datos de administrador</div>
+					<div class="center_title_bar"><spring:message code="admin.editar.admin.titulo"/></div>
 				</c:when>
 				<c:otherwise>
-					<div class="center_title_bar">Editar datos de proveedor</div>
+					<div class="center_title_bar"><spring:message code="admin.editar.proveedor.titulo"/></div>
 				</c:otherwise>
 			</c:choose>
 
@@ -26,43 +27,43 @@
 							modelAttribute="user">
 							<table>
 								<tr>
-									<td>Nombre :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.nombre"/>:</td>
 									<td><form:input path="nombre" value="${map.user.nombre}" />
 									</td>
 								</tr>
 								<tr>
-									<td>Apellidos :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.apellidos"/>:</td>
 									<td><form:input path="apellidos"
 											value="${map.user.apellidos}" /></td>
 								</tr>
 								<tr>
-									<td>Localidad :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.localidad"/>:</td>
 									<td><form:input path="localidad"
 											value="${map.user.localidad}" /></td>
 								</tr>
 								<tr>
-									<td>Telefono :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.telefono"/>:</td>
 									<td><form:input path="telefono"
 											value="${map.user.telefono}" /></td>
 								</tr>
 								<tr>
-									<td>email :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.email"/>:</td>
 									<td><form:input path="email" value="${map.user.email}" /></td>
 								</tr>
 								<tr>
-									<td>perfil :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.perfil"/>:</td>
 									<td><form:input path="perfil" value="${map.user.perfil}" />
 									</td>
 								</tr>
 								<tr>
-									<td>password :</td>
+									<td><spring:message code="admin.usuarios.tabla.campo.pass"/>:</td>
 									<td><form:input path="pass" value="${map.user.pass}" /></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
-									<td><input type="submit" value="Guardar" /> <input
-										type="button" onclick="history.back()" name="return"
-										value="Volver"></td>
+									<td><input type="submit" value="<spring:message code="admin.editar.usuarios.botonguardar"/>" /> 
+									<input type="button" onclick="history.back()" name="return"
+										value="<spring:message code="admin.editar.usuarios.botonvolver"/>"></td>
 								</tr>
 							</table>
 							<form:hidden path="userId" value="${map.user.userId}" />

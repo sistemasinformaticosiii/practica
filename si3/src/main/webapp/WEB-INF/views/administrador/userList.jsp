@@ -1,35 +1,36 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
 <body>
   <div class="center_content">
-   	<div class="center_title_bar">Usuarios del Sistema</div>
+   	<div class="center_title_bar"><spring:message code="admin.usuarios.titulo"/></div>
     
     	<div class="prod_box_big">
     		<div class="top_prod_box_big"></div>
             <div class="center_prod_box_big">   
 
-	<center>
+	
 <!-- 		<br /> <br /> <br /> <b>Lista de Usuarios de PortalOcio</b><br /> <br /> -->
 			
 		<table border="1">
 			<tr>
-				<td class="heading">Username</td>
-				<td class="heading">Enabled</td>
- 				<td class="heading">User Id</td> 
-				<td class="heading">Nombre</td>
-				<td class="heading">Apellidos</td>
-				<td class="heading">Localidad</td>
-				<td class="heading">telefono</td>
-				<td class="heading">email</td>
-				<td class="heading">perfil</td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.username"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.enabled"/></td>
+ 				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.userid"/></td> 
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.nombre"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.apellidos"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.localidad"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.telefono"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.email"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.perfil"/></td>
 <!-- 				<td class="heading">pass</td> -->
-				<td class="heading">Editar</td>
-				<td class="heading">Borrar</td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.editar"/></td>
+				<td class="heading"><spring:message code="admin.usuarios.tabla.campo.borrar"/></td>
 			</tr>
 			<c:forEach var="user" items="${userList}">
 				<tr>
@@ -43,14 +44,16 @@
 					<td>${user.email}</td>
 					<td>${user.perfil}</td>
 <%-- 					<td>${user.pass}</td> --%>
-					<td><a href="<c:url value="/admin/editUser?id=${user.userId}"/>">Editar</a></td>
-					<td><a href="<c:url value="/admin/delete?id=${user.userId}"/>">Borrar</a></td>
+					<td><a href="<c:url value="/admin/editUser?id=${user.userId}"/>"><spring:message code="admin.usuarios.tabla.enlace.editar"/></a></td>
+					<td><a href="<c:url value="/admin/delete?id=${user.userId}"/>"><spring:message code="admin.usuarios.tabla.enlace.borrar"/></a></td>
 				</tr>
 			</c:forEach>
 		</table>
 
-	</center>
-</body>
+</div>
+</div>
+</div>
+
     </tiles:putAttribute>
 </tiles:insertDefinition>
 

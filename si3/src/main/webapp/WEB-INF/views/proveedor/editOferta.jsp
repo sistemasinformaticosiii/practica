@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
@@ -125,15 +126,15 @@
 						<td><form:input path="categoria" style="display:none" value="${map.oferta.categoria}" /></td>
 					</tr>
 					<tr>
-						<td>Titulo :</td>
+						<td><spring:message code="editoferta.titulo"/>:</td>
 						<td><form:input path="titulo" id="titulo" value="${map.oferta.titulo}" /></td>
 					</tr>
 					<tr>
-						<td>Fecha Inicio :</td>
+						<td><spring:message code="editoferta.fechainicio"/>:</td>
 						<td><form:input path="fechaInicio" value="${map.oferta.fechaInicio}" /></td>
 					</tr>
 					<tr>
-						<td>Fecha Fin :</td>
+						<td><spring:message code="editoferta.fechafin"/>:</td>
 						<td><form:input path="fechaFin" value="${map.oferta.fechaFin}" /></td>
 					</tr>
 					<tr>
@@ -143,32 +144,32 @@
 						<td><form:input path="direccion" style="display:none" value="${map.oferta.direccion}" /></td>
 					</tr>
      				<tr>
-      					<td>Descripcion :</td>
+      					<td><spring:message code="editoferta.descripcion"/>:</td>
       					<td><form:textarea rows="4" cols="16" path="descripcion" /></td>
      				</tr>
 					<tr>
-						<td>Precio :</td>
+						<td><spring:message code="editoferta.precio"/>:</td>
 						<td><form:input path="precio" id="precio" value="${map.oferta.precio}" /></td>
 					</tr>
 					<tr>
-						<td>Descuento :</td>
+						<td><spring:message code="editoferta.descuento"/>:</td>
 						<td><form:input path="descuento" value="${map.oferta.descuento}" /></td>
 					</tr>
 					<tr>
-						<td>Plazas Disponibles :</td>
+						<td><spring:message code="editoferta.plazasdisponibles"/>:</td>
 						<td><form:input path="plazasDisponibles" id="plazasDisponibles" value="${map.oferta.plazasDisponibles}" /></td>
 					</tr>
 					<tr>
-						<td>Plazas Ocupadas :</td>
+						<td><spring:message code="editoferta.plazasocupadas"/>:</td>
 						<td><input type="text" id="ocupadas"  /></td>
 					</tr>
 					<tr>
-						<td>Plazas Totales :</td>
+						<td><spring:message code="editoferta.plazastotales"/>:</td>
 						<td><form:input path="plazasTotal" OnFocus="this.blur()" value="${map.oferta.plazasTotal}" /></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input type="submit" value="Guardar" />
+						<td><input type="submit" value="<spring:message code="editoferta.botonguardar="/>" />
 						</td>
 					</tr>
 				</table>

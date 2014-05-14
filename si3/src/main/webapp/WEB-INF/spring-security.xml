@@ -17,7 +17,6 @@
 		<intercept-url pattern="/index.jsp" access="permitAll" />
 		<intercept-url pattern="/public/**" access="permitAll" />
 		<intercept-url pattern="/login*" access="permitAll" />
-
 		<intercept-url pattern="/cliente/**" access="hasRole('Cliente')"/>
 		<intercept-url pattern="/proveedor/**" access="hasAnyRole('Entradas','Restaurantes','Actividades')"/>
 		<intercept-url pattern="/registered/**" access="hasAnyRole('Entradas','Restaurantes','Actividades', 'Administrador','Cliente')"/>

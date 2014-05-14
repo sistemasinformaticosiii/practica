@@ -1,37 +1,37 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
 <body>
   <div class="center_content">
-   	<div class="center_title_bar">Listado de Ofertas - Administrador -</div>
+   	<div class="center_title_bar"><spring:message code="admin.ofertas.titulo"/></div>
     
     	<div class="prod_box_big">
     		<div class="top_prod_box_big"></div>
             <div class="center_prod_box_big">   
 
-	<center>
 		<table border="1">
 			<tr>
-				<td class="heading">Cod Oferta</td>
-				<td class="heading">Cod Usuario</td>
-				<td class="heading">Tipo</td>
-				<td class="heading">Categoria</td>
-				<td class="heading">Titulo</td>
-				<td class="heading">Fecha Inicio</td>
-				<td class="heading">Fecha Fin</td>
-				<td class="heading">Localidad</td>
-				<td class="heading">Direccion</td>
-				<td class="heading">Descripcion</td>
-				<td class="heading">Plazas totales</td>
-				<td class="heading">Plazas disponibles</td>
-				<td class="heading">Precio</td>
-				<td class="heading">Descuento</td>
-				<td class="heading">Editar</td>
-				<td class="heading">Borrar</td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.codoferta"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.codusuario"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.tipo"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.categoria"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.titulo"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.fechainicio"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.fechafin"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.localidad"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.direccion"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.descripcion"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.plazastotales"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.plazasdisponibles"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.precio"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.descuento"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.editar"/></td>
+				<td class="heading"><spring:message code="admin.ofertas.tabla.campo.borrar"/></td>
 			</tr>
 			
 			<c:forEach var="oferta" items="${listaOfertas}">
@@ -50,12 +50,14 @@
 					<td>${oferta.plazasDisponibles}</td>
 					<td>${oferta.precio}</td>
 					<td>${oferta.descuento}</td>
-					<td><a href="<c:url value="/admin/editOferta?id=${oferta.codOferta}"/>">Editar</a></td>
-					<td><a href="<c:url value="/admin/deleteOferta?id=${oferta.codOferta}"/>">Borrar</a></td>
+					<td><a href="<c:url value="/admin/editOferta?id=${oferta.codOferta}"/>"><spring:message code="admin.ofertas.tabla.campo.enlace.editar"/></a></td>
+					<td><a href="<c:url value="/admin/deleteOferta?id=${oferta.codOferta}"/>"><spring:message code="admin.ofertas.tabla.campo.enlace.borrar"/></a></td>
 				</tr>
 			</c:forEach>
 		</table>
- 
+</div>
+</div>
+</div> 
 
 
     </tiles:putAttribute>
