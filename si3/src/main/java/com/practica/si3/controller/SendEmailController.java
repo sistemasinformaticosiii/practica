@@ -3,7 +3,7 @@ package com.practica.si3.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 import javax.mail.internet.MimeMessage;
 
@@ -42,7 +42,6 @@ public class SendEmailController {
     public void doSendEmail() throws Exception {
     	
     	BasicConfigurator.configure();
-        Logger log = Logger.getLogger("traza");
     	String to, body;
 	    User user;
 	    
@@ -51,16 +50,10 @@ public class SendEmailController {
 		for (int a=0;a<subscriptionList.size();a++) {
 			user = userService.getUser(Integer.toString(subscriptionList.get(a).getUserId()));
 			to = user.getEmail();
-			log.info("variable a = " + Integer.toString(a));
-			log.info(to);
-			log.info(subscriptionList.get(a).getTipoSubscription());
 			List<Oferta> ofertaList = ofertaService.getOfertaByProductoVigente(subscriptionList.get(a).getTipoSubscription());
 			body = formatBody(ofertaList);
-			log.info("llamo a formatbody");
-			log.info("body = "+ body);
 			if (body!=null) {
 				sendMail(to, "Portal Ofertas", body);
-				log.info("envio mail");
 			}
 		}
 		
