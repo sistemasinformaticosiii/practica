@@ -14,7 +14,7 @@ public class LoginController {
 		return "/public/login";
 	}
 
-	@RequestMapping(value = "/public/error", method = RequestMethod.GET)
+	@RequestMapping(value = "/public/errorlogin", method = RequestMethod.GET)
     public String loginWithError(Model model) {
         model.addAttribute("error", true);
         return "/public/loginerror";

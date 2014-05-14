@@ -387,6 +387,7 @@ public class HomePageController {
 	}
 	
 //TO-DO: Sin uso??????
+	//Revisado: No se usa ya, porque se usa el mismo método de edición de usuarios: editUser
 //	/**
 //	 * @param 
 //	 * @return
@@ -420,8 +421,9 @@ public class HomePageController {
 	/**
 	 * @param 
 	 * @return
-	 */
-	@RequestMapping("/proveedor/editOferta")
+	 * Edición de una oferta, sólo para el Administrador
+	 */ 
+	@RequestMapping("/admin/editOferta")
 	public ModelAndView editOferta(@RequestParam String id,
 			@ModelAttribute Oferta oferta) {
 
@@ -433,6 +435,20 @@ public class HomePageController {
 		return new ModelAndView("/oferta/editOferta", "map", map);
 	}
 
+	/**
+	 * @param
+	 * @return
+	 */
+	@RequestMapping("/admin/editReserva")
+	public ModelAndView editOferta(@RequestParam String id,@ModelAttribute Reservation reservation) {
+		
+		reservation= reservationService.getReservation(id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("reservation", reservation);
+		
+		return new ModelAndView("/reserva/editReserva", "map", map);
+	}
+	
 	/**
 	 * @param reservation
 	 * @return

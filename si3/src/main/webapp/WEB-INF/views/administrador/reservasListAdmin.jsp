@@ -27,7 +27,7 @@
 							<td>${reserva.key.fechaReserva}</td>
 							<td align="center">${reserva.key.plazasReservadas}</td>
 							<td>${reserva.value.titulo}</td>
-							<td><a href="<c:url value="editreserva?id=${reserva.key.reservationId}"/>">Editar</a></td>
+							<td><a href="<c:url value="/admin/editreserva?id=${reserva.key.reservationId}"/>">Editar</a></td>
 							<td><a href="<c:url value="deletereserva?id=${reserva.key.reservationId}"/>">Borrar</a></td>
 						</tr>
 					</c:forEach>				  

@@ -5,7 +5,7 @@
 <tiles-definitions>
 	<!--  Plantilla Principal. Definición abstracta -->
     <definition name="defaultTemplate" template="/WEB-INF/templates/template.jsp">
-        <put-attribute name="title" value=""/>
+        <put-attribute name="title" value="Portal de ofertas de ocio"/>
         <put-attribute name="header" value="/WEB-INF/templates/header.jsp" />
         <put-attribute name="left" value="" />
         <put-attribute name="menu" value="" /> 

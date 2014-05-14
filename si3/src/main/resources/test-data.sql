@@ -4,7 +4,7 @@ INSERT INTO subscription values('0', '4', 'Restaurantes');
 INSERT INTO subscription values('1', '4', 'Entradas');
 
 
-/*Password de usuario est�n codificadas: para los usuarios pre-cargados se ha establecido una password con valor "1234"*/
+/*Password de usuario están codificadas: para los usuarios pre-cargados se ha establecido una password con valor "1234"*/
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('juan','TRUE',0,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('maria','TRUE',1,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Restaurantes', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('pepe','TRUE',2,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');

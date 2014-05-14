@@ -14,20 +14,21 @@
 		<!-- Restricción de URLs basada en roles -->
 		<!--TODO: Está con acceso a Todos a Todo. Pendiente Andrés.. implementar protección,  -->
 
-<!-- 		<intercept-url pattern="/cliente**" access="hasRole('Cliente')"/> -->
-<!-- 		<intercept-url pattern="/proveedor**" access="hasAnyRole('Entradas','Restaurantes','Actividades')"/> -->
-<!-- 		<intercept-url pattern="/registered**" access="hasAnyRole('Entradas','Restaurantes','Actividades', 'Administrador','Cliente')"/> -->
-<!-- 		<intercept-url pattern="/admin**" access="hasRole('Administrador')"/> -->
-<!-- 		<intercept-url pattern="/public**" access="permitAll" /> -->
-<!-- proveedor/editoferta -->
-		
-				<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/index.jsp" access="permitAll" />
+		<intercept-url pattern="/public/**" access="permitAll" />
+		<intercept-url pattern="/login*" access="permitAll" />
+
+		<intercept-url pattern="/cliente/**" access="hasRole('Cliente')"/>
+		<intercept-url pattern="/proveedor/**" access="hasAnyRole('Entradas','Restaurantes','Actividades')"/>
+		<intercept-url pattern="/registered/**" access="hasAnyRole('Entradas','Restaurantes','Actividades', 'Administrador','Cliente')"/>
+ 		<intercept-url pattern="/admin/**" access="hasRole('Administrador')"/> 
+		<intercept-url pattern="/**" access="denyAll" />
 		
 
 		
 		<!-- Utilizamos nuestra página de login y no la de Spring Security -->
 		<form-login login-page='/login' default-target-url="/registered/cuenta"
-			authentication-failure-url="/public/login/error" />
+			authentication-failure-url="/public/errorlogin" />
 		<security:logout invalidate-session="true" logout-url="/public/logout" />
 
 	</http>

@@ -78,8 +78,26 @@ class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <jdbc:script location="classpath:test-data.sql"/>
     </jdbc:embedded-database>
     
-<bean id='bCryptPasswordEncoder' class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'/>
-    
-    
-    
+    <!-- Bean de encriptación -->
+	<bean id='bCryptPasswordEncoder' class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'/>
+
+	<!-- Beans de Internacionalización (i18n) -->    
+	  <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+ 
+    <bean id="localeResolver"
+        class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="es" />
+<!--         <property name="cookieName" value="CookieSI3"></property> -->
+<!--         <property name="cookieMaxAge" value="3600"></property> -->
+    </bean>
+ 
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang" />
+        </bean>
+    </mvc:interceptors>
 </beans>

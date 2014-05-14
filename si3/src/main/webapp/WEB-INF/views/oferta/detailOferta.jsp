@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
@@ -47,21 +48,21 @@
                          <div class="product_title_big">${oferta.descripcion}</div>
                          <div class="specifications">
                          </div>
-                         <div class="prod_price_big">Precio original:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="reduce">${oferta.precio}&euro;</span><br/> 
-                         Precio especial PortalOcio:&nbsp;&nbsp;&nbsp;&nbsp;<span class="price"><b>${oferta.precio-(oferta.precio*(oferta.descuento/100))}&euro;</b></span></div>
-                          <b>Descuento: <span class="blue">${oferta.descuento}</span><br /></b> 
-                          <b>Tipo de oferta: <span class="blue">${oferta.tipo}</span></b><br/>
-                          <b>Descripción detallada: <span class="blue">${oferta.descripcion }</span><br /></b>
+                         <div class="prod_price_big"><spring:message code="detalleoferta.preciooriginal"/>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="reduce">${oferta.precio}&euro;</span><br/> 
+                        <spring:message code="detalleoferta.precioespecial"/>:&nbsp;&nbsp;&nbsp;&nbsp;<span class="price"><b>${oferta.precio-(oferta.precio*(oferta.descuento/100))}&euro;</b></span></div>
+                          <b><spring:message code="detalleoferta.descuento"/>: <span class="blue">${oferta.descuento}</span><br /></b> 
+                          <b><spring:message code="detalleoferta.tipooferta"/>: <span class="blue">${oferta.tipo}</span></b><br/>
+                          <b><spring:message code="detalleoferta.descripcion"/>: <span class="blue">${oferta.descripcion }</span><br /></b>
                           <br/>
-                          Fecha Inicio Oferta: <span class="blue">${oferta.fechaInicio}</span><br/>
-                          Fecha Fin Oferta: <span class="blue">${oferta.fechaFin}</span><br/>
-                          Localidad: <span class="blue">${oferta.localidad}</span><br />
-                          Dirección <span class="blue">${oferta.direccion}</span><br />
+                          <spring:message code="detalleoferta.fechainiciooferta"/>: <span class="blue">${oferta.fechaInicio}</span><br/>
+                          <spring:message code="detalleoferta.fechafinoferta"/>: <span class="blue">${oferta.fechaFin}</span><br/>
+                          <spring:message code="detalleoferta.localidad"/>: <span class="blue">${oferta.localidad}</span><br />
+                          <spring:message code="detalleoferta.direccion"/>: <span class="blue">${oferta.direccion}</span><br />
                          
-                          Plazas totales: <span class="blue">${oferta.plazasTotal}</span><br />
-                          Plazas disponibles: <span class="blue">${oferta.plazasDisponibles}</span><br />
-						 <a href="<c:url value="/cliente/reservaOferta?id=${oferta.codOferta}"/>" class="addtocart">Reservar</a>
-                         <a href="javascript:history.back()" class="return">Volver</a>
+                          <spring:message code="detalleoferta.plazastotales"/>: <span class="blue">${oferta.plazasTotal}</span><br />
+                          <spring:message code="detalleoferta.plazasdisponibles"/>: <span class="blue">${oferta.plazasDisponibles}</span><br />
+						 <a href="<c:url value="/cliente/reservaOferta?id=${oferta.codOferta}"/>" class="addtocart"><spring:message code="detalleoferta.reservar"/></a>
+                         <a href="javascript:history.back()" class="return"><spring:message code="detalleoferta.volver"/></a>
          
                      </div>                        
             </div>

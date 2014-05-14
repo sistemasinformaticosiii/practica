@@ -1,9 +1,8 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
@@ -71,7 +70,7 @@
 
 
 		<div class="center_content">
-			<div class="center_title_bar">Búsqueda de Ofertas</div>
+			<div class="center_title_bar"><spring:message code="busqueda.titlebar"/></div>
 
 			<div class="prod_box_big">
 				<div class="top_prod_box_big"></div>
@@ -85,33 +84,32 @@
 							modelAttribute="criterioBusqueda">
 							<table>
 								<tr>
-									<td>Tipo :</td>
+									<td><spring:message code="busqueda.tipo"/>:</td>
 									<td><form:select path="tipo" items="${map.tipoList}" /></td>
 									<td><form:errors path="tipo" cssClass="error" /></td>
-									<td><label for="title">Localidad</label></td>
+									<td><label for="title"><spring:message code="busqueda.localidad"/>:</label></td>
 									<td><form:input path="localidad" align="left" /></td>
 									<td><form:errors path="localidad" cssClass="error" /></td>
 								</tr>
 								<tr>
-									<td><label for="fecha">Fecha :</label></td>
+									<td><label for="fecha"><spring:message code="busqueda.fecha"/>:</label></td>
 									<td><form:input path="fecha" size="10" align="left" /></td>
 									<td><form:errors path="fecha" cssClass="error" /></td>
 								</tr>
 								<tr>
-									<td><label for="precio">Precio m&aacute;ximo</label></td>
+									<td><label for="precio"><spring:message code="busqueda.preciomaximo"/></label></td>
 									<td><form:input path="precio" size="10" /></td>
 									<td><form:errors path="precio" cssClass="error" /></td>
 									<td><div id="slider-range-min"></div></td>
 								</tr>
 								<tr>
-									<td><label for="plazas">Plazas m&iacute;nimas
-											disponibles:</label></td>
+									<td><label for="plazas"><spring:message code="busqueda.plazasminimas"/>:</label></td>
 									<td><form:input path="plazas" /></td>
 									<td><form:errors path="plazas" cssClass="error" /></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
-									<td><input type="submit" value="Buscar ofertas" /></td>
+									<td><input type="submit" value="<spring:message code="busqueda.botonbuscarofertas"/>" /></td>
 								</tr>
 							</table>
 						</form:form>

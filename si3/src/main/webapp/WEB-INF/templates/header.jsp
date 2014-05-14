@@ -10,14 +10,15 @@
 <div class="top_bar">
 <!--     <div class="top_search"> -->
 <!--         <div class="search_text"> -->
-<%--         	<a href="<c:url value="/public/filtroOfertas/"/>" >B&uacute;squeda</a></div> --%>
+<%--         	<a href="<c:url value="/filtroOfertas/"/>" >Búsqueda</a></div> --%>
 <!--             <input type="text" class="search_input" name="search" /> -->
 <%--             <input type="image" src="<c:url value="/resources/images/search.gif"/>"/> --%>
 <!--         </div> -->
                 
         <div class="languages">
-        	<div class="lang_text">Idiomas:</div>
-            <a href="#" class="lang"><img src="<c:url value="/resources/images/en.gif"/>" alt=""  title="" border="0" /></a>      
+        	<div class="lang_text"><spring:message code="header.idiomas"/>:</div>
+            <a href="?lang=en" class="lang"><img src="<c:url value="/resources/images/en.gif"/>" alt=""  title="" border="0" /></a>      
+            <a href="?lang=es" class="lang"><img src="<c:url value="/resources/images/es.gif"/>" alt=""  title="" border="0" /></a>
         </div>
     
     </div>
@@ -25,7 +26,7 @@
 	<div id="header">
         
         <div id="logo">
-				<form:form method="post" action="/public/filtroOfertas" name="formOfertasVigentes" modelAttribute="criterioBusqueda">
+				<form:form method="post" action="/filtroOfertas" name="formOfertasVigentes" modelAttribute="criterioBusqueda">
 					<input type="hidden" name="tipo" value="Todas">
 				</form:form>    	        
         	                    

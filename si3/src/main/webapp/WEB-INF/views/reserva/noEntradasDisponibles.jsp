@@ -7,10 +7,12 @@
 			<div class="prod_box_big">
 				<div class="top_prod_box_big"></div>
 				<div class="center_prod_box_big">
+				<div align="center">
 					<b>No hay tantas entradas disponibles</b> <br /> <br /> 
 					<a href="javascript:history.back()" class="return_center">Volver</a>
 					<div class="top_prod_box_big"></div>
 					<div class="bottom_prod_box_big"></div>
+					</div>
 				</div>
 			</div>
 		</div>

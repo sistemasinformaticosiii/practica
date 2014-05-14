@@ -18,27 +18,27 @@
   <script>
 	 $(function() {
 
-		 //Array para dar formato en espa�ol
+		 //Array para dar formato en español
 		  $.datepicker.regional['es'] = 
 		  {
 		  closeText: 'Cerrar', 
 		  prevText: 'Previo', 
-		  nextText: 'Pr�ximo',
+		  nextText: 'Próximo',
 
 		  monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 		  'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
 		  monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
 		  'Jul','Ago','Sep','Oct','Nov','Dic'],
-		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro a�o',
-		  dayNames: ['Domingo','Lunes','Martes','Mi�rcoles','Jueves','Viernes','S�bado'],
-		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','S�b'],
+		  monthStatus: 'Ver otro mes', yearStatus: 'Ver otro año',
+		  dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+		  dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
 		  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
 		  dateFormat: 'yy-mm-dd', firstDay: 0, 
 		  initStatus: 'Selecciona la fecha', isRTL: false};
 		 $.datepicker.setDefaults($.datepicker.regional['es']);
 
-		 //miDate: fecha de comienzo D=d�as | M=mes | Y=a�o
-		 //maxDate: fecha tope D=d�as | M=mes | Y=a�o
+		 //miDate: fecha de comienzo D=días | M=mes | Y=año
+		 //maxDate: fecha tope D=días | M=mes | Y=año
 		    $( "#fechaInicio" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		    $( "#fechaFin" ).datepicker({ minDate: "-0D", maxDate: "+20M +10D" });
 		  });
@@ -91,7 +91,7 @@
                  
                  <div class="product_img_big">
                  
-                 <%-- C�digo temporal, para gestionar im�genes gen�ricas para los tipos: Restaurantes, Actividades y Entradas --%>
+                 <%-- Código temporal, para gestionar imágenes genéricas para los tipos: Restaurantes, Actividades y Entradas --%>
 					<c:choose>
 					    <c:when test="${oferta.tipo == 'Restaurantes'}">
 				        		
@@ -109,7 +109,7 @@
 		                 <img src="<c:url value="/resources/images/0genericas/entradas.jpg"/>" alt="" title="" border="0" /></a>				        		
 					    </c:when>
 					</c:choose>
-	<%--  Fin selecci�n im�genes de ofertas --%>
+	<%--  Fin selección imágenes de ofertas --%>
 		               
                        
                  </div>

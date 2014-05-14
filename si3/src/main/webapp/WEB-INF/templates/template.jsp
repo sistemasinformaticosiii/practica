@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Portal de ofertas de ocio</title>
+	<title><tiles:insertAttribute name="title" /></title>
 		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />">
 		<!--[if IE 6]>
 		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/iecss.css" />">

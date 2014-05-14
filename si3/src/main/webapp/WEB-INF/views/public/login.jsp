@@ -1,6 +1,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
 <tiles:insertDefinition name="loginTemplate">
@@ -8,7 +9,7 @@
 <div align="center">
 <form name='f' action='j_spring_security_check' method='POST'>
    <fieldset>
-   	<legend> Inicio de sesión</legend>
+   	<legend><spring:message code="login.iniciosesion"/></legend>
 <!--   	<c:if test="${param.error != null}">
 	    <div class="alert alert-error">
 	                    Usuario o contraseña incorrectos
@@ -21,11 +22,11 @@
     </c:if>   	
 -->   	  
 
-   	  <label for="j_username">Usuario:</label>
-      <input type="text" id="j_username" name="j_username" value="" placeholder='e-mail'>
-      <label for="password">Contraseña:</label>
-      <input type='password' id='j_password' name="j_password" placeholder='contraseña'/>
-      <button type="submit">Iniciar sesión</button>
+   	  <label for="j_username"><spring:message code="login.label.usuario"/>:</label>
+      <input type="text" id="j_username" name="j_username" value="" placeholder='<spring:message code="login.placeholder.usuario"/>'>
+      <label for="password"><spring:message code="login.label.password"/>:</label>
+      <input type='password' id='j_password' name="j_password" placeholder='<spring:message code="login.placeholder.password"/>'/>
+      <button type="submit"><spring:message code="login.botoniniciarsesion"/></button>
 
       
    </fieldset>

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <script>
         	function enviar_formulario_ofertas_menu(){
         		document.formOfertasVigentesinicio.submit();
@@ -14,17 +15,17 @@
 						</form:form>    	        
         	                    
                     
-                         <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" >Inicio </a></li>
+                         <li><a class="nav1" href="<c:url value="javascript:enviar_formulario_ofertas_menu()"/>" ><spring:message code="menu.inicio"/></a></li>
                          <li class="divider"></li>
-                         <li><a class="nav2" href="<c:url value="/public/filtroOfertas"/>" >Buscar Ofertas</a></li>
+                         <li><a class="nav2" href="<c:url value="/public/filtroOfertas"/>" ><spring:message code="menu.buscarofertas"/></a></li>
                          <li class="divider"></li>
-                         <li><a class="nav4" href="<c:url value="/public/register?type=user"/>">Registro</a></li>
+                         <li><a class="nav4" href="<c:url value="/public/register?type=user"/>"><spring:message code="menu.registro"/></a></li>
                          <li class="divider"></li>
-                         <li><a class="nav5" href="<c:url value="/login"/>">Login </a></li>
+                         <li><a class="nav5" href="<c:url value="/login"/>"><spring:message code="menu.login"/></a></li>
                          <li class="divider"></li>
-                         <li><a class="nav6" href="<c:url value="/public/contact"/>">Contacto</a></li>
+                         <li><a class="nav6" href="<c:url value="/public/contact"/>"><spring:message code="menu.contacto"/></a></li>
                          <li class="divider"></li>
-                         <li><a class="nav7" href="<c:url value="/resources/pdf/memoria.pdf"/>" target="_blank">Memoria</a>
+                         <li><a class="nav7" href="<c:url value="/resources/pdf/memoria.pdf"/>" target="_blank"><spring:message code="menu.memoria"/></a>
                          <li class="divider"></li>
                     </ul>
 

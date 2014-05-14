@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
 <tiles:insertDefinition name="defaultTemplategeneral">
@@ -9,7 +10,7 @@
 
 <body>	
 <div class="center_content">
-   	<div class="center_title_bar">Listado de suscripciones activas</div>
+   	<div class="center_title_bar"><spring:message code="listasuscripcion.titulo"/></div>
     
     	<div class="prod_box_big">
     		<div class="top_prod_box_big"></div>
@@ -21,12 +22,12 @@
 			<c:when test="${not empty subscriptionList}">
 				<tr>
 					<security:authorize access="hasRole('Administrador')">
-		      			<td class="heading">Código usuario suscripción</td>
+		      			<td class="heading"><spring:message code="listasuscripcion.tabla.cabeceracodigo"/></td>
 	      			</security:authorize>
 				
-					<td class="heading">Tipo de suscripción</td>
+					<td class="heading"><spring:message code="listasuscripcion.tabla.cabeceratiposuscripcion"/></td>
 					
-					<td class="heading">Acción disponible</td>
+					<td class="heading"><spring:message code="listasuscripcion.tabla.cabeceraaccion"/></td>
 				</tr>
 				<c:forEach var="subscription" items="${subscriptionList}">
 					<tr>
@@ -34,12 +35,12 @@
 							<td>${subscription.userId}</td>
 	      			</security:authorize>						
 						<td>${subscription.tipoSubscription}</td>
-						<td align="center"><a href="<c:url value="/cliente/deleteSubscription?id=${subscription.subscriptionId}"/>">Baja</a></td>
+						<td align="center"><a href="<c:url value="/cliente/deleteSubscription?id=${subscription.subscriptionId}"/>"><spring:message code="listasuscripcion.acciones.baja"/></a></td>
 					</tr>
 				</c:forEach>					  
 			</c:when>
 			<c:otherwise>
-				<b>No está suscrito a ningún boletin de Ofertas en este momento</b>
+				<b><spring:message code="listasuscripcion.sinsuscripciones"/></b>
 			</c:otherwise>
 		</c:choose>		
 				
@@ -56,10 +57,10 @@
        </div> 
 </div> 
 				<security:authorize access="hasRole('Cliente')">
-					<a href="<c:url value="/cliente/registerSubscription"/>"class="prod_detailssubscription">Añadir suscripcion</a>
+					<a href="<c:url value="/cliente/registerSubscription"/>"class="prod_detailssubscription"><spring:message code="listasuscripcion.nuevasuscripcion"/></a>
       			</security:authorize>
       			<security:authorize access="hasRole('Administrador')">
-					<a href="<c:url value="/admin/registerSubscriptionAdmin"/>"class="prod_detailssubscription">Añadir suscripcion</a>
+					<a href="<c:url value="/admin/registerSubscriptionAdmin"/>"class="prod_detailssubscription"><spring:message code="listasuscripcion.nuevasuscripcion"/></a>
 				</security:authorize>									
 		
 

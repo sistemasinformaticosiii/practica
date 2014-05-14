@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
@@ -80,10 +81,10 @@
 		<div class="center_content">
 			<div class="center_title_bar">
 				<c:if test="${tiporegistro =='user'}">
- 				Registro de nuevo usuario 
+ 				<spring:message code="registro.titulo.usuario"/> 
 			</c:if>
 				<c:if test="${tiporegistro =='proveedor'}">
- 				Registro de nuevo proveedor
+ 				<spring:message code="registro.titulo.proveedor"/>
 			</c:if>
 			</div>
 			<div class="prod_box_big">
@@ -97,45 +98,41 @@
 							modelAttribute="user">
 							<table>
 								<tr>
-									<td>Nombre :</td>
+									<td><spring:message code="registro.campo.nombre"/>:</td>
 									<td><form:input path="nombre" /></td>
 								</tr>
 								<tr>
-									<td>Apellidos :</td>
+									<td><spring:message code="registro.campo.apellidos"/>:</td>
 									<td><form:input path="apellidos" /></td>
 								</tr>
 								<tr>
-									<td>Localidad :</td>
+									<td><spring:message code="registro.campo.localidad"/>:</td>
 									<td><form:input path="localidad" id="localidad"
 											name="localidad" class="input_text" /></td>
 								</tr>
 								<tr>
-									<td>Teléfono :</td>
+									<td><spring:message code="registro.campo.telefono"/>:</td>
 									<td><form:input path="telefono" /></td>
 								</tr>
 								<tr>
-									<td>email :</td>
+									<td><spring:message code="registro.campo.email"/>:</td>
 									<td><form:input path="email" /></td>
 								</tr>
 								<tr>
-									<td>Perfil:</td>
+									<td><spring:message code="registro.campo.perfil"/>:</td>
 									<td><select id="perfil" name="perfil">
 											<c:choose>
 												<c:when test="${tiporegistro=='proveedor'}">
-													<option value="Entradas">Proveedor de Entradas</option>
-													<option value="Restaurantes">Proveedor de
-														Restaurantes</option>
-													<option value="Actividades">Proveedor de
-														Actividades</option>
+													<option value="Entradas"><spring:message code="registro.select.perfil.entradas"/></option>
+													<option value="Restaurantes"><spring:message code="registro.select.perfil.restaurantes"/></option>
+													<option value="Actividades"><spring:message code="registro.select.perfil.actividades"/></option>
 												</c:when>
 												<c:otherwise>
-													<option value="Administrador">Administrador</option>
-													<option value="Cliente">Cliente</option>
-													<option value="Entradas">Proveedor de Entradas</option>
-													<option value="Restaurantes">Proveedor de
-														Restaurantes</option>
-													<option value="Actividades">Proveedor de
-														Actividades</option>
+													<option value="Administrador"><spring:message code="registro.select.perfil.admin"/></option>
+													<option value="Cliente"><spring:message code="registro.select.perfil.cliente"/></option>
+													<option value="Entradas"><spring:message code="registro.select.perfil.entradas"/></option>
+													<option value="Restaurantes"><spring:message code="registro.select.perfil.restaurantes"/></option>
+													<option value="Actividades"><spring:message code="registro.select.perfil.actividades"/></option>
 												</c:otherwise>
 											</c:choose>
 
@@ -143,13 +140,13 @@
 									</select></td>
 								</tr>
 								<tr>
-									<td>password :</td>
+									<td><spring:message code="registro.campo.password"/>:</td>
 									<td><form:input path="pass" /></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
-									<td><input type="submit" value="Guardar" /> <input
-										type="reset" value="Borrar" /></td>
+									<td><input type="submit" value="<spring:message code="registro.botonguardar"/>" /> <input
+										type="reset" value="<spring:message code="registro.botonborrar"/>" /></td>
 								</tr>
 							</table>
 						</form:form>
