@@ -270,7 +270,7 @@ public class HomePageController {
 	 */
 	@RequestMapping("/public/getListOfferInicio") 
 	public ModelAndView getOfertaListInicio()  throws Exception {
-		mailInicio.doSendEmail();
+		
 		List<Oferta> ofertaListInicio = ofertaService.getOfertaList();
 		return new ModelAndView("/oferta/ofertaList","listaOfertas", ofertaListInicio);
 	}
