@@ -57,7 +57,7 @@
 								</tr>
 								<tr>
 									<td><spring:message code="admin.usuarios.tabla.campo.pass"/>:</td>
-									<td><form:input path="pass" value="${map.user.pass}" /></td>
+									<td><form:input path="pass" value="" /></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>

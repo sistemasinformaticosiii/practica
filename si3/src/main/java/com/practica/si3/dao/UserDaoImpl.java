@@ -77,6 +77,12 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateData(User user) {
+		
+		//Codificamos la password antes de almacenarla en BBDD
+		String password = user.getPass();
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode(password);
+		user.setPass(encodedPassword);
 
 		String sql = "UPDATE user set nombre = ?, apellidos = ?, localidad = ?, telefono = ?, email = ?, perfil = ?, pass = ? where coduser = ?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
