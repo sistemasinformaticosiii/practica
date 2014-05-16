@@ -17,8 +17,7 @@
 				<div class="center_prod_box_big">
 					<div align="center">
 						<security:authorize access="isAuthenticated()">
-							<spring:message code="reserva.usuario"/>: <security:authentication property="principal.username" />, <spring:message code="reserva.mensaje"/>: <b><u>${titulo}</b>
-							</u>
+							<spring:message code="reserva.usuario"/>: <security:authentication property="principal.username" />, <spring:message code="reserva.mensaje"/>: <b><u>${titulo}</u></b>
 						</security:authorize>
 						<br />
 						<br />${mensaje}<br /> <br />

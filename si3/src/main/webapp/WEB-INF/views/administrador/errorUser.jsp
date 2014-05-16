@@ -20,11 +20,10 @@ pageEncoding="ISO-8859-1"%>
 
 <table>
 
-<tr>
 
 <tr><td colspan="8"><a href="register">Ir a registro</a></td></tr>
 
-</tr>
+
 
 </table>
 

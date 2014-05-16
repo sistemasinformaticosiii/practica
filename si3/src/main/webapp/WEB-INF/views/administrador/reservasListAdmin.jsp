@@ -15,7 +15,7 @@
             <div class="center_prod_box_big">      			
 		
 		<div align="center">
-			<table border="2">
+			<table border='2'>
 				<c:choose>
 				  <c:when test="${not empty listaResultados}">
 						<tr>

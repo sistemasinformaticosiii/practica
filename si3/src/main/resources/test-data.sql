@@ -2,16 +2,20 @@
 
 INSERT INTO subscription values('0', '4', 'Restaurantes');
 INSERT INTO subscription values('1', '4', 'Entradas');
+INSERT INTO subscription values('2', '8', 'Restaurantes');
+INSERT INTO subscription values('3', '8', 'Entradas');
+INSERT INTO subscription values('4', '11', 'Restaurantes');
+INSERT INTO subscription values('5', '11', 'Entradas');
 
 
 /*Password de usuario están codificadas: para los usuarios pre-cargados se ha establecido una password con valor "1234"*/
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('juan','TRUE',0,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('maria','TRUE',1,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Restaurantes', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('pepe','TRUE',2,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('luis','TRUE',3,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Entradas', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('andres','TRUE',4,'Andres','Gil','Vigo','6000000','mfsegura@gmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('Maria.Gil.Gil@gmail.com','TRUE',8,'Maria', 'Gil Gil', 'Pamplona', '689889665', 'Maria.Gil.Gil@gmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
-INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('Pablo.Perez.Jimenez@hotmail.com','TRUE',11,'Pablo', 'Perez Jimenez', 'Cadiz', '677466395', 'Pablo.Perez.Jimenez@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('user@user.com','TRUE',0,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('proveedor2@proveedor.com','TRUE',1,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Restaurantes', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('admin@admin.com','TRUE',2,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('proveedor@proveedor.com','TRUE',3,'Juan','Garcia','Vigo','6000000','pepe@hotmail.com', 'Entradas', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('mfsegura@gmail.com','TRUE',4,'Miguel Ángel','Fernández Segura','Úbeda','6000000','mfsegura@gmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('josemanuelroma@gmail.com','TRUE',8,'Jose Manuel', 'Román Fernández Checa', 'Valdepeñas', '689889665', 'josemanuelroma@gmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
+INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('andresgil@gmail.com','TRUE',11,'Andres', 'Gil Rodríguez', 'Vigo', '677466395', 'andresgil@gmail.com', 'Administrador', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('Jorge.Garcia.Garcia@yahoo.es','TRUE',12,'Jorge', 'Garcia Garcia', 'Sevilla', '677974856', 'Jorge.Garcia.Garcia@yahoo.es', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('Nerea.Ruiz.Rodriguez@yahoo.es','TRUE',13,'Nerea', 'Ruiz Rodriguez', 'Bilbao', '677481938', 'Nerea.Ruiz.Rodriguez@yahoo.es', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');
 INSERT INTO user(username, enabled, coduser,nombre, apellidos, localidad, telefono, email, perfil, pass) VALUES ('Alba.Gonzalez.Moreno@yahoo.e','TRUE',22,'Alba', 'Gonzalez Moreno', 'Bilbao', '676200525', 'Alba.Gonzalez.Moreno@yahoo.es', 'Cliente', '$2a$10$HiKWXVdIMbr5/sfl41DFpOLa3NRbhWsN0YpsCZEhOZuvmt85nk946');

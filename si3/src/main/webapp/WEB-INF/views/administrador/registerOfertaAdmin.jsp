@@ -125,7 +125,7 @@
 
 
 		<div class="center_content">
-			<div class="center_title_bar"><spring:message code="proveedor.registro.titulo"/>/div>
+			<div class="center_title_bar"><spring:message code="proveedor.registro.titulo"/></div>
 
 			<div class="prod_box_big">
 				<div class="top_prod_box_big"></div>

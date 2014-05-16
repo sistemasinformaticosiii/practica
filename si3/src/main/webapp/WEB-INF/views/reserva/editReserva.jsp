@@ -5,7 +5,6 @@
 <tiles:insertDefinition name="defaultTemplategeneral">
 	<tiles:putAttribute name="body">
 
-	<center>
 	<div class="center_content">
 	<div class="center_title_bar">Editar Reserva</div>
 	
@@ -33,6 +32,6 @@
 				<form:hidden path="offerId" value="${map.reservation.offerId}" />
 			</form:form>
 		</div>
-	</center>
+	</div>
     </tiles:putAttribute>
 </tiles:insertDefinition>
