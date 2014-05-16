@@ -28,8 +28,8 @@
 							<td>${reserva.key.fechaReserva}</td>
 							<td align="center">${reserva.key.plazasReservadas}</td>
 							<td>${reserva.value.titulo}</td>
-							<td><a href="<c:url value="/admin/editreserva?id=${reserva.key.reservationId}"/>"><spring:message code="listareservas.admin.editar"/></a></td>
-							<td><a href="<c:url value="deletereserva?id=${reserva.key.reservationId}"/>"><spring:message code="listareservas.borrar"/></a></td>
+							<td><a href="<c:url value="/admin/editReserva?id=${reserva.key.reservationId}"/>"><spring:message code="listareservas.admin.editar"/></a></td>
+							<td><a href="<c:url value="/cliente/deletereserva?id=${reserva.key.reservationId}"/>"><spring:message code="listareservas.borrar"/></a></td>
 						</tr>
 					</c:forEach>				  
 				  </c:when>

@@ -663,7 +663,7 @@ public class HomePageController {
 	 * @param 
 	 * @return
 	 */
-	@RequestMapping("/updateReserva")
+	@RequestMapping("/cliente/updateReserva")
 	public String updateReserva(@ModelAttribute Reservation reservation) {
 		reservationService.updateData(reservation);
 		return "redirect:/cliente/reservasListCliente";
