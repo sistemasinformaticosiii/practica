@@ -127,6 +127,9 @@
 													<option value="Restaurantes"><spring:message code="registro.select.perfil.restaurantes"/></option>
 													<option value="Actividades"><spring:message code="registro.select.perfil.actividades"/></option>
 												</c:when>
+												<c:when test="${tiporegistro=='user'}">
+													<option value="Cliente"><spring:message code="registro.select.perfil.cliente"/></option>
+												</c:when>
 												<c:otherwise>
 													<option value="Administrador"><spring:message code="registro.select.perfil.admin"/></option>
 													<option value="Cliente"><spring:message code="registro.select.perfil.cliente"/></option>
