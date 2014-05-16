@@ -169,7 +169,7 @@
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input type="submit" value="<spring:message code="editoferta.botonguardar="/>" />
+						<td><input type="submit" value="<spring:message code="editoferta.botonguardar"/>" />
 						</td>
 					</tr>
 				</table>
